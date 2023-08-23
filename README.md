@@ -1,8 +1,8 @@
-# OAPIF-PDOK-INSPIRE
+# OGC-API-Features Guideline
 
-This is the repository for sharing documentation and results of tests for using OGC API Features for INSPIRE in the Netherlands.
-It concerns a test with the Dutch hosting organisation PDOK and tests on the Geonovum testbed.
+This is the repository for the guideline on using OGC-API-Features in accordance with standards such as OGC, INSPIRE and the Dutch API design rules.
+It sums up these requirements and shows examples from demo service that are compliant with these requirements.
 
-The general report on findings can be found in: https://geonovum.github.io/OAPIF-PDOK-INSPIRE/
+The guideline can be found in: https://geonovum.github.io/ogc-api-features-guideline.
 
 
