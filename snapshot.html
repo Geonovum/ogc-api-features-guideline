@@ -3,19 +3,6 @@
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
 <meta name="generator" content="ReSpec 34.1.4">
 <style>
-.issue-label{text-transform:initial}
-.warning>p:first-child{margin-top:0}
-.warning{padding:.5em;border-left-width:.5em;border-left-style:solid}
-span.warning{padding:.1em .5em .15em}
-.issue.closed span.issue-number{text-decoration:line-through}
-.issue.closed span.issue-number::after{content:" (Closed)";font-size:smaller}
-.warning{border-color:#f11;border-width:.2em;border-style:solid;background:#fbe9e9}
-.warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}
-li.task-list-item{list-style:none}
-input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
-.issue a.respec-gh-label{padding:5px;margin:0 2px 0 2px;font-size:10px;text-transform:none;text-decoration:none;font-weight:700;border-radius:4px;position:relative;bottom:2px;border:none;display:inline-block}
-</style>
-<style>
 dfn{cursor:pointer}
 .dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
 .dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
@@ -121,7 +108,10 @@ ul.index code{color:inherit}
 #index-defined-here .print-only{display:initial}
 }
 </style>
-<meta name="description" content="TODO: vul in abstract.md een abstract in.">
+<meta name="description" content="This document is a guideline for Dutch INSPIRE data providers who want to use OGC-API-Features to fulfil their INSPIRE obligations for download services.
+The guideline has been written on the bases of the experience gained from 4 Dutch example implementations of OGC-API-Features of INSPIRE datasets on test beds.
+The aim of setting up these test beds and this guideline, has been to stimulate the Dutch INSPIRE data providers and hosting organizations to start publishing INSPIRE data as OGC API Features.
+By doing this, a greater goal is reached: A better use of Inspire data. Secondly it hopes to contribute to the Inspire community.">
 <style>
 .hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;background:#fafafa}
 .hljs-comment,.hljs-quote{color:#717277;font-style:italic}
@@ -296,8 +286,7 @@ ul.index code{color:inherit}
       "authors": [
         "T. Preston-Werner"
       ],
-      "date": "June 2013",
-      "id": "semver"
+      "date": "June 2013"
     }
   },
   "title": "OGC API Features Guideline",
@@ -324,7 +313,7 @@ ul.index code{color:inherit}
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css"></head>
 
-<body class="h-entry toc-inline"><div class="head">
+<body class="h-entry"><div class="head">
     <a class="logo" href="https://www.geonovum.nl/geo-standaarden"><img alt="Geonovum" height="67" id="Geonovum" src="https://tools.geostandaarden.nl/respec/style/logos/Geonovum.svg" width="132">
   </a> <h1 id="title" class="title">OGC API Features Guideline</h1>
     
@@ -369,67 +358,249 @@ ul.index code{color:inherit}
         </p>
     <hr title="Separator for header">
   </div>
-  <section id="abstract" class="introductory"><h2>Samenvatting</h2><p>TODO: vul in abstract.md een abstract in.</p>
+  <section id="abstract" class="introductory"><h2>Abstract</h2>
+<p>This document is a guideline for Dutch INSPIRE data providers who want to use OGC-API-Features to fulfil their INSPIRE obligations for download services.
+The guideline has been written on the bases of the experience gained from 4 Dutch example implementations of OGC-API-Features of INSPIRE datasets on test beds.
+The aim of setting up these test beds and this guideline, has been to stimulate the Dutch INSPIRE data providers and hosting organizations to start publishing INSPIRE data as OGC API Features.
+By doing this, a greater goal is reached: A better use of Inspire data. Secondly it hopes to contribute to the Inspire community.</p>
+<p>A general recommendation to all parties involved is to adjust as much as possible to the INSPIRE requirements as stated in this document.
+The most important recommendations for the hosting organizations is to stimulate data providers to start with OGC API features to increase the use of the INSPIRE data.
+Data providers are recommended to first orientate on the possible work of other data providers in this field. A roadmap is described with the steps needed to be taken by INSPIRE data providers.
+OGC API features use simple encodings as input and output. For the interoperability, it is important that all member states use the same encoding rules.
+The INSPIRE community therefor needs a central organization for the mapping of the complex data models to the simple encodings.</p>
+<p>An important conclusion is that none of the tools used in the examples fulfil all INSPIRE requirements and no tooling is known to do so at this moment (August 2022).
+The INSPIRE community is recommended to stimulate the market to solve this.
+The main barrier for implementing OAPIF services conform INSPIRE is the complexity of the INSPIRE data models.
+The data needs to be flattened and converted into simple encodings like the GeoJSON encoding which is the OAPIF standard encoding for output.
+Another barrier is the support for coordinate reference system (CRS): ETRS89 which is required by INSPIRE. Officially, only WGS84 is supported in GeoJSON.
+New standards like OGC-API-Features - part 2 and an extension to GeoJSON (JSON FG) will help to solve this CRS problem, once tooling has adjusted to them.</p>
 </section>
-  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen stabiel document.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#niet-normatieve-deel"><bdi class="secno">1. </bdi>Niet-normatieve deel</a></li><li class="tocline"><a class="tocxref" href="#meer-inhoud"><bdi class="secno">2. </bdi>Meer inhoud</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#definities"><bdi class="secno">2.1 </bdi>Definities</a></li><li class="tocline"><a class="tocxref" href="#afbeeldingen"><bdi class="secno">2.2 </bdi>Afbeeldingen</a></li><li class="tocline"><a class="tocxref" href="#referenties"><bdi class="secno">2.3 </bdi>Referenties</a></li><li class="tocline"><a class="tocxref" href="#optioneel"><bdi class="secno">2.4 </bdi>Optioneel</a></li></ol></li><li class="tocline"><a class="tocxref" href="#mermaid-diagram"><bdi class="secno">3. </bdi>Mermaid diagram</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">4. </bdi>Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">5. </bdi>Lijst met figuren</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Begrippen gedefinieerd door deze specificatie</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Begrippen gedefinieerd door verwijzing</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normatieve-referenties"><bdi class="secno">B.1 </bdi>Normatieve referenties</a></li></ol></li></ol></nav>
+  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen stabiel document.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#what-is-ogc-api-features"><bdi class="secno">1. </bdi>What is OGC API Features</a></li><li class="tocline"><a class="tocxref" href="#requirements"><bdi class="secno">2. </bdi>Requirements</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ogc-api-features-core"><bdi class="secno">2.1 </bdi>OGC API Features Core</a></li><li class="tocline"><a class="tocxref" href="#inpsire-mif-document-setting-up-an-inspire-download-service-based-on-the-ogc-api-features-standard"><bdi class="secno">2.2 </bdi>INPSIRE-MIF document: Setting up an INSPIRE Download service based on the OGC API-Features standard</a></li><li class="tocline"><a class="tocxref" href="#multilinguality"><bdi class="secno">2.3 </bdi>Multilinguality</a></li><li class="tocline"><a class="tocxref" href="#predefined-download"><bdi class="secno">2.4 </bdi>Predefined download</a></li><li class="tocline"><a class="tocxref" href="#geojson"><bdi class="secno">2.5 </bdi>GeoJSON</a></li><li class="tocline"><a class="tocxref" href="#bulk-download"><bdi class="secno">2.6 </bdi>Bulk download</a></li><li class="tocline"><a class="tocxref" href="#crs-etrs89-and-wgs84"><bdi class="secno">2.7 </bdi>CRS ETRS89 and WGS84</a></li><li class="tocline"><a class="tocxref" href="#gml"><bdi class="secno">2.8 </bdi>GML</a></li><li class="tocline"><a class="tocxref" href="#dutch-api-design-rules"><bdi class="secno">2.9 </bdi>Dutch API design rules</a></li><li class="tocline"><a class="tocxref" href="#describing-encoding"><bdi class="secno">2.10 </bdi>Describing encoding</a></li><li class="tocline"><a class="tocxref" href="#filtering"><bdi class="secno">2.11 </bdi>Filtering</a></li><li class="tocline"><a class="tocxref" href="#metadata-links"><bdi class="secno">2.12 </bdi>Metadata links</a></li><li class="tocline"><a class="tocxref" href="#relevant-documentation"><bdi class="secno">2.13 </bdi>Relevant documentation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">3. </bdi>Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">4. </bdi>Lijst met figuren</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Begrippen gedefinieerd door deze specificatie</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Begrippen gedefinieerd door verwijzing</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normatieve-referenties"><bdi class="secno">B.1 </bdi>Normatieve referenties</a></li></ol></li></ol></nav>
 
   
-  <section class="informative" id="niet-normatieve-deel"><div class="header-wrapper"><h2 id="x1-niet-normatieve-deel"><bdi class="secno">1. </bdi>Niet-normatieve deel</h2><a class="self-link" href="#niet-normatieve-deel" aria-label="Permalink for Section 1."></a></div><p><em>Dit onderdeel is niet normatief.</em></p>
-<p>Bijvoorbeeld een introductie is niet normatief.</p>
-<div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="3"><span>Noot</span><span class="issue-label">: index</span></div><p class="">
-Dit hoofdstuk is toegevoegd met <code>class="informative"</code> in <code>config.js</code>.
-</p></div></section>
-  <section id="meer-inhoud"><div class="header-wrapper"><h2 id="x2-meer-inhoud"><bdi class="secno">2. </bdi>Meer inhoud</h2><a class="self-link" href="#meer-inhoud" aria-label="Permalink for Section 2."></a></div>
-<section id="definities"><div class="header-wrapper"><h3 id="x2-1-definities"><bdi class="secno">2.1 </bdi>Definities</h3><a class="self-link" href="#definities" aria-label="Permalink for Section 2.1"></a></div>
-<p><dfn id="dfn-definitie" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Definitie</dfn>: Een definitie is een beschrijving van een woord. Een ander woord voor definitie is betekenis of beschrijving.</p>
-</section><section id="afbeeldingen"><div class="header-wrapper"><h3 id="x2-2-afbeeldingen"><bdi class="secno">2.2 </bdi>Afbeeldingen</h3><a class="self-link" href="#afbeeldingen" aria-label="Permalink for Section 2.2"></a></div>
-<p>Afbeeldingen krijgen een nummer en vermelding in de figurenlijst <a href="#tof" data-matched-text="[[[#tof]]]" class="sec-ref"><bdi class="secno">5. </bdi>Lijst met figuren</a>.</p>
-<p>
-      </p><figure id="fig-onderschrift">
-        <img src="media/Bomos_levenscyclus.svg" alt="Tekstueel alternatief voor toegankelijkheid">
-        <figcaption><a class="self-link" href="#fig-onderschrift">Figuur <bdi class="figno">1</bdi></a> <span class="fig-title">Onderschrift</span></figcaption>
+  <section class="informative" id="what-is-ogc-api-features"><div class="header-wrapper"><h2 id="x1-what-is-ogc-api-features"><bdi class="secno">1. </bdi>What is OGC API Features</h2><a class="self-link" href="#what-is-ogc-api-features" aria-label="Permalink for Section 1."></a></div><p><em>Dit onderdeel is niet normatief.</em></p>
+<p>OGC API Features (OAPIF) is a multi-part standard that offers the capability to create, modify, and query spatial data on the Web and specifies requirements and recommendations for APIs that want to follow a standard way of sharing feature data. 
+The specification is a multi-part document. [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-1" title="Reference &quot;[PUB-1]&quot; not found." id="respec-offender-reference-pub-1-not-found">PUB-1</a></cite>], [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-5" title="Reference &quot;[PUB-5]&quot; not found." id="respec-offender-reference-pub-5-not-found">PUB-5</a></cite>], [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-6" title="Reference &quot;[PUB-6]&quot; not found." id="respec-offender-reference-pub-6-not-found">PUB-6</a></cite>].</p>
+<p>OAPIF is also the term used for a feature download service by means of an API (Application Program Interface) based on OGC standards. 
+OAPIF has been considered as follow up for the OGC WFS standard, but that does not mean it will replace it in the near future, although it might happen in a later future.
+They are complementary to each other. Where WFS is mainly known and used in the GIS community, the OAPIF is aiming at the non GIS-community, like web developers. 
+OAPIF easier to use and needs less knowledge in the spatial domain.
+Note as well that WFS adopts the Geography Markup Language (GML) as a default data format. In contrast, OAPIF includes recommendations to support HTML and GeoJSON as encodings.
+Implementations of OAPIF may also optionally support GML.</p>
+<p>An OAPIF consist of resources that can be retrieved by typing the corresponding path after the landing page of the OAPIF in a web browser or web application.</p>
+<table class="simple">
+<thead>
+<tr>
+<th>Resource</th>
+<th>Path</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Landing page</td>
+<td>/</td>
+<td>This is the top-level resource, which serves as an entry point.</td>
+</tr>
+<tr>
+<td>Conformance declaration</td>
+<td>/conformance</td>
+<td>This resource presents information about the functionality that is implemented by the server.</td>
+</tr>
+<tr>
+<td>API definition</td>
+<td>/api</td>
+<td>This resource provides metadata about the API itself. Note use of /api on the server is optional and the API definition may be hosted on completely separate server</td>
+</tr>
+<tr>
+<td>Feature collections</td>
+<td>/collections</td>
+<td>This resource lists the feature collections that are offered through the API.</td>
+</tr>
+<tr>
+<td>Feature collection</td>
+<td>/collections/{collectionId}</td>
+<td>This resource describes the feature collection identified in the path.</td>
+</tr>
+<tr>
+<td>Features</td>
+<td>/collections/{collectionId}/items</td>
+<td>This resource presents the features that are contained in the collection.</td>
+</tr>
+<tr>
+<td>Feature</td>
+<td>/collections/{collectionId}/items/{featureId}</td>
+<td>This resource presents the feature that is identified in the path.</td>
+</tr>
+</tbody></table>
+<p>In the API definition, one can find all the supported encodings (HTML, JSON) and parameters that can be given along with URL like a bounding box or a limit of the amount of features.
+By default, an OAPIF service will provide access to a single dataset. Rather than sharing the data as a complete dataset, the OGC API Features standards offer direct, fine-grained access to the data at the feature (object) level.</p>
+<p>The best way of understanding the concept is looking at the examples that are discussed in the chapter of <a href="#H03">examples</a>.</p>
+<p>Since providing a download service is an INSPIRE requirement when responsible for an INSPIRE dataset, the use of OAPIF can be considered for this purpose.
+It is even seen as an endorsed <a href="https://inspire.ec.europa.eu/portfolio/good-practice-library/" target="_blank">Good Practice</a> within the INSPIRE community.</p>
+</section>
+  <section id="requirements"><div class="header-wrapper"><h2 id="x2-requirements"><bdi class="secno">2. </bdi>Requirements</h2><a class="self-link" href="#requirements" aria-label="Permalink for Section 2."></a></div>
+<p>Below the most relevant requirements (or requirement classes) for setting up an INSPIRE OAPIF are listed:</p>
+<table class="simple">
+<thead>
+<tr>
+<th>nr</th>
+<th>requirement</th>
+<th>priority</th>
+<th>reference</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><a href="https://docs.opengeospatial.org/is/17-069r4/17-069r4.html">OGC API Features Core</a></td>
+<td>1</td>
+<td>[<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-1" title="Reference &quot;[PUB-1]&quot; not found." id="respec-offender-reference-pub-1-not-found-0">PUB-1</a></cite>]</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md">INPSIRE-MIF document: Setting up an INSPIRE Download service based on the OGC API-Features standard</a></td>
+<td>1</td>
+<td>[<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-2" title="Reference &quot;[PUB-2]&quot; not found." id="respec-offender-reference-pub-2-not-found">PUB-2</a></cite>]</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#82-requirements-class-inspire-multilinguality-">multilinguality</a></td>
+<td>3</td>
+<td>[<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-2" title="Reference &quot;[PUB-2]&quot; not found." id="respec-offender-reference-pub-2-not-found-0">PUB-2</a></cite>] #82-requirements-class-inspire-multilinguality-</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-pre-defined">predefined download</a></td>
+<td>1</td>
+<td>[<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-2" title="Reference &quot;[PUB-2]&quot; not found." id="respec-offender-reference-pub-2-not-found-1">PUB-2</a></cite>] #req-pre-defined</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-oapif-json">GeoJSON</a></td>
+<td>1</td>
+<td>[<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-2" title="Reference &quot;[PUB-2]&quot; not found." id="respec-offender-reference-pub-2-not-found-2">PUB-2</a></cite>] #req-oapif-json</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-bulk-download">bulk download</a></td>
+<td>1</td>
+<td>[<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-2" title="Reference &quot;[PUB-2]&quot; not found." id="respec-offender-reference-pub-2-not-found-3">PUB-2</a></cite>] #req-bulk-download</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-crs">CRS ETRS89 and WGS84</a></td>
+<td>2</td>
+<td>[<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-5" title="Reference &quot;[PUB-5]&quot; not found." id="respec-offender-reference-pub-5-not-found-0">PUB-5</a></cite>] and [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-2" title="Reference &quot;[PUB-2]&quot; not found." id="respec-offender-reference-pub-2-not-found-4">PUB-2</a></cite>] #req-crs</td>
+</tr>
+<tr>
+<td>8</td>
+<td>INSPIRE validated GML as <a href="https://inspire.ec.europa.eu/validator/about/">input</a> and <a href="http://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_requirements_class_geography_markup_language_gml_simple_features_profile_level_2">output</a></td>
+<td>3</td>
+<td><a href="https://inspire.ec.europa.eu/validator/about/">https://inspire.ec.europa.eu/validator/about/</a> and [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-1" title="Reference &quot;[PUB-1]&quot; not found." id="respec-offender-reference-pub-1-not-found-1">PUB-1</a></cite>] #_requirements_classes_for_encodings</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst">Dutch API design rules</a></td>
+<td>1</td>
+<td>[<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-3" title="Reference &quot;[PUB-3]&quot; not found." id="respec-offender-reference-pub-3-not-found">PUB-3</a></cite>]</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="https://github.com/INSPIRE-MIF/2017.2/blob/master/GeoJSON/geojson-encoding-rule.md#inspire-requirements-for-encoding-rules">describing encoding</a></td>
+<td>1</td>
+<td>[<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-4" title="Reference &quot;[PUB-4]&quot; not found." id="respec-offender-reference-pub-4-not-found">PUB-4</a></cite>]</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="https://docs.ogc.org/DRAFTS/19-079r1.html">filtering</a></td>
+<td>2</td>
+<td>[<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-6" title="Reference &quot;[PUB-6]&quot; not found." id="respec-offender-reference-pub-6-not-found-0">PUB-6</a></cite>]</td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#metadata-elements-of-the-data-set">metadata links</a></td>
+<td>1</td>
+<td>[<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-1" title="Reference &quot;[PUB-1]&quot; not found." id="respec-offender-reference-pub-1-not-found-2">PUB-1</a></cite>] #rec_core_fc-md-descriptions  and  [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-2" title="Reference &quot;[PUB-2]&quot; not found." id="respec-offender-reference-pub-2-not-found-5">PUB-2</a></cite>] #metadata-elements-of-the-data-set</td>
+</tr>
+</tbody></table>
+<section id="ogc-api-features-core"><div class="header-wrapper"><h3 id="x2-1-ogc-api-features-core"><bdi class="secno">2.1 </bdi>OGC API Features Core</h3><a class="self-link" href="#ogc-api-features-core" aria-label="Permalink for Section 2.1"></a></div>
+<p><a href="https://docs.opengeospatial.org/is/17-069r4/17-069r4.html">OGC API Features Core</a>, [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-1" title="Reference &quot;[PUB-1]&quot; not found." id="respec-offender-reference-pub-1-not-found-3">PUB-1</a></cite>] describes the basic requirements (50) and recommendations (17) according to OGC that one needs to follow, independent of INSPIRE. 
+It describes which paths can be used and what responses one should receive. 
+It does not make the use of <a href="https://oai.github.io/Documentation/specification.html">OpenAPI Specification 3.0</a> mandatory, but if it is used, it gives an extra <a href="http://docs.opengeospatial.org/is/17-069r4/17-069r4.html#rc_oas30">requirement class</a>.</p>
+<p>There is a INSPIRE validation on the OGC standards for OAPIF available. It test on OGC requirements, but it does not test the requirements as stated in [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-2" title="Reference &quot;[PUB-2]&quot; not found." id="respec-offender-reference-pub-2-not-found-6">PUB-2</a></cite>].</p>
+<p>&nbsp;&nbsp;&nbsp;
+      </p><figure id="fig-validation-on-the-ogc-standards-for-oapif">
+        <img src="media/INSPIRE_validator_OAPIF.png" alt="INSPIRE Validator">
+        <figcaption><a class="self-link" href="#fig-validation-on-the-ogc-standards-for-oapif">Figuur <bdi class="figno">1</bdi></a> <span class="fig-title">Validation on the OGC standards for OAPIF</span></figcaption>
       </figure>
     <p></p>
-</section><section id="referenties"><div class="header-wrapper"><h3 id="x2-3-referenties"><bdi class="secno">2.3 </bdi>Referenties</h3><a class="self-link" href="#referenties" aria-label="Permalink for Section 2.3"></a></div>
-<p>Referentie uit locale lijst [<cite><a class="bibref" data-link-type="biblio" href="#bib-semver" title="Semantic Versioning 2.0.0">SemVer</a></cite>]. Lijst staat in <code>organisation-config.js</code>. Alleen referenties die in de tekst voorkomen worden getoond.</p>
-<p>We gebruiken een <a href="#dfn-definitie" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-definitie-1">definitie</a> om een woord te omschrijven.</p>
-</section><section id="optioneel"><div class="header-wrapper"><h3 id="x2-4-optioneel"><bdi class="secno">2.4 </bdi>Optioneel</h3><a class="self-link" href="#optioneel" aria-label="Permalink for Section 2.4"></a></div>
-<p>De onderstaande secties (<em>Conformiteit</em> e.d.) zijn optioneel, zie <code>index.html</code>:</p>
-<pre><code aria-busy="false" class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"abstract"</span> <span class="hljs-attr">data-include-format</span>=<span class="hljs-string">"markdown"</span> <span class="hljs-attr">data-include</span>=<span class="hljs-string">"abstract.md"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"sotd"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span><span class="hljs-comment">&lt;!-- Wordt automatisch gevuld --&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">data-include-format</span>=<span class="hljs-string">"markdown"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"informative"</span> <span class="hljs-attr">data-include</span>=<span class="hljs-string">"ch01.md"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">data-include-format</span>=<span class="hljs-string">"markdown"</span> <span class="hljs-attr">data-include</span>=<span class="hljs-string">"ch02.md"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
-  <span class="hljs-comment">&lt;!-- Hieronder optionele secties. Worden automatisch gevuld --&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'conformance'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'tof'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"index"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-</code></pre>
+</section><section id="inpsire-mif-document-setting-up-an-inspire-download-service-based-on-the-ogc-api-features-standard"><div class="header-wrapper"><h3 id="x2-2-inpsire-mif-document-setting-up-an-inspire-download-service-based-on-the-ogc-api-features-standard"><bdi class="secno">2.2 </bdi>INPSIRE-MIF document: Setting up an INSPIRE Download service based on the OGC API-Features standard</h3><a class="self-link" href="#inpsire-mif-document-setting-up-an-inspire-download-service-based-on-the-ogc-api-features-standard" aria-label="Permalink for Section 2.2"></a></div>
+<p><a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md">INPSIRE-MIF document: Setting up an INSPIRE Download service based on the OGC API-Features standard</a>, [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-2" title="Reference &quot;[PUB-2]&quot; not found." id="respec-offender-reference-pub-2-not-found-7">PUB-2</a></cite>] describes the specific INSPIRE requirements.
+Most of them are explained in the next chapters.
+This document does propose in <a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#81-requirements-class-inspire-pre-defined-data-set-download-oapif--">Note 2</a> to make it a mandatory requirement for INSPIRE to comply with <a href="http://docs.opengeospatial.org/is/17-069r4/17-069r4.html#rc_oas30">OAPIF requirements class OpenAPI 3.0.</a></p>
+</section><section id="multilinguality"><div class="header-wrapper"><h3 id="x2-3-multilinguality"><bdi class="secno">2.3 </bdi>Multilinguality</h3><a class="self-link" href="#multilinguality" aria-label="Permalink for Section 2.3"></a></div>
+<p>The <a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#82-requirements-class-inspire-multilinguality-">multilinguality requirement class</a>, [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-2" title="Reference &quot;[PUB-2]&quot; not found." id="respec-offender-reference-pub-2-not-found-8">PUB-2</a></cite>] is mandatory for all data sets that contain information in more than one natural language.
+This is mostly not the case in the Netherlands, so it is of less importance.</p>
+</section><section id="predefined-download"><div class="header-wrapper"><h3 id="x2-4-predefined-download"><bdi class="secno">2.4 </bdi>Predefined download</h3><a class="self-link" href="#predefined-download" aria-label="Permalink for Section 2.4"></a></div>
+<p>The <a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-pre-defined">predefined download requirement class</a>,[<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-2" title="Reference &quot;[PUB-2]&quot; not found." id="respec-offender-reference-pub-2-not-found-9">PUB-2</a></cite>] consists of 3 requirements for each collection to link to:</p>
+<ol>
+<li>the metadata of the corresponding dataset</li>
+<li>the corresponding entry in the <a href="https://inspire.ec.europa.eu/featureconcept">INSPIRE feature concept dictionary</a></li>
+<li>the license</li>
+</ol>
+</section><section id="geojson"><div class="header-wrapper"><h3 id="x2-5-geojson"><bdi class="secno">2.5 </bdi>GeoJSON</h3><a class="self-link" href="#geojson" aria-label="Permalink for Section 2.5"></a></div>
+<p>The <a href="http://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_requirements_class_geojson">GeoJSON requirement class</a> in [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-1" title="Reference &quot;[PUB-1]&quot; not found." id="respec-offender-reference-pub-1-not-found-4">PUB-1</a></cite>] recommends to support GeoJSON for features with geometry, but as stated in <a href="https://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_encodings">https://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_encodings</a>, no encoding is mandatory. 
+The <a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-oapif-json">GeoJSON requirement class</a> in [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-2" title="Reference &quot;[PUB-2]&quot; not found." id="respec-offender-reference-pub-2-not-found-10">PUB-2</a></cite>] also recommends to document how the GeoJSON encoding is retrieved from the INSPIRE data models.</p>
+</section><section id="bulk-download"><div class="header-wrapper"><h3 id="x2-6-bulk-download"><bdi class="secno">2.6 </bdi>Bulk download</h3><a class="self-link" href="#bulk-download" aria-label="Permalink for Section 2.6"></a></div>
+<p>The <a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-bulk-download">bulk download requirement class</a>, [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-2" title="Reference &quot;[PUB-2]&quot; not found." id="respec-offender-reference-pub-2-not-found-11">PUB-2</a></cite>] requires links for enclosure of the total data set and/or of each seperate collection.</p>
+</section><section id="crs-etrs89-and-wgs84"><div class="header-wrapper"><h3 id="x2-7-crs-etrs89-and-wgs84"><bdi class="secno">2.7 </bdi>CRS ETRS89 and WGS84</h3><a class="self-link" href="#crs-etrs89-and-wgs84" aria-label="Permalink for Section 2.7"></a></div>
+<p>The <a href="https://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_coordinate_reference_systems">CRS requirement</a> in [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-1" title="Reference &quot;[PUB-1]&quot; not found." id="respec-offender-reference-pub-1-not-found-5">PUB-1</a></cite>] requires <a href="http://www.opengis.net/def/crs/OGC/1.3/CRS84">WGS84</a> for 2D-data and <a href="http://www.opengis.net/def/crs/OGC/0/CRS84h">WGS84h</a> for 3D-data as default.
+The <a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-crs">INSPIRE-CRS requirement class</a> in [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-2" title="Reference &quot;[PUB-2]&quot; not found." id="respec-offender-reference-pub-2-not-found-12">PUB-2</a></cite>] requires also one of the INSPIRE CRS's based on ETRS89 to be supported
+The <a href="http://docs.opengeospatial.org/is/18-058r1/18-058r1.html">OGC API - Features - Part 2 standard</a>, [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-5" title="Reference &quot;[PUB-5]&quot; not found." id="respec-offender-reference-pub-5-not-found-1">PUB-5</a></cite>] prescribes how to support different coordinate systems with OAPIF.</p>
+<p>For the Dutch data providers, it is recommended to also support <a href="https://www.opengis.net/def/crs/EPSG/0/28992">RD</a> for 2D data or <a href="https://www.opengis.net/def/crs/EPSG/0/7415">RD +NAP</a> for 3D data. See also: <a href="https://docs.geostandaarden.nl/crs/crs">https://docs.geostandaarden.nl/crs/crs</a>. </p>
+</section><section id="gml"><div class="header-wrapper"><h3 id="x2-8-gml"><bdi class="secno">2.8 </bdi>GML</h3><a class="self-link" href="#gml" aria-label="Permalink for Section 2.8"></a></div>
+<p>The use of GML as encoding for INSPIRE data can be considered in two ways. As input and as output.</p>
+<p>When we consider the input, one would like to be able to use a source dataset of harmonized data. In most cases, this will be a GML encoded dataset. 
+The GML encoding is at least needed to validate the data set with the <a href="https://inspire.ec.europa.eu/validator/about/">EU INSPIRE  validator</a>
+Unfortunately, not many tooling for creating a OAPIF service is able to use GML as input. Especially when it concerns a complex GML dataset. So, a transformation to another encoding like GeoJSON is needed.</p>
+<p>Output of GML from the OAPIF service can only be in simple features <a href="http://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_requirements_class_geography_markup_language_gml_simple_features_profile_level_0">level 0</a> and <a href="http://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_requirements_class_geography_markup_language_gml_simple_features_profile_level_2">level 2</a>.
+So no complex features will be supported.</p>
+</section><section id="dutch-api-design-rules"><div class="header-wrapper"><h3 id="x2-9-dutch-api-design-rules"><bdi class="secno">2.9 </bdi>Dutch API design rules</h3><a class="self-link" href="#dutch-api-design-rules" aria-label="Permalink for Section 2.9"></a></div>
+<p>Dutch data providers are recommended to follow the <a href="https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst">Dutch API design rules</a>, [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-3" title="Reference &quot;[PUB-3]&quot; not found." id="respec-offender-reference-pub-3-not-found-0">PUB-3</a></cite>]. This is not an INSPIRE requirement.</p>
+</section><section id="describing-encoding"><div class="header-wrapper"><h3 id="x2-10-describing-encoding"><bdi class="secno">2.10 </bdi>Describing encoding</h3><a class="self-link" href="#describing-encoding" aria-label="Permalink for Section 2.10"></a></div>
+<p>The standards considered in this guideline do not set a specific encoding as mandatory. <a href="https://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_encodings">https://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_encodings</a> [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-1" title="Reference &quot;[PUB-1]&quot; not found." id="respec-offender-reference-pub-1-not-found-6">PUB-1</a></cite>]
+Once another encoding than GML is used, data providers need to document how the encoding relates to the concerned INSPIRE data model.
+The good practice on the use of <a href="https://inspire.ec.europa.eu/good-practice/geopackage-encoding-inspire-datasets">geopackages</a> as encoding, describes how this describing could be done.</p>
+</section><section id="filtering"><div class="header-wrapper"><h3 id="x2-11-filtering"><bdi class="secno">2.11 </bdi>Filtering</h3><a class="self-link" href="#filtering" aria-label="Permalink for Section 2.11"></a></div>
+<p>The specification for <a href="https://docs.ogc.org/DRAFTS/19-079r1.html">filtering</a>, [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-6" title="Reference &quot;[PUB-6]&quot; not found." id="respec-offender-reference-pub-6-not-found-1">PUB-6</a></cite>] is still a draft version and has therefore not yet been taken into account.
+Some basic filtering requirements are described in <a href="http://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_items_">OGC API - Features - Part 1: Core</a> [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-1" title="Reference &quot;[PUB-1]&quot; not found." id="respec-offender-reference-pub-1-not-found-7">PUB-1</a></cite>].
+This only concerns filtering on a bounding box and on properties.</p>
+</section><section id="metadata-links"><div class="header-wrapper"><h3 id="x2-12-metadata-links"><bdi class="secno">2.12 </bdi>Metadata links</h3><a class="self-link" href="#metadata-links" aria-label="Permalink for Section 2.12"></a></div>
+<p>The <a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#metadata-elements-of-the-data-set">requirement for metadata links to the data</a> in [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-2" title="Reference &quot;[PUB-2]&quot; not found." id="respec-offender-reference-pub-2-not-found-13">PUB-2</a></cite>] have also been described in predefined download requirement class.
+The <a href="https://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_api_definition_2">requirement for metadata of the API</a> in [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-pub-1" title="Reference &quot;[PUB-1]&quot; not found." id="respec-offender-reference-pub-1-not-found-8">PUB-1</a></cite>] describes the metadata of the API via the API definition.</p>
+</section><section id="relevant-documentation"><div class="header-wrapper"><h3 id="x2-13-relevant-documentation"><bdi class="secno">2.13 </bdi>Relevant documentation</h3><a class="self-link" href="#relevant-documentation" aria-label="Permalink for Section 2.13"></a></div>
+<p>Relevant documentation is shown in <a href="#references">appendix A</a>.</p>
 </section></section>
-  <section id="mermaid-diagram"><div class="header-wrapper"><h2 id="x3-mermaid-diagram"><bdi class="secno">3. </bdi>Mermaid diagram</h2><a class="self-link" href="#mermaid-diagram" aria-label="Permalink for Section 3."></a></div>
-<figure id="Mermaidvoorbeeld">
+  <section>
 
-<pre><svg id="diagram-1" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="max-width: 128.234375px;" viewBox="0 0 128.234375 248"><style>
-#diagram-1 {font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#diagram-1 .error-icon{fill:#552222;}#diagram-1 .error-text{fill:#552222;stroke:#552222;}#diagram-1 .edge-thickness-normal{stroke-width:2px;}#diagram-1 .edge-thickness-thick{stroke-width:3.5px;}#diagram-1 .edge-pattern-solid{stroke-dasharray:0;}#diagram-1 .edge-pattern-dashed{stroke-dasharray:3;}#diagram-1 .edge-pattern-dotted{stroke-dasharray:2;}#diagram-1 .marker{fill:#333333;stroke:#333333;}#diagram-1 .marker.cross{stroke:#333333;}#diagram-1 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#diagram-1 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#diagram-1 .cluster-label text{fill:#333;}#diagram-1 .cluster-label span{color:#333;}#diagram-1 .label text,#diagram-1 span{fill:#333;color:#333;}#diagram-1 .node rect,#diagram-1 .node circle,#diagram-1 .node ellipse,#diagram-1 .node polygon,#diagram-1 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#diagram-1 .node .label{text-align:center;}#diagram-1 .node.clickable{cursor:pointer;}#diagram-1 .arrowheadPath{fill:#333333;}#diagram-1 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#diagram-1 .flowchart-link{stroke:#333333;fill:none;}#diagram-1 .edgeLabel{background-color:#e8e8e8;text-align:center;}#diagram-1 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#diagram-1 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#diagram-1 .cluster text{fill:#333;}#diagram-1 .cluster span{color:#333;}#diagram-1 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#diagram-1 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}
-</style><g><g class="output"><g class="clusters"></g><g class="edgePaths"><g class="edgePath LS-A LE-B" id="L-A-B" style="opacity: 1;"><path class="path" d="M48.55859375,47.77154964846383L44.354817708333336,52.64295804038653C40.151041666666664,57.514366432309224,31.743489583333332,67.25718321615462,27.539713541666668,76.29525827474397C23.3359375,85.33333333333333,23.3359375,93.66666666666667,23.3359375,97.83333333333333L23.3359375,102" marker-end="url(#arrowhead14)" style="fill:none"></path><defs><marker id="arrowhead14" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-A LE-C" id="L-A-C" style="opacity: 1;"><path class="path" d="M79.23046875,47.77154964846383L83.43424479166667,52.64295804038653C87.63802083333333,57.514366432309224,96.04557291666667,67.25718321615462,100.24934895833333,76.29525827474397C104.453125,85.33333333333333,104.453125,93.66666666666667,104.453125,97.83333333333333L104.453125,102" marker-end="url(#arrowhead15)" style="fill:none"></path><defs><marker id="arrowhead15" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-B LE-D" id="L-B-D" style="opacity: 1;"><path class="path" d="M23.3359375,146L23.3359375,150.16666666666666C23.3359375,154.33333333333334,23.3359375,162.66666666666666,27.465494791666668,171.6187357539568C31.595052083333332,180.57080484124694,39.854166666666664,190.14160968249382,43.983723958333336,194.92701210311728L48.11328125,199.71241452374073" marker-end="url(#arrowhead16)" style="fill:none"></path><defs><marker id="arrowhead16" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-C LE-D" id="L-C-D" style="opacity: 1;"><path class="path" d="M104.453125,146L104.453125,150.16666666666666C104.453125,154.33333333333334,104.453125,162.66666666666666,100.32356770833333,171.6187357539568C96.19401041666667,180.57080484124694,87.93489583333333,190.14160968249382,83.80533854166667,194.92701210311728L79.67578125,199.71241452374073" marker-end="url(#arrowhead17)" style="fill:none"></path><defs><marker id="arrowhead17" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span id="L-L-A-B" class="edgeLabel L-LS-A' L-LE-B"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span id="L-L-A-C" class="edgeLabel L-LS-A' L-LE-C"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span id="L-L-B-D" class="edgeLabel L-LS-B' L-LE-D"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span id="L-L-C-D" class="edgeLabel L-LS-C' L-LE-D"></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default" id="flowchart-A-8" transform="translate(63.89453125,30)" style="opacity: 1;"><rect rx="0" ry="0" x="-15.3359375" y="-22" width="30.671875" height="44" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-5.3359375,-12)"><foreignObject width="10.671875" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">A</div></foreignObject></g></g></g><g class="node default" id="flowchart-B-9" transform="translate(23.3359375,124)" style="opacity: 1;"><rect rx="0" ry="0" x="-15.3359375" y="-22" width="30.671875" height="44" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-5.3359375,-12)"><foreignObject width="10.671875" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">B</div></foreignObject></g></g></g><g class="node default" id="flowchart-C-11" transform="translate(104.453125,124)" style="opacity: 1;"><rect rx="0" ry="0" x="-15.78125" y="-22" width="31.5625" height="44" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-5.78125,-12)"><foreignObject width="11.5625" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">C</div></foreignObject></g></g></g><g class="node default" id="flowchart-D-13" transform="translate(63.89453125,218)" style="opacity: 1;"><rect rx="0" ry="0" x="-15.78125" y="-22" width="31.5625" height="44" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-5.78125,-12)"><foreignObject width="11.5625" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">D</div></foreignObject></g></g></g></g></g></g></svg></pre>
-<figcaption><a class="self-link" href="#Mermaidvoorbeeld">Figuur <bdi class="figno">2</bdi></a> <span class="fig-title">Mermaid voorbeeld</span></figcaption>
-</figure></section>
 
-  <section id="conformance"><div class="header-wrapper"><h2 id="x4-conformiteit"><bdi class="secno">4. </bdi>Conformiteit</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 4."></a></div><p>Naast onderdelen die als niet normatief gemarkeerd zijn, zijn ook alle diagrammen, voorbeelden, en noten in dit document niet normatief. Verder is alles in dit document normatief.</p></section>
-  <section id="tof"><div class="header-wrapper"><h2 id="x5-lijst-met-figuren"><bdi class="secno">5. </bdi>Lijst met figuren</h2><a class="self-link" href="#tof" aria-label="Permalink for Section 5."></a></div><ul class="tof">
+<meta charset="utf-8">
+<title>Error</title>
+
+
+<pre aria-busy="false"><code class="hljs">Cannot GET /Examples.md</code></pre>
+
+</section>
+
+  <section id="conformance"><div class="header-wrapper"><h2 id="x3-conformiteit"><bdi class="secno">3. </bdi>Conformiteit</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 3."></a></div><p>Naast onderdelen die als niet normatief gemarkeerd zijn, zijn ook alle diagrammen, voorbeelden, en noten in dit document niet normatief. Verder is alles in dit document normatief.</p></section>
+  <section id="tof"><div class="header-wrapper"><h2 id="x4-lijst-met-figuren"><bdi class="secno">4. </bdi>Lijst met figuren</h2><a class="self-link" href="#tof" aria-label="Permalink for Section 4."></a></div><ul class="tof">
         <li class="tofline">
-    <a class="tocxref" href="#fig-onderschrift"><span class="self-link">Figuur <bdi class="figno">1</bdi></span> <span class="fig-title">Onderschrift</span></a>
-  </li><li class="tofline">
-    <a class="tocxref" href="#Mermaidvoorbeeld"><span class="self-link">Figuur <bdi class="figno">2</bdi></span> <span class="fig-title">Mermaid voorbeeld</span></a>
+    <a class="tocxref" href="#fig-validation-on-the-ogc-standards-for-oapif"><span class="self-link">Figuur <bdi class="figno">1</bdi></span> <span class="fig-title">Validation on the OGC standards for OAPIF</span></a>
   </li>
       </ul></section>
   <section id="index" class="appendix"><div class="header-wrapper"><h2 id="a-index"><bdi class="secno">A. </bdi>Index</h2><a class="self-link" href="#index" aria-label="Permalink for Appendix A."></a></div><section id="index-defined-here">
     <div class="header-wrapper"><h3 id="a-1-begrippen-gedefinieerd-door-deze-specificatie"><bdi class="secno">A.1 </bdi>Begrippen gedefinieerd door deze specificatie</h3><a class="self-link" href="#index-defined-here" aria-label="Permalink for Appendix A.1"></a></div>
     <ul class="index">
-    <li>
-      <a class="index-term" href="#dfn-definitie">Definitie</a> 
-    <span class="print-only">§2.1</span></li>
+    
   </ul>
   </section><section id="index-defined-elsewhere">
     <div class="header-wrapper"><h3 id="a-2-begrippen-gedefinieerd-door-verwijzing"><bdi class="secno">A.2 </bdi>Begrippen gedefinieerd door verwijzing</h3><a class="self-link" href="#index-defined-elsewhere" aria-label="Permalink for Appendix A.2"></a></div>
@@ -442,24 +613,22 @@ Dit hoofdstuk is toegevoegd met <code>class="informative"</code> in <code>config
 
 <section id="references" class="appendix"><div class="header-wrapper"><h2 id="b-referenties"><bdi class="secno">B. </bdi>Referenties</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix B."></a></div><section id="normatieve-referenties">
     <div class="header-wrapper"><h3 id="b-1-normatieve-referenties"><bdi class="secno">B.1 </bdi>Normatieve referenties</h3><a class="self-link" href="#normatieve-referenties" aria-label="Permalink for Appendix B.1"></a></div>
-    <dl class="bibliography"><dt id="bib-semver">[SemVer]</dt><dd>
-      <a href="https://semver.org"><cite>Semantic Versioning 2.0.0</cite></a>. T. Preston-Werner. June 2013. URL: <a href="https://semver.org">https://semver.org</a>
+    <dl class="bibliography"><dt id="bib-pub-1">[PUB-1]</dt><dd>
+      <em class="respec-offending-element">Reference not found.</em>
+    </dd><dt id="bib-pub-2">[PUB-2]</dt><dd>
+      <em class="respec-offending-element">Reference not found.</em>
+    </dd><dt id="bib-pub-3">[PUB-3]</dt><dd>
+      <em class="respec-offending-element">Reference not found.</em>
+    </dd><dt id="bib-pub-4">[PUB-4]</dt><dd>
+      <em class="respec-offending-element">Reference not found.</em>
+    </dd><dt id="bib-pub-5">[PUB-5]</dt><dd>
+      <em class="respec-offending-element">Reference not found.</em>
+    </dd><dt id="bib-pub-6">[PUB-6]</dt><dd>
+      <em class="respec-offending-element">Reference not found.</em>
     </dd></dl>
   </section></section><p role="navigation" id="back-to-top">
     <a href="#title"><abbr title="Back to Top">↑</abbr></a>
-  </p><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-definitie" aria-label="Links in this document to definition: Definitie">
-      <span class="caret"></span>
-      <div>
-        <a class="self-link" href="#dfn-definitie" aria-label="Permalink for definition: Definitie. Activate to close this dialog.">Permalink</a>
-         
-      </div>
-      <p><b>Referenced in:</b></p>
-      <ul>
-    <li>
-    <a href="#ref-for-dfn-definitie-1" title="§ 2.3 Referenties">§ 2.3 Referenties</a> 
-  </li>
-  </ul>
-    </div><script id="respec-dfn-panel">(() => {
+  </p><script id="respec-dfn-panel">(() => {
 // @ts-check
 if (document.respec) {
   document.respec.ready.then(setupPanel);
