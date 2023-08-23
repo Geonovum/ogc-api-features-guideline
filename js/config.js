@@ -69,4 +69,57 @@ let respecConfig = {
           uri: "Guideline.pdf",
       },
   ],
+  //-- localBiblio: lokale bibliografie, voor verwijzigingen
+  //-- NB: kijk eesrt naar de beschikbare www.specref.org voor verwijziging 
+  localBiblio: 
+  {
+    "PUB-1":
+      {
+        title:      "OGC API Features Part1:Core",
+        href:       "https://docs.opengeospatial.org/is/17-069r4/17-069r4.html",
+        status:     "V1.0",
+        publisher:  "OGC",
+        company:    "OGC",
+    },
+    "PUB-2":
+      {
+        title:      "Setting up an INSPIRE Download service based on the OGC API-Features standard",
+        href:       "https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md",
+        status:     "V1.0",
+        publisher:  "INSPIRE-MIF",
+        company:    "Companynaam",
+    },
+    "PUB-3":
+      {
+        title:      "Dutch API design rules",
+        href:       "https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst",
+        status:     "19 JULI 2020",
+        publisher:  "https://www.geonovum.nl",
+        company:    "Geonovum",
+    },
+    "PUB-4":
+      {
+        title:      "INSPIRE UML-to-GeoJSON encoding rule",
+        href:       "https://github.com/INSPIRE-MIF/2017.2/blob/master/GeoJSON/geojson-encoding-rule.md#inspire-requirements-for-encoding-rules",
+        status:     "V0.1",
+        publisher:  "Working group on Inspire Action 2017.2",
+        company:    "Companynaam",
+    },
+	"PUB-5":
+      {
+        title:      "OGC API - Features - Part 2: Coordinate Reference Systems by Reference",
+        href:       "http://docs.opengeospatial.org/is/18-058r1/18-058r1.html",
+        status:     "V1.0",
+        publisher:  "OGC",
+        company:    "OGC",
+    },
+	"PUB-6":
+      {
+        title:      "OGC API - Features - Part 3: Filtering and the Common Query Language (CQL)",
+        href:       "https://docs.ogc.org/DRAFTS/19-079r1.html",
+        status:     "V1.0.0, draft",
+        publisher:  "OGC",
+        company:    "OGC",
+    },
+  },
 };
