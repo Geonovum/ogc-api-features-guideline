@@ -16,10 +16,12 @@ Per tool, findings are elaborated in the next chapters when relevant.
 
 The following findings show how Pygeoapi complies to the requirements.
 
-***RQ 1:OGC API Features Core***  
+***RQ 1:OGC API Features Core*** 
+
 The OGC CITE validator gave no error.
 
 ***RQ 4:predefined download***  
+
 link to metadata of dataset: passed at /collections/AddressesNL and at /collections level:
 
         {
@@ -61,10 +63,12 @@ See also https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections?f=json and
 https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json
 
 ***RQ 5:GeoJSON***
+
 Items can be retrieved in Geo+Json by:  
 https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items?f=json
 
 ***RQ 6:bulk download***
+
 Link to bulkdownload of dataset: passed at /collections/AddressesNL and at /collections level
 
 See also https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections?f=json and   
@@ -80,6 +84,7 @@ https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json
         },
 
 ***RQ 7:CRS ETRS89 and WGS84***
+
 For RD: https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items/1?f=json&crs=http://www.opengis.net/def/crs/EPSG/0/28992
 For WGS84: https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items/1?f=json&crs=http://www.opengis.net/def/crs/OGC/1.3/CRS84
 for ETRS89:  https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items/1?f=json&crs=http://www.opengis.net/def/crs/EPSG/0/4258
@@ -95,19 +100,23 @@ Only 2 addresses are available in the below defined bbox.
 https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items?f=json&bbox-crs=http://www.opengis.net/def/crs/EPSG/0/28992&bbox=252200,593000,252710,594000
 
 ***RQ 8:GML*** 
+
 As input, a simple features GML file was used as produced by Wetransform from the complex feature GML with the transformation software Hale.
 As output, there is a link to the original complex feature GML-file:
 https://service.pdok.nl/kadaster/ad/atom/downloads/addresses.gml.gz 
 Pygeoapi does not support GML-output at item-level, but this is not a requirement.
 
 ***RQ 9:Dutch API design rules***  
+
 It complies with all the rules, except for rule https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48.
 This rule in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. On the other end, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
 It is expected that in future, this ADR-rule will make an exception for the landingpage.
 
 ***RQ 10:describing encoding***  
+
 There is a link to https://github.com/INSPIRE-MIF/2017.2/tree/master/GeoJSON/ads at [colection/AddressesNL level](https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json )
-{
+
+        {
             "type": "text/html",
             "rel": "about",
             "title": "Description of the encoding",
@@ -116,12 +125,15 @@ There is a link to https://github.com/INSPIRE-MIF/2017.2/tree/master/GeoJSON/ads
         },
 
 ***RQ 11:filtering***  
+
 For the use of filters, the bbox and items options were already available. Next to that, one can filter on the attributes which can be retrieved from:
 https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/queryables.
 The specification for filtering [[PUB-6]] does not yet have the status "approved" and has not yet been considered.
 
 ***RQ 12:metadata links***  
+
 1. Metadata link of the dataset can be found at [/collections/AddressesNL level](https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json):
+
         {
             "type": "text/html",
             "rel": "describedby",
@@ -129,9 +141,11 @@ The specification for filtering [[PUB-6]] does not yet have the status "approved
             "href": "https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83",
             "hreflang": "nl"
         } 
+
 2. Metadata of the service can be obtained from: https://apitestbed.geonovum.nl/adr_pygeoapi/v1/openapi?f=json and https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL.
 
 ***Other findings***
+
 More information about the Pygeoapi adjustments to the standards can be found at https://pygeoapi.io/presentations/geonovum-tender-2023/
 
 ### Geoserver versus requirements
@@ -139,9 +153,11 @@ More information about the Pygeoapi adjustments to the standards can be found at
 The following findings show how Geoserver complies to the requirements.
 
 ***RQ 1:OGC API Features Core***  
+
 The OGC CITE validator gave no error.
 
 ***RQ 4:predefined download***  
+
 link to metadata of dataset: passed at [/collections/collection level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses?f=json) and at [/collections level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections?f=json).
 {"href":"https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83/formatters/xml?approved=true","rel":"describedBy","type":"application/xml","title":"ISO metadata for this dataset"}
   
@@ -152,10 +168,12 @@ link to the license: passed at [/collections level](https://geonovum.geosolution
 {"href":"http://creativecommons.org/publicdomain/zero/1.0/deed.nl","rel":"license","type":"text/html","title":"Dataset license."}
 
 ***RQ 5:GeoJSON***
+
 Items can be retrieved in Geo+Json by:  
 https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses/items/1?f=application%2Fgeo%2Bjson
 
 ***RQ 6:bulk download***
+
 Link to bulkdownload of dataset: passed at [/collections/collection level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses?f=json).
 {"href":"https://geonovum.geosolutionsgroup.com/geoserver/www/ADNL.gpkg","rel":"enclosure","type":"application/geopackage+sqlite3","title":"Addresses raw data."}
 
@@ -176,40 +194,48 @@ Only 2 addresses are available in the below defined bbox.
 https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses/items?f=json&bbox-crs=http://www.opengis.net/def/crs/EPSG/0/28992&bbox=252200,593000,252710,594000
 
 ***RQ 8:GML*** 
+
 As input, a simple features GML file was used as produced by Wetransform from the complex feature GML with the transformation software Hale.
 As output, the following link can be found at [/collections/collection level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses?f=json). It can be used to download the first 50 records.
 {"href":"https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses/items?f=application%2Fgml%2Bxml%3Bversion%3D3.2","rel":"items","type":"application/gml+xml;version=3.2","title":"Addresses items as application/gml+xml;version=3.2"}
 
 ***RQ 9:Dutch API design rules***  
+
 It complies with all the rules, except for rule https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48.
 This rule in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. On the other end, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
 It is expected that in future, this ADR-rule will make an exception for the landingpage.
 
 ***RQ 10:describing encoding***  
+
 There is a link to https://github.com/INSPIRE-MIF/2017.2/blob/master/GeoJSON/ads/simple-addresses.md at [/collections/collection level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses?f=json).
 {"href":"https://github.com/INSPIRE-MIF/2017.2/blob/master/GeoJSON/ads/simple-addresses.md","rel":"describedBy","type":"text/html","title":"GeoJSON Encoding Rule for INSPIRE Addresses"}
 
 ***RQ 11:filtering***  
+
 For the use of filters, the bbox and items options were already available. Next to that, one can filter on the attributes which can be retrieved from:
 https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses?queryables.
 The specification for filtering [[PUB-6]] does not yet have the status "approved" and has not yet been considered.
 
 ***RQ 12:metadata links***  
+
 1. Metadata link of the dataset can be found at [/collections/collection level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses?f=json):
 {"href":"https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83/formatters/xml?approved=true","rel":"describedBy","type":"application/xml","title":"ISO metadata for this dataset"}
 2. Metadata of the service can be obtained from: https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/openapi and https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses.
 
 ***Other findings***
+
 More information about the Geoserver adjustments to the standards can be found at https://www.geonovum.nl/uploads/documents/Geosolutions.pdf
  
-#### Deegree versus requirements
+### Deegree versus requirements
 
 The following findings show how Geoserver complies to the requirements.
 
 ***RQ 1:OGC API Features Core***  
+
 The OGC CITE validator gave no error.
 
 ***RQ 4:predefined download***  
+
 link to metadata of dataset: passed at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json).
 `{"href":"https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83","rel":"describedby","type":"text/html","title":"Metadata"}`
 
@@ -220,11 +246,13 @@ link to the license: passed at [/collections level](https://test.haleconnect.de/
 `{"href":"http://creativecommons.org/publicdomain/zero/1.0/deed.nl","rel":"license","type":"text/html","title":"License"}`
 
 ***RQ 5:GeoJSON***
+
 Items can be retrieved in Geo+Json by:  
 https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/collections/SimpleAddress/items?f=json&limit=1 or
 https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/collections/SimpleAddress/items/nl-imbag-ad-address-0003200000133985?f=json
 
 ***RQ 6:bulk download***
+
 Link to bulkdownload of dataset: passed at [/collections/collection level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/SimpleAddress?f=json) and at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json).
 {"href":"http://test.haleconnect.de/ogcapi/datasets/simplified-addresses/collections/SimpleAddress/items?bulk=true","rel":"enclosure","type":"application/xml","title":"Download all features as GML"}
 {"href":"http://test.haleconnect.de/ogcapi/datasets/simplified-addresses/collections/SimpleAddress/items?bulk=true","rel":"enclosure","type":"application/json","title":"Download all features as GeoJSON"}
@@ -246,30 +274,36 @@ Only 2 addresses are available in the below defined bbox.
 https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/SimpleAddress/items?f=json&bbox-crs=http://www.opengis.net/def/crs/EPSG/0/28992&bbox=252200,593000,252710,594000
 
 ***RQ 8:GML*** 
+
 As input, a simple features GML file was used as produced by Wetransform from the complex feature GML with the transformation software Hale.
 As output, the following links can be found at [/collections/collection level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/SimpleAddress?f=json). They can be used to download specific records.
 {"href":"http://test.haleconnect.de/ogcapi/datasets/simplified-addresses/collections/SimpleAddress/items?bulk=true","rel":"enclosure","type":"application/xml","title":"Download all features as GML"} or 
 {"href":"http://test.haleconnect.de/ogcapi/datasets/simplified-addresses/collections/SimpleAddress/items","rel":"items","type":"application/gml+xml;version=3.2","title":"Features as GML"} (use parameter f=xml)
 
 ***RQ 9:Dutch API design rules***  
+
 It complies with all the rules, except for rule https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48.
 This rule in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. On the other end, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
 It is expected that in future, this ADR-rule will make an exception for the landingpage.
 
 ***RQ 10:describing encoding***  
+
 There is a link to https://github.com/INSPIRE-MIF/2017.2/blob/master/GeoJSON/ads at [/collections/collection level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json).
 {"href":"https://github.com/INSPIRE-MIF/2017.2/tree/master/GeoJSON/ads","rel":"describedby","type":"text/html","title":"Encoding description"}
 
 ***RQ 11:filtering***  
+
 For the use of filters, the bbox and items options were already available. 
 The specification for filtering [[PUB-6]] does not yet have the status "approved" and has not yet been considered.
 
 ***RQ 12:metadata links***  
+
 1. Metadata link of the dataset can be found at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json).
 {"href":"https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83","rel":"describedby","type":"text/html","title":"Metadata"}  
 2. Metadata of the service can be obtained from: https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/openapi and https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/SimpleAddress.
 
 ***Other findings***
+
 More information about the Deegree adjustments to the standards can be found at https://www.geonovum.nl/uploads/documents/deegree%20OGC%20API%20Features.pdf
 
 ### General findings
