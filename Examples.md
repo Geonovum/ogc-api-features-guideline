@@ -18,7 +18,7 @@ The following findings show how Pygeoapi complies to the requirements.
 
 ***RQ 1:OGC API Features Core*** 
 
-The OGC CITE validator gave no error.
+The OGC CITE validator gave no error at the landing page https://apitestbed.geonovum.nl/adr_pygeoapi/v1.
 
 ***RQ 4:predefined download***  
 
@@ -154,7 +154,7 @@ The following findings show how Geoserver complies to the requirements.
 
 ***RQ 1:OGC API Features Core***  
 
-The OGC CITE validator gave no error.
+The OGC CITE validator gave no error at the landingpage https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1.
 
 ***RQ 4:predefined download***  
 
@@ -232,7 +232,7 @@ The following findings show how Geoserver complies to the requirements.
 
 ***RQ 1:OGC API Features Core***  
 
-The OGC CITE validator gave no error.
+The OGC CITE validator gave no error at the landingpage https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1.
 
 ***RQ 4:predefined download***  
 
