@@ -12,7 +12,7 @@ All demo services used the same selection of the Dutch INSPIRE Addresses in a GM
 
 Per tool, findings are elaborated in the next chapters when relevant.
 
-#### Pygeoapi versus requirements
+### Pygeoapi versus requirements
 
 The following findings show how Pygeoapi complies to the requirements.
 
