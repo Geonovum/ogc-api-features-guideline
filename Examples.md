@@ -299,11 +299,11 @@ The specification for filtering [[PUB-6]] does not yet have the status "approved
 
 ***RQ 12:metadata links***  
 
-1. Metadata link of the dataset can be found at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json).
+Metadata link of the dataset can be found at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json).
 
 '{"href":"https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83","rel":"describedby","type":"text/html","title":"Metadata"}'
 
-2. Metadata of the service can be obtained from: https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/openapi and https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/SimpleAddress.
+Metadata of the service can be obtained from: https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/openapi and https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/SimpleAddress.
 
 ***Other findings***
 
