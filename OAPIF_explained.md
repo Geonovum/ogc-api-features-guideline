@@ -1,4 +1,4 @@
-## What is OGC API Features
+## OGC API Features explained
 
 OGC API Features (OAPIF) is a multi-part standard that offers the capability to create, modify, and query spatial data on the Web and specifies requirements and recommendations for APIs that want to follow a standard way of sharing feature data. 
 The specification is a multi-part document. [[PUB-1]], [[PUB-5]], [[PUB-6]].
