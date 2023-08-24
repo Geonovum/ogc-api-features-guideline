@@ -21,6 +21,7 @@ The OGC CITE validator gave no error.
 
 ***RQ 4:predefined download***  
 link to metadata of dataset: passed at /collections/AddressesNL and at /collections level:
+
         {
             "type": "text/html",
             "rel": "describedby",
@@ -35,7 +36,9 @@ link to metadata of dataset: passed at /collections/AddressesNL and at /collecti
             "href": "https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83/formatters/xml",
             "hreflang": "nl"
         }
+        
 link to INSPIRE feature concept dictionary: passed at /collections/AddressesNL and at /collections level
+
         {
             "type": "text/html",
             "rel": "tag",
@@ -43,7 +46,9 @@ link to INSPIRE feature concept dictionary: passed at /collections/AddressesNL a
             "href": "https://inspire.ec.europa.eu/featureconcept/Address",
             "hreflang": "en"
         }
+        
 link to the license: passed at /collections/AddressesNL and at /collections level
+
         {
             "type": "text/html",
             "rel": "license",
@@ -51,6 +56,7 @@ link to the license: passed at /collections/AddressesNL and at /collections leve
             "href": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
             "hreflang": "en"
         }
+
 See also https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections?f=json and 
 https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json
 
@@ -205,13 +211,13 @@ The OGC CITE validator gave no error.
 
 ***RQ 4:predefined download***  
 link to metadata of dataset: passed at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json).
-{"href":"https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83","rel":"describedby","type":"text/html","title":"Metadata"}  
+`{"href":"https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83","rel":"describedby","type":"text/html","title":"Metadata"}`
 
 link to INSPIRE feature concept dictionary: passed at [/collections/collection level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/SimpleAddress?f=json) and at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json).
-{"href":"https://inspire.ec.europa.eu/featureconcept/Address","rel":"tag","type":"text/html","title":"Feature concept Address"}
+`{"href":"https://inspire.ec.europa.eu/featureconcept/Address","rel":"tag","type":"text/html","title":"Feature concept Address"}`
 
 link to the license: passed at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json).
-{"href":"http://creativecommons.org/publicdomain/zero/1.0/deed.nl","rel":"license","type":"text/html","title":"License"}
+`{"href":"http://creativecommons.org/publicdomain/zero/1.0/deed.nl","rel":"license","type":"text/html","title":"License"}`
 
 ***RQ 5:GeoJSON***
 Items can be retrieved in Geo+Json by:  
