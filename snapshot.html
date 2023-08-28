@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="nl"><head>
+<!DOCTYPE html><html lang="en"><head>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
 <meta name="generator" content="ReSpec 34.1.4">
@@ -350,33 +350,33 @@ By doing this, a greater goal is reached: A better use of Inspire data. Secondly
   </a> <h1 id="title" class="title">OGC API Features Guideline</h1>
     
     <h2>
-      Geonovum Handreiking<br>
-      Werkversie
-      <time class="dt-published" datetime="2023-08-24">24 augustus 2023</time>
+      Geonovum Guide<br>
+      Editor's draft
+      <time class="dt-published" datetime="2023-08-28">August 28, 2023</time>
     </h2>
     <dl>
       
       
-      <dt>Laatste werkversie:</dt><dd><a href="https://geonovum.github.io/ogc-api-features-guideline/">https://geonovum.github.io/ogc-api-features-guideline/</a></dd>
+      <dt>Latest editor's draft:</dt><dd><a href="https://geonovum.github.io/ogc-api-features-guideline/">https://geonovum.github.io/ogc-api-features-guideline/</a></dd>
       
       
       
       
       
-      <dt>Redacteur:</dt>
+      <dt>Editor:</dt>
       <dd class="editor p-author h-card vcard">
     <span class="p-name fn">Pieter Bresters</span> (<a class="p-org org h-org" href="https://www.geonovum.nl">Geonovum</a>)
   </dd>
       
-      <dt>Auteur:</dt><dd class="editor p-author h-card vcard">
+      <dt>Author:</dt><dd class="editor p-author h-card vcard">
     <span class="p-name fn">Pieter Bresters</span> (<a class="p-org org h-org" href="https://www.geonovum.nl">Geonovum</a>)
   </dd>
-      <dt>Doe mee:</dt><dd>
+      <dt>Participate:</dt><dd>
     <a href="https://github.com/Geonovum/ogc-api-features-guideline/">GitHub Geonovum/ogc-api-features-guideline</a>
   </dd><dd>
-    <a href="https://github.com/Geonovum/ogc-api-features-guideline/issues/">Dien een melding in</a>
+    <a href="https://github.com/Geonovum/ogc-api-features-guideline/issues/">File an issue</a>
   </dd><dd>
-    <a href="https://github.com/Geonovum/ogc-api-features-guideline/commits/">Revisiehistorie</a>
+    <a href="https://github.com/Geonovum/ogc-api-features-guideline/commits/">Commit history</a>
   </dd><dd>
     <a href="https://github.com/Geonovum/ogc-api-features-guideline/pulls/">Pull requests</a>
   </dd>
@@ -384,11 +384,11 @@ By doing this, a greater goal is reached: A better use of Inspire data. Secondly
     
     
     <p>
-          Dit document is ook beschikbaar in dit niet-normatieve formaat:
+          This document is also available in these non-normative format:
           <a rel="alternate" href="Guideline.pdf">pdf</a>
         </p>
     <p class="copyright">
-          Dit document valt onder de volgende licentie: 
+          This document is licensed under 
           <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://tools.geostandaarden.nl/respec/style/logos/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
         </p>
     <hr title="Separator for header">
@@ -410,7 +410,7 @@ The data needs to be flattened and converted into simple encodings like the GeoJ
 Another barrier is the support for coordinate reference system (CRS): ETRS89 which is required by INSPIRE. Officially, only WGS84 is supported in GeoJSON.
 New standards like OGC-API-Features - part 2 and an extension to GeoJSON (JSON FG) will help to solve this CRS problem, once tooling has adjusted to them.</p>
 </section>
-  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen stabiel document.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#H01"><bdi class="secno">1. </bdi>OGC API Features explained</a></li><li class="tocline"><a class="tocxref" href="#H02"><bdi class="secno">2. </bdi>Roadmap for data providers</a></li><li class="tocline"><a class="tocxref" href="#H03"><bdi class="secno">3. </bdi>Requirements</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ogc-api-features-core"><bdi class="secno">3.1 </bdi>OGC API Features Core</a></li><li class="tocline"><a class="tocxref" href="#inpsire-mif-document-setting-up-an-inspire-download-service-based-on-the-ogc-api-features-standard"><bdi class="secno">3.2 </bdi>INPSIRE-MIF document: Setting up an INSPIRE Download service based on the OGC API-Features standard</a></li><li class="tocline"><a class="tocxref" href="#multilinguality"><bdi class="secno">3.3 </bdi>Multilinguality</a></li><li class="tocline"><a class="tocxref" href="#predefined-download"><bdi class="secno">3.4 </bdi>Predefined download</a></li><li class="tocline"><a class="tocxref" href="#geojson"><bdi class="secno">3.5 </bdi>GeoJSON</a></li><li class="tocline"><a class="tocxref" href="#bulk-download"><bdi class="secno">3.6 </bdi>Bulk download</a></li><li class="tocline"><a class="tocxref" href="#crs-etrs89-and-wgs84"><bdi class="secno">3.7 </bdi>CRS ETRS89 and WGS84</a></li><li class="tocline"><a class="tocxref" href="#gml"><bdi class="secno">3.8 </bdi>GML</a></li><li class="tocline"><a class="tocxref" href="#dutch-api-design-rules"><bdi class="secno">3.9 </bdi>Dutch API design rules</a></li><li class="tocline"><a class="tocxref" href="#describing-encoding"><bdi class="secno">3.10 </bdi>Describing encoding</a></li><li class="tocline"><a class="tocxref" href="#filtering"><bdi class="secno">3.11 </bdi>Filtering</a></li><li class="tocline"><a class="tocxref" href="#metadata-links"><bdi class="secno">3.12 </bdi>Metadata links</a></li><li class="tocline"><a class="tocxref" href="#relevant-documentation"><bdi class="secno">3.13 </bdi>Relevant documentation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#H04"><bdi class="secno">4. </bdi>test hoofdstuk</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">5. </bdi>Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">6. </bdi>Lijst met figuren</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Begrippen gedefinieerd door deze specificatie</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Begrippen gedefinieerd door verwijzing</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normatieve-referenties"><bdi class="secno">B.1 </bdi>Normatieve referenties</a></li></ol></li></ol></nav>
+  <section id="sotd" class="introductory"><h2>Status of this document</h2><p>This is a working draft that can be changed, removed or replaced by other documents at any time. It is not a stable document.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of this document</a></li><li class="tocline"><a class="tocxref" href="#H01"><bdi class="secno">1. </bdi>OGC API Features explained</a></li><li class="tocline"><a class="tocxref" href="#H02"><bdi class="secno">2. </bdi>Roadmap for data providers</a></li><li class="tocline"><a class="tocxref" href="#H03"><bdi class="secno">3. </bdi>Requirements</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ogc-api-features-core"><bdi class="secno">3.1 </bdi>OGC API Features Core</a></li><li class="tocline"><a class="tocxref" href="#inpsire-mif-document-setting-up-an-inspire-download-service-based-on-the-ogc-api-features-standard"><bdi class="secno">3.2 </bdi>INPSIRE-MIF document: Setting up an INSPIRE Download service based on the OGC API-Features standard</a></li><li class="tocline"><a class="tocxref" href="#multilinguality"><bdi class="secno">3.3 </bdi>Multilinguality</a></li><li class="tocline"><a class="tocxref" href="#predefined-download"><bdi class="secno">3.4 </bdi>Predefined download</a></li><li class="tocline"><a class="tocxref" href="#geojson"><bdi class="secno">3.5 </bdi>GeoJSON</a></li><li class="tocline"><a class="tocxref" href="#bulk-download"><bdi class="secno">3.6 </bdi>Bulk download</a></li><li class="tocline"><a class="tocxref" href="#crs-etrs89-and-wgs84"><bdi class="secno">3.7 </bdi>CRS ETRS89 and WGS84</a></li><li class="tocline"><a class="tocxref" href="#gml"><bdi class="secno">3.8 </bdi>GML</a></li><li class="tocline"><a class="tocxref" href="#dutch-api-design-rules"><bdi class="secno">3.9 </bdi>Dutch API design rules</a></li><li class="tocline"><a class="tocxref" href="#describing-encoding"><bdi class="secno">3.10 </bdi>Describing encoding</a></li><li class="tocline"><a class="tocxref" href="#filtering"><bdi class="secno">3.11 </bdi>Filtering</a></li><li class="tocline"><a class="tocxref" href="#metadata-links"><bdi class="secno">3.12 </bdi>Metadata links</a></li><li class="tocline"><a class="tocxref" href="#relevant-documentation"><bdi class="secno">3.13 </bdi>Relevant documentation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#H04"><bdi class="secno">4. </bdi>test hoofdstuk</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">5. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">6. </bdi>List of Figures</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Terms defined by this specification</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Terms defined by reference</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">B.1 </bdi>Normative references</a></li></ol></li></ol></nav>
 
   
   <section id="H01"><div class="header-wrapper"><h2 id="x1-ogc-api-features-explained"><bdi class="secno">1. </bdi>OGC API Features explained</h2><a class="self-link" href="#H01" aria-label="Permalink for Section 1."></a></div>
@@ -595,7 +595,7 @@ It does not make the use of <a href="https://oai.github.io/Documentation/specifi
 <p>&nbsp;&nbsp;&nbsp;
       </p><figure id="fig-validation-on-the-ogc-standards-for-oapif">
         <img src="media/INSPIRE_validator_OAPIF.png" alt="INSPIRE Validator">
-        <figcaption><a class="self-link" href="#fig-validation-on-the-ogc-standards-for-oapif">Figuur <bdi class="figno">1</bdi></a> <span class="fig-title">Validation on the OGC standards for OAPIF</span></figcaption>
+        <figcaption><a class="self-link" href="#fig-validation-on-the-ogc-standards-for-oapif">Figure <bdi class="figno">1</bdi></a> <span class="fig-title">Validation on the OGC standards for OAPIF</span></figcaption>
       </figure>
     <p></p>
 </section><section id="inpsire-mif-document-setting-up-an-inspire-download-service-based-on-the-ogc-api-features-standard"><div class="header-wrapper"><h3 id="x3-2-inpsire-mif-document-setting-up-an-inspire-download-service-based-on-the-ogc-api-features-standard"><bdi class="secno">3.2 </bdi>INPSIRE-MIF document: Setting up an INSPIRE Download service based on the OGC API-Features standard</h3><a class="self-link" href="#inpsire-mif-document-setting-up-an-inspire-download-service-based-on-the-ogc-api-features-standard" aria-label="Permalink for Section 3.2"></a></div>
@@ -650,19 +650,19 @@ The <a href="https://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_api_defi
 test</p>
 </section>
   
-  <section id="conformance"><div class="header-wrapper"><h2 id="x5-conformiteit"><bdi class="secno">5. </bdi>Conformiteit</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 5."></a></div><p>Naast onderdelen die als niet normatief gemarkeerd zijn, zijn ook alle diagrammen, voorbeelden, en noten in dit document niet normatief. Verder is alles in dit document normatief.</p></section>
-  <section id="tof"><div class="header-wrapper"><h2 id="x6-lijst-met-figuren"><bdi class="secno">6. </bdi>Lijst met figuren</h2><a class="self-link" href="#tof" aria-label="Permalink for Section 6."></a></div><ul class="tof">
+  <section id="conformance"><div class="header-wrapper"><h2 id="x5-conformance"><bdi class="secno">5. </bdi>Conformance</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 5."></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p></section>
+  <section id="tof"><div class="header-wrapper"><h2 id="x6-list-of-figures"><bdi class="secno">6. </bdi>List of Figures</h2><a class="self-link" href="#tof" aria-label="Permalink for Section 6."></a></div><ul class="tof">
         <li class="tofline">
-    <a class="tocxref" href="#fig-validation-on-the-ogc-standards-for-oapif"><span class="self-link">Figuur <bdi class="figno">1</bdi></span> <span class="fig-title">Validation on the OGC standards for OAPIF</span></a>
+    <a class="tocxref" href="#fig-validation-on-the-ogc-standards-for-oapif"><span class="self-link">Figure <bdi class="figno">1</bdi></span> <span class="fig-title">Validation on the OGC standards for OAPIF</span></a>
   </li>
       </ul></section>
   <section id="index" class="appendix"><div class="header-wrapper"><h2 id="a-index"><bdi class="secno">A. </bdi>Index</h2><a class="self-link" href="#index" aria-label="Permalink for Appendix A."></a></div><section id="index-defined-here">
-    <div class="header-wrapper"><h3 id="a-1-begrippen-gedefinieerd-door-deze-specificatie"><bdi class="secno">A.1 </bdi>Begrippen gedefinieerd door deze specificatie</h3><a class="self-link" href="#index-defined-here" aria-label="Permalink for Appendix A.1"></a></div>
+    <div class="header-wrapper"><h3 id="a-1-terms-defined-by-this-specification"><bdi class="secno">A.1 </bdi>Terms defined by this specification</h3><a class="self-link" href="#index-defined-here" aria-label="Permalink for Appendix A.1"></a></div>
     <ul class="index">
     
   </ul>
   </section><section id="index-defined-elsewhere">
-    <div class="header-wrapper"><h3 id="a-2-begrippen-gedefinieerd-door-verwijzing"><bdi class="secno">A.2 </bdi>Begrippen gedefinieerd door verwijzing</h3><a class="self-link" href="#index-defined-elsewhere" aria-label="Permalink for Appendix A.2"></a></div>
+    <div class="header-wrapper"><h3 id="a-2-terms-defined-by-reference"><bdi class="secno">A.2 </bdi>Terms defined by reference</h3><a class="self-link" href="#index-defined-elsewhere" aria-label="Permalink for Appendix A.2"></a></div>
     <ul class="index">
     
   </ul>
@@ -670,8 +670,8 @@ test</p>
 
 
 
-<section id="references" class="appendix"><div class="header-wrapper"><h2 id="b-referenties"><bdi class="secno">B. </bdi>Referenties</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix B."></a></div><section id="normatieve-referenties">
-    <div class="header-wrapper"><h3 id="b-1-normatieve-referenties"><bdi class="secno">B.1 </bdi>Normatieve referenties</h3><a class="self-link" href="#normatieve-referenties" aria-label="Permalink for Appendix B.1"></a></div>
+<section id="references" class="appendix"><div class="header-wrapper"><h2 id="b-references"><bdi class="secno">B. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix B."></a></div><section id="normative-references">
+    <div class="header-wrapper"><h3 id="b-1-normative-references"><bdi class="secno">B.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix B.1"></a></div>
     <dl class="bibliography"><dt id="bib-pub-1">[PUB-1]</dt><dd>
       <a href="https://docs.opengeospatial.org/is/17-069r4/17-069r4.html"><cite>OGC API Features Part1:Core</cite></a>.  OGC. V1.0. URL: <a href="https://docs.opengeospatial.org/is/17-069r4/17-069r4.html">https://docs.opengeospatial.org/is/17-069r4/17-069r4.html</a>
     </dd><dt id="bib-pub-2">[PUB-2]</dt><dd>
@@ -909,4 +909,4 @@ function hidePanel(panel) {
   panel.hidden = true;
   panel.classList.remove("docked");
 }
-})()</script><div class="sidelabel">Geonovum Handreiking - Werkversie</div><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
+})()</script><div class="sidelabel">Geonovum Guide - Editor's draft</div><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
