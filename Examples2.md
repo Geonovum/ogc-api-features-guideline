@@ -23,41 +23,14 @@ The OGC CITE validator gave no error at the landing page https://apitestbed.geon
 ***RQ 4:predefined download***  
 
 Link to metadata of dataset: passed at /collections/AddressesNL and at /collections level:
-
-        `{
+`
+        {
             "type": "text/html",
             "rel": "describedby",
             "title": "Metadata as HTML",
             "href": "https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83",
             "hreflang": "nl"
         }`,
-        `{
-            "type": "application/xml",
-            "rel": "describedby",
-            "title": "Metadata as ISO 19139 XML",
-            "href": "https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83/formatters/xml",
-            "hreflang": "nl"
-        }`
-        
-Link to INSPIRE feature concept dictionary: passed at /collections/AddressesNL and at /collections level
-
-        `{
-            "type": "text/html",
-            "rel": "tag",
-            "title": "INSPIRE feature concept dictionary for addresses",
-            "href": "https://inspire.ec.europa.eu/featureconcept/Address",
-            "hreflang": "en"
-        }`
-        
-Link to the license: passed at /collections/AddressesNL and at /collections level
-
-        `{
-            "type": "text/html",
-            "rel": "license",
-            "title": "CC0 1.0 Public Domain license",
-            "href": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
-            "hreflang": "en"
-        }`
 
 See also https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections?f=json and 
 https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json
