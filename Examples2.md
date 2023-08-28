@@ -22,7 +22,7 @@ The OGC CITE validator gave no error at the landing page https://apitestbed.geon
 
 ***RQ 4:predefined download***  
 
-link to metadata of dataset: passed at /collections/AddressesNL and at /collections level:
+Link to metadata of dataset: passed at /collections/AddressesNL and at /collections level:
 
         `{
             "type": "text/html",
@@ -30,8 +30,8 @@ link to metadata of dataset: passed at /collections/AddressesNL and at /collecti
             "title": "Metadata as HTML",
             "href": "https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83",
             "hreflang": "nl"
-        },
-        {
+        }`,
+        `{
             "type": "application/xml",
             "rel": "describedby",
             "title": "Metadata as ISO 19139 XML",
@@ -39,7 +39,7 @@ link to metadata of dataset: passed at /collections/AddressesNL and at /collecti
             "hreflang": "nl"
         }`
         
-link to INSPIRE feature concept dictionary: passed at /collections/AddressesNL and at /collections level
+Link to INSPIRE feature concept dictionary: passed at /collections/AddressesNL and at /collections level
 
         `{
             "type": "text/html",
@@ -49,7 +49,7 @@ link to INSPIRE feature concept dictionary: passed at /collections/AddressesNL a
             "hreflang": "en"
         }`
         
-link to the license: passed at /collections/AddressesNL and at /collections level
+Link to the license: passed at /collections/AddressesNL and at /collections level
 
         `{
             "type": "text/html",
