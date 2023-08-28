@@ -22,15 +22,11 @@ The OGC CITE validator gave no error at the landing page https://apitestbed.geon
 
 ***RQ 4:predefined download***  
 
-Link to metadata of dataset: passed at /collections/AddressesNL and at /collections level:
-`
-        {
-            "type": "text/html",
-            "rel": "describedby",
-            "title": "Metadata as HTML",
-            "href": "https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83",
-            "hreflang": "nl"
-        }`,
+Link to metadata of dataset: passed at /collections/AddressesNL and at /collections level:  
+
+`{"href": "https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83",
+            "hreflang": "nl", "type": "text/html", "rel": "describedby", "title": "Metadata as HTML"}`
+            
 
 See also https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections?f=json and 
 https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json
