@@ -22,42 +22,35 @@ The OGC CITE validator gave no error at the landing page https://apitestbed.geon
 
 ***RQ 4:predefined download***  
 
-link to metadata of dataset: passed at /collections/AddressesNL and at /collections level:
+Link to metadata of dataset: passed at /collections/AddressesNL and at /collections level:  
 
-        {
-            "type": "text/html",
-            "rel": "describedby",
-            "title": "Metadata as HTML",
-            "href": "https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83",
-            "hreflang": "nl"
-        },
-        {
-            "type": "application/xml",
-            "rel": "describedby",
-            "title": "Metadata as ISO 19139 XML",
-            "href": "https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83/formatters/xml",
-            "hreflang": "nl"
-        }
+`{"href": "https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83",
+  "hreflang": "nl",
+  "type": "text/html",
+  "rel": "describedby",
+  "title": "Metadata as HTML"}`
+
+`{"href": "https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83/formatters/xml",
+  "hreflang": "nl",
+  "type": "application/xml",
+  "rel": "describedby",
+  "title": "Metadata as ISO 19139 XML"}`
         
-link to INSPIRE feature concept dictionary: passed at /collections/AddressesNL and at /collections level
+Link to INSPIRE feature concept dictionary: passed at /collections/AddressesNL and at /collections level:  
 
-        {
-            "type": "text/html",
-            "rel": "tag",
-            "title": "INSPIRE feature concept dictionary for addresses",
-            "href": "https://inspire.ec.europa.eu/featureconcept/Address",
-            "hreflang": "en"
-        }
+`{"href": "https://inspire.ec.europa.eu/featureconcept/Address",
+  "hreflang": "en",
+  "type": "text/html",
+  "rel": "tag",
+  "title": "INSPIRE feature concept dictionary for addresses"}`
         
-link to the license: passed at /collections/AddressesNL and at /collections level
+Link to the license: passed at /collections/AddressesNL and at /collections level:  
 
-        {
-            "type": "text/html",
-            "rel": "license",
-            "title": "CC0 1.0 Public Domain license",
-            "href": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
-            "hreflang": "en"
-        }
+`{"href": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "hreflang": "en",
+  "type": "text/html",
+  "rel": "license",
+  "title": "CC0 1.0 Public Domain license"}`
 
 See also https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections?f=json and 
 https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json
@@ -74,14 +67,12 @@ Link to bulkdownload of dataset: passed at /collections/AddressesNL and at /coll
 See also https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections?f=json and   
 https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json
 
-        {
-            "type": "application/x-gmz",
-            "rel": "enclosure",
-            "title": "Download complete dataset as GML",
-            "href": "https://service.pdok.nl/kadaster/ad/atom/downloads/addresses.gml.gz",
-            "hreflang": "nl",
-            "length": 685450191
-        },
+`{"href": "https://service.pdok.nl/kadaster/ad/atom/downloads/addresses.gml.gz",
+  "hreflang": "nl",
+  "length": 685450191,
+  "type": "application/x-gmz",
+  "rel": "enclosure",
+  "title": "Download complete dataset as GML"}`
 
 ***RQ 7:CRS ETRS89 and WGS84***
 
@@ -114,15 +105,14 @@ It is expected that in future, this ADR-rule will make an exception for the land
 
 ***RQ 10:describing encoding***  
 
-There is a link to https://github.com/INSPIRE-MIF/2017.2/tree/master/GeoJSON/ads at [colection/AddressesNL level](https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json )
+There is a link to https://github.com/INSPIRE-MIF/2017.2/tree/master/GeoJSON/ads at [colection/AddressesNL level](https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json )  
 
-        {
-            "type": "text/html",
-            "rel": "about",
-            "title": "Description of the encoding",
-            "href": "https://github.com/INSPIRE-MIF/2017.2/tree/master/GeoJSON/ads",
-            "hreflang": "en"
-        },
+`{"href": "https://github.com/INSPIRE-MIF/2017.2/tree/master/GeoJSON/ads",
+  "hreflang": "en",
+  "type": "text/html",
+  "rel": "about",
+  "title": "Description of the encoding"}`  
+          
 
 ***RQ 11:filtering***  
 
@@ -132,15 +122,13 @@ The specification for filtering [[PUB-6]] does not yet have the status "approved
 
 ***RQ 12:metadata links***  
 
-1. Metadata link of the dataset can be found at [/collections/AddressesNL level](https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json):
+1. Metadata link of the dataset can be found at [/collections/AddressesNL level](https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json):  
 
-        {
-            "type": "text/html",
-            "rel": "describedby",
-            "title": "Metadata as HTML",
-            "href": "https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83",
-            "hreflang": "nl"
-        } 
+`{"href": "https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83",
+  "hreflang": "nl"
+  "type": "text/html",
+  "rel": "describedby",
+  "title": "Metadata as HTML"}` 
 
 2. Metadata of the service can be obtained from: https://apitestbed.geonovum.nl/adr_pygeoapi/v1/openapi?f=json and https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL.
 
