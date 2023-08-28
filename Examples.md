@@ -23,7 +23,6 @@ The OGC CITE validator gave no error at the landing page https://apitestbed.geon
 ***RQ 4:predefined download***  
 
 Link to metadata of dataset: passed at /collections/AddressesNL and at /collections level:  
-
 `{"href": "https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83",
   "hreflang": "nl",
   "type": "text/html",
@@ -37,7 +36,6 @@ Link to metadata of dataset: passed at /collections/AddressesNL and at /collecti
   "title": "Metadata as ISO 19139 XML"}`
         
 Link to INSPIRE feature concept dictionary: passed at /collections/AddressesNL and at /collections level:  
-
 `{"href": "https://inspire.ec.europa.eu/featureconcept/Address",
   "hreflang": "en",
   "type": "text/html",
@@ -45,7 +43,6 @@ Link to INSPIRE feature concept dictionary: passed at /collections/AddressesNL a
   "title": "INSPIRE feature concept dictionary for addresses"}`
         
 Link to the license: passed at /collections/AddressesNL and at /collections level:  
-
 `{"href": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
   "hreflang": "en",
   "type": "text/html",
@@ -66,7 +63,6 @@ Link to bulkdownload of dataset: passed at /collections/AddressesNL and at /coll
 
 See also https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections?f=json and   
 https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json
-
 `{"href": "https://service.pdok.nl/kadaster/ad/atom/downloads/addresses.gml.gz",
   "hreflang": "nl",
   "length": 685450191,
@@ -105,8 +101,7 @@ It is expected that in future, this ADR-rule will make an exception for the land
 
 ***RQ 10:describing encoding***  
 
-There is a link to https://github.com/INSPIRE-MIF/2017.2/tree/master/GeoJSON/ads at [colection/AddressesNL level](https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json )  
-
+There is a link to https://github.com/INSPIRE-MIF/2017.2/tree/master/GeoJSON/ads at [colection/AddressesNL level](https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json ):  
 `{"href": "https://github.com/INSPIRE-MIF/2017.2/tree/master/GeoJSON/ads",
   "hreflang": "en",
   "type": "text/html",
@@ -123,7 +118,6 @@ The specification for filtering [[PUB-6]] does not yet have the status "approved
 ***RQ 12:metadata links***  
 
 1. Metadata link of the dataset can be found at [/collections/AddressesNL level](https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json):  
-
 `{"href": "https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83",
   "hreflang": "nl"
   "type": "text/html",
@@ -146,13 +140,13 @@ The OGC CITE validator gave no error at the landingpage https://geonovum.geosolu
 
 ***RQ 4:predefined download***  
 
-link to metadata of dataset: passed at [/collections/collection level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses?f=json) and at [/collections level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections?f=json). 
+Link to metadata of dataset: passed at [/collections/collection level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses?f=json) and at [/collections level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections?f=json). 
 `{"href":"https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83/formatters/xml?approved=true","rel":"describedBy","type":"application/xml","title":"ISO metadata for this dataset"}`
   
-link to INSPIRE feature concept dictionary: passed at [/collections/collection level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses?f=json). 
+Link to INSPIRE feature concept dictionary: passed at [/collections/collection level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses?f=json). 
 `{"href":"https://inspire.ec.europa.eu/featureconcept/Address","rel":"tag","type":"text/html","title":"INSPIRE Address feature concept."}`
 
-link to the license: passed at [/collections level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections?f=json). 
+Link to the license: passed at [/collections level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections?f=json). 
 `{"href":"http://creativecommons.org/publicdomain/zero/1.0/deed.nl","rel":"license","type":"text/html","title":"Dataset license."}`
 
 ***RQ 5:GeoJSON***
@@ -224,14 +218,13 @@ The OGC CITE validator gave no error at the landingpage https://test.haleconnect
 
 ***RQ 4:predefined download***  
 
-link to metadata of dataset: passed at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json). 
-
+Link to metadata of dataset: passed at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json):  
 `{"href":"https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83","rel":"describedby","type":"text/html","title":"Metadata"}`
 
-link to INSPIRE feature concept dictionary: passed at [/collections/collection level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/SimpleAddress?f=json) and at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json). 
+Link to INSPIRE feature concept dictionary: passed at [/collections/collection level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/SimpleAddress?f=json) and at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json):  
 `{"href":"https://inspire.ec.europa.eu/featureconcept/Address","rel":"tag","type":"text/html","title":"Feature concept Address"}`
 
-link to the license: passed at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json). 
+Link to the license: passed at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json):  
 `{"href":"http://creativecommons.org/publicdomain/zero/1.0/deed.nl","rel":"license","type":"text/html","title":"License"}`
 
 ***RQ 5:GeoJSON***
@@ -288,8 +281,7 @@ The specification for filtering [[PUB-6]] does not yet have the status "approved
 
 ***RQ 12:metadata links***  
 
-Metadata link of the dataset can be found at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json).
-
+Metadata link of the dataset can be found at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json):  
 `{"href":"https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83","rel":"describedby","type":"text/html","title":"Metadata"}`
 
 Metadata of the service can be obtained from: https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/openapi and https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/SimpleAddress.
