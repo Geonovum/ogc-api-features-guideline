@@ -25,7 +25,8 @@ Consider leaving out the empty fields to reduce the output size or use an option
 - Pygeoapi: https://github.com/Geonovum/ogc-api-testbed/blob/main/docs/docs/howto/howto_pygeoapi.md or https://docs.pygeoapi.io/_/downloads/en/stable/pdf/
 - Geoserver: https://github.com/Geonovum/ogc-api-testbed/blob/main/docs/docs/howto/howto_geoserver.md or https://docs.geoserver.org/latest/en/user/
 - Deegree: https://github.com/deegree/deegree-ogcapi
-15. Validate the OAPIF service with the [INSPIRE validation tool](https://inspire.ec.europa.eu/validator/home/index.html) and the [Dutch ADR-validator](https://gitlab.com/commonground/don/adr-validator/-/blob/main/README.md?ref_type=heads)adjust where possible to be compliant.
+15. Validate the OAPIF service with the [INSPIRE validation tool](https://inspire.ec.europa.eu/validator/home/index.html) and the [Dutch ADR-validator](https://gitlab.com/commonground/don/adr-validator/-/blob/main/README.md?ref_type=heads) 
+Adjust where possible to be compliant.
 It should be noted that the INSPIRE-validator is the same as the [OGC validator](https://cite.opengeospatial.org/teamengine/about/ogcapi-features-1.0/1.0/site/) and that it does not test the specific INSPIRE requirements.
 
 
