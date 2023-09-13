@@ -399,11 +399,12 @@ Data providers are recommended to first orientate on the possible work of other 
 
   
   <section id="H01"><div class="header-wrapper"><h2 id="x1-ogc-api-features-explained"><bdi class="secno">1. </bdi>OGC API Features explained</h2><a class="self-link" href="#H01" aria-label="Permalink for Section 1."></a></div>
-<p>OGC API Features (OAPIF) is a multi-part standard that offers the capability to create, modify, and query spatial data on the Web and specifies requirements and recommendations for APIs that want to follow a standard way of sharing feature data. 
+<p>OGC API Features (OAPIF) is a multi-part standard for services that offer the capability to create, modify, and query spatial data on the Web. 
+It specifies requirements and recommendations for APIs that want to follow a standard way of sharing feature data. 
 The specification is a multi-part document. [<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-1" title="OGC API Features Part1:Core">PUB-1</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-5" title="OGC API - Features - Part 2: Coordinate Reference Systems by Reference">PUB-5</a></cite>], [<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-6" title="OGC API - Features - Part 3: Filtering and the Common Query Language (CQL)">PUB-6</a></cite>].</p>
 <p>OAPIF is also the term used for a feature download service by means of an API (Application Program Interface) based on OGC standards. 
 OAPIF has been considered as follow up for the OGC WFS standard, but that does not mean it will replace it in the near future, although it might happen in a later future.
-They are complementary to each other. Where WFS is mainly known and used in the GIS community, the OAPIF is aiming at the non GIS-community, like web developers. 
+At this moment, they are complementary to each other. Where WFS is mainly known and used in the GIS community, the OAPIF is aiming at the non GIS-community, like web developers. 
 OAPIF easier to use and needs less knowledge in the spatial domain.
 Note as well that WFS adopts the Geography Markup Language (GML) as a default data format. In contrast, OAPIF includes recommendations to support HTML and GeoJSON as encodings.
 Implementations of OAPIF may also optionally support GML.</p>
@@ -453,39 +454,44 @@ Implementations of OAPIF may also optionally support GML.</p>
 </tr>
 </tbody></table>
 <p>In the API definition, one can find all the supported encodings (HTML, JSON) and parameters that can be given along with URL like a bounding box or a limit of the amount of features.
-By default, an OAPIF service will provide access to a single dataset. Rather than sharing the data as a complete dataset, the OGC API Features standards offer direct, fine-grained access to the data at the feature (object) level.</p>
-<p>The best way of understanding the concept is looking at the examples that are discussed in the chapter of <a href="#H03">examples</a>.</p>
+By default, an OAPIF service will provide access to a single dataset.
+Rather than sharing the data as a complete dataset, the OGC API Features standards offer direct, fine-grained access to the data at the feature (object) level.</p>
+<p>The best way of understanding the concept is looking at the examples that are discussed in the chapter of <a href="#H04">examples</a>.</p>
 <p>Since providing a download service is an INSPIRE requirement when responsible for an INSPIRE dataset, the use of OAPIF can be considered for this purpose.
 It is even seen as an endorsed <a href="https://inspire.ec.europa.eu/portfolio/good-practice-library/" target="_blank">Good Practice</a> within the INSPIRE community.</p>
 </section>
   <section id="H02"><div class="header-wrapper"><h2 id="x2-roadmap-for-data-providers"><bdi class="secno">2. </bdi>Roadmap for data providers</h2><a class="self-link" href="#H02" aria-label="Permalink for Section 2."></a></div>
-<p>The following steps could be considered to follow:</p>
+<p>The following steps could be considered to follow in order to serve an OGC API Feature service according to the standards:</p>
 <ol>
-<li>Read this document and all the documents in <a href="https://geonovum.github.io/OAPIF-PDOK-INSPIRE/#references">https://geonovum.github.io/OAPIF-PDOK-INSPIRE/#references</a></li>
+<li>Read this document and all the documents in <a href="https://geonovum.github.io/ogc-api-features-guideline/#references">https://geonovum.github.io/ogc-api-features-guideline/#references</a></li>
 <li>Make a choice between publishing by yourself or contact a hosting organization that can help you publish the OAPIF services.</li>
-<li>Look what other data providers have done in this field for the concerning INSPIRE themes and have a look at these examples: <a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/tree/master/deployments">https://github.com/INSPIRE-MIF/gp-ogc-api-features/tree/master/deployments</a>.</li>
-<li>If you diced to serve the OAPIF by yourself, make a choice for the best tooling, while regarding the CRS options (see next step).</li>
-<li>Figure out the best way of supporting more than one CRS, and at least <a href="https://epsg.io/4326">WGS84</a> and <a href="https://epsg.io/4258">ETRS89</a> since the last is the most common in INSPIRE and mostly mandatory, but also provide the <a href="https://www.opengis.net/def/crs/EPSG/0/28992">Dutch RD</a>. If tooling is chosen that is not able to serve more than one CRS, a second INSPIRE download option should be provided that does give the required CRS.</li>
-<li>Decide on the best input encoding for the OAPIF. It depends on the previous steps.</li>
+<li>In case of an INSPIRE-dataset, look what other data providers have done in this field for the concerning INSPIRE themes and have a look at these examples: <a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/tree/master/deployments">https://github.com/INSPIRE-MIF/gp-ogc-api-features/tree/master/deployments</a>.</li>
+<li>If you decided to serve the OAPIF by yourself, make a choice for the best tooling, while regarding the CRS options (see next step).</li>
+<li>Figure out the best way of supporting more than one CRS, at least <a href="https://epsg.io/4326">WGS84</a> and in case of INSPRE also <a href="https://epsg.io/4258">ETRS89</a> since the last is the most common in INSPIRE and mostly mandatory. 
+Dutch providers are also advised to use provide the <a href="https://www.opengis.net/def/crs/EPSG/0/28992">Dutch RD</a>.
+If tooling is chosen that is not able to serve more than one CRS, a second download option should be provided that does give the data in the required CRS.</li>
+<li>Decide on the best input encoding for the OAPIF. It depends on the previous steps and tooling.</li>
 <li>Decide on the best output encoding, which also depends on the previous steps. The tooling used in the examples did a simple 1 to 1 mapping between the input and output encoding. </li>
-<li>If a previously published mapping to an encoding other than GML cannot be found for the concerned INSPIRE theme, research the mapping of your harmonized data to this other encodings together with other INSPIRE data providers in Europe and use the principles as stated in [<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-4" title="INSPIRE UML-to-GeoJSON encoding rule">PUB-4</a></cite>].
+<li>If in case of an INSPIRE-dataset, a previously published mapping to an encoding other than GML cannot be found for the concerned INSPIRE theme, research the mapping of your harmonized data to this other encodings.
+Seek for cooperation with other INSPIRE data providers in Europe and use the principles as stated in [<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-4" title="INSPIRE UML-to-GeoJSON encoding rule">PUB-4</a></cite>].
 Consider leaving out the empty fields to reduce the output size or use an option not to show them.</li>
-<li>Execute the transformation into the chosen input encoding. This can be done with software like <a href="https://wetransform.to/halestudio/">HALE studio</a> or <a href="https://www.safe.com/">FME</a></li>
-<li>If not described before, describe the mapping from the INSPIRE data model to the output encoding of the OAPIF and publish it in order to be INSPIRE compliant.</li>
+<li>If necessary, execute the transformation into the chosen input encoding. This can be done with software like <a href="https://wetransform.to/halestudio/">HALE studio</a> or <a href="https://www.safe.com/">FME</a></li>
+<li>In case of an INSPIRE-dataset, describe the mapping from the INSPIRE data model to the output encoding of the OAPIF and publish it in order to be INSPIRE compliant.</li>
 <li>Adjust your metadata of the dataset with the addition of extra OAPIF service. As long as there is no official protocol defined in <a href="https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue:1">https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue:1</a>, use the extended code list for the protocol in the Dutch metadata standard 2.1.0 (<a href="https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#codelist-protocol">https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#codelist-protocol</a>) contains: "OGC:API features".</li>
-<li>If you host your OAPIF by yourself, research how to make INSPIRE compliant metadata of the OAPIF service. It is probably similar to the metadata of a WFS, except for the protocol element.</li>
-<li>Add all the links as mentioned in the chapter on <a href="#H02">requirements</a> (metadata of dataset, INSPIRE feature concept dictionary, Licence, mapping description, bulk download).</li>
+<li>If you host your OAPIF by yourself, research how to make metadata of the OAPIF service. It is probably similar to the metadata of a WFS, except for the protocol element.</li>
+<li>In case of an Inspire dataset, add all the links as mentioned in the chapter on <a href="#H03">requirements</a> (metadata of dataset, INSPIRE feature concept dictionary, Licence, mapping description, bulk download).</li>
 <li>The steps for final actual publishing of the OAPIF service, depend on the chosen tool, so there the tooling guidelines need to be followed:</li>
 </ol>
 <ul>
 <li>Geonovum testbed: <a href="https://github.com/Geonovum/ogc-api-testbed/tree/main/docs/docs/howto">https://github.com/Geonovum/ogc-api-testbed/tree/main/docs/docs/howto</a> </li>
-<li>GOAF: <a href="https://github.com/PDOK/goaf">https://github.com/PDOK/goaf</a></li>
+<li>GoKoala: <a href="https://github.com/PDOK/gokoala">https://github.com/PDOK/gokoala</a></li>
 <li>Pygeoapi: <a href="https://github.com/Geonovum/ogc-api-testbed/blob/main/docs/docs/howto/howto_pygeoapi.md">https://github.com/Geonovum/ogc-api-testbed/blob/main/docs/docs/howto/howto_pygeoapi.md</a> or <a href="https://docs.pygeoapi.io/_/downloads/en/stable/pdf/">https://docs.pygeoapi.io/_/downloads/en/stable/pdf/</a></li>
 <li>Geoserver: <a href="https://github.com/Geonovum/ogc-api-testbed/blob/main/docs/docs/howto/howto_geoserver.md">https://github.com/Geonovum/ogc-api-testbed/blob/main/docs/docs/howto/howto_geoserver.md</a> or <a href="https://docs.geoserver.org/latest/en/user/">https://docs.geoserver.org/latest/en/user/</a></li>
+<li>Deegree: <a href="https://github.com/deegree/deegree-ogcapi">https://github.com/deegree/deegree-ogcapi</a></li>
 </ul>
 <ol start="15">
-<li>Validate the OAPIF service with the <a href="https://inspire.ec.europa.eu/validator/home/index.html">INSPIRE validation tool</a> and adjust where possible to be compliant.</li>
-<li>When a working INSPIRE OAPIF is published with a well described mapping to the output encoding, it could be shared at <a href="https://github.com/INSPIRE-MIF/2017.2/issues">https://github.com/INSPIRE-MIF/2017.2/issues</a> or <a href="https://github.com/Geonovum/OAPIF-PDOK-INSPIRE/issues">https://github.com/Geonovum/OAPIF-PDOK-INSPIRE/issues</a>.</li>
+<li>Validate the OAPIF service with the <a href="https://inspire.ec.europa.eu/validator/home/index.html">INSPIRE validation tool</a> and the <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/README.md?ref_type=heads">Dutch ADR-validator</a>adjust where possible to be compliant.
+It should be noted that the INSPIRE-validator is the same as the <a href="https://cite.opengeospatial.org/teamengine/about/ogcapi-features-1.0/1.0/site/">OGC validator</a> and that it does not test the specific INSPIRE requirements.</li>
 </ol>
 </section>
   <section id="H03"><div class="header-wrapper"><h2 id="x3-requirements"><bdi class="secno">3. </bdi>Requirements</h2><a class="self-link" href="#H03" aria-label="Permalink for Section 3."></a></div>
