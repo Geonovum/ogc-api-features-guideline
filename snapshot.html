@@ -343,7 +343,7 @@ By doing this, a greater goal is reached: A better use of geospatial data.">
     <h2>
       Geonovum Guide<br>
       Editor's draft
-      <time class="dt-published" datetime="2023-09-13">September 13, 2023</time>
+      <time class="dt-published" datetime="2023-10-10">October 10, 2023</time>
     </h2>
     <dl>
       
@@ -391,9 +391,9 @@ A second important bases is formed by the results of an open tender, held in the
 This guideline describes the requirements, as set out by the standards and uses the demoservices from this open tender as an example how one can comply with the standards.
 The aim of setting up these test beds and this guideline, has been to stimulate the Dutch data providers and hosting organizations to start publishing data as OGC API Features.
 By doing this, a greater goal is reached: A better use of geospatial data.</p>
-<p>A general recommendation to all parties involved is to adjust as much as possible to the existing requirements as stated in this document.
+<p>A general recommendation to all parties involved, is to adjust as much as possible to the existing requirements as stated in this document.
 The most important recommendations for the hosting organizations is to stimulate data providers to start with OGC API features to increase the use of geospatial data according to standards.
-Data providers are recommended to first orientate on the possible work of other data providers in this field. A roadmap is described with the steps needed to be taken by data providers.</p>
+Data providers are recommended to first orientate on the possible work of other data providers in this field. A roadmap is described with the steps needed to be taken by data providers in order to serve OGC-API-Features.</p>
 </section>
   <section id="sotd" class="introductory"><h2>Status of this document</h2><p>This is a working draft that can be changed, removed or replaced by other documents at any time. It is not a stable document.</p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of this document</a></li><li class="tocline"><a class="tocxref" href="#H01"><bdi class="secno">1. </bdi>OGC API Features explained</a></li><li class="tocline"><a class="tocxref" href="#H02"><bdi class="secno">2. </bdi>Roadmap for data providers</a></li><li class="tocline"><a class="tocxref" href="#H03"><bdi class="secno">3. </bdi>Requirements</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ogc-api-features-core"><bdi class="secno">3.1 </bdi>OGC API Features Core</a></li><li class="tocline"><a class="tocxref" href="#inpsire-mif-document-setting-up-an-inspire-download-service-based-on-the-ogc-api-features-standard"><bdi class="secno">3.2 </bdi>INPSIRE-MIF document: Setting up an INSPIRE Download service based on the OGC API-Features standard</a></li><li class="tocline"><a class="tocxref" href="#multilinguality"><bdi class="secno">3.3 </bdi>Multilinguality</a></li><li class="tocline"><a class="tocxref" href="#predefined-download"><bdi class="secno">3.4 </bdi>Predefined download</a></li><li class="tocline"><a class="tocxref" href="#geojson"><bdi class="secno">3.5 </bdi>GeoJSON</a></li><li class="tocline"><a class="tocxref" href="#bulk-download"><bdi class="secno">3.6 </bdi>Bulk download</a></li><li class="tocline"><a class="tocxref" href="#crs-etrs89-and-wgs84"><bdi class="secno">3.7 </bdi>CRS ETRS89 and WGS84</a></li><li class="tocline"><a class="tocxref" href="#gml"><bdi class="secno">3.8 </bdi>GML</a></li><li class="tocline"><a class="tocxref" href="#dutch-api-design-rules"><bdi class="secno">3.9 </bdi>Dutch API design rules</a></li><li class="tocline"><a class="tocxref" href="#describing-encoding"><bdi class="secno">3.10 </bdi>Describing encoding</a></li><li class="tocline"><a class="tocxref" href="#filtering"><bdi class="secno">3.11 </bdi>Filtering</a></li><li class="tocline"><a class="tocxref" href="#metadata-links"><bdi class="secno">3.12 </bdi>Metadata links</a></li><li class="tocline"><a class="tocxref" href="#relevant-documentation"><bdi class="secno">3.13 </bdi>Relevant documentation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#H04"><bdi class="secno">4. </bdi>Examples of implementations after tooladjustments</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#pygeoapi-versus-requirements"><bdi class="secno">4.1 </bdi>Pygeoapi versus requirements</a></li><li class="tocline"><a class="tocxref" href="#geoserver-versus-requirements"><bdi class="secno">4.2 </bdi>Geoserver versus requirements</a></li><li class="tocline"><a class="tocxref" href="#deegree-versus-requirements"><bdi class="secno">4.3 </bdi>Deegree versus requirements</a></li><li class="tocline"><a class="tocxref" href="#general-findings"><bdi class="secno">4.4 </bdi>General findings</a></li><li class="tocline"><a class="tocxref" href="#resulting-documentation"><bdi class="secno">4.5 </bdi>Resulting documentation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">A.1 </bdi>Informative references</a></li></ol></li></ol></nav>
 
@@ -465,117 +465,117 @@ It is even seen as an endorsed <a href="https://inspire.ec.europa.eu/portfolio/g
 <ol>
 <li>Read this document and all the documents in <a href="https://geonovum.github.io/ogc-api-features-guideline/#references">https://geonovum.github.io/ogc-api-features-guideline/#references</a></li>
 <li>Make a choice between publishing by yourself or contact a hosting organization that can help you publish the OAPIF services.</li>
-<li>In case of an INSPIRE-dataset, look what other data providers have done in this field for the concerning INSPIRE themes and have a look at these examples: <a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/tree/master/deployments">https://github.com/INSPIRE-MIF/gp-ogc-api-features/tree/master/deployments</a>.</li>
-<li>If you decided to serve the OAPIF by yourself, make a choice for the best tooling, while regarding the CRS options (see next step).</li>
+<li><strong>In case of an INSPIRE-dataset</strong>, look what other data providers have done in this field for the concerning INSPIRE themes and have a look at these examples: <a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/tree/master/deployments">https://github.com/INSPIRE-MIF/gp-ogc-api-features/tree/master/deployments</a>.</li>
+<li>If you decided to serve the OAPIF by yourself, make a choice for the best tooling. The <a href="#H04">examples</a> in this guideline might help in this regard.</li>
 <li>Figure out the best way of supporting more than one CRS, at least <a href="https://epsg.io/4326">WGS84</a> and in case of INSPRE also <a href="https://epsg.io/4258">ETRS89</a> since the last is the most common in INSPIRE and mostly mandatory. 
 Dutch providers are also advised to use provide the <a href="https://www.opengis.net/def/crs/EPSG/0/28992">Dutch RD</a>.
 If tooling is chosen that is not able to serve more than one CRS, a second download option should be provided that does give the data in the required CRS.</li>
 <li>Decide on the best input encoding for the OAPIF. It depends on the previous steps and tooling.</li>
-<li>Decide on the best output encoding, which also depends on the previous steps. The tooling used in the examples did a simple 1 to 1 mapping between the input and output encoding. </li>
-<li>If in case of an INSPIRE-dataset, a previously published mapping to an encoding other than GML cannot be found for the concerned INSPIRE theme, research the mapping of your harmonized data to this other encodings.
+<li>Decide on the best output encoding, which also depends on the previous steps and tooling. The tooling used in the examples did a simple 1 to 1 mapping between the input and output encoding. </li>
+<li><strong>In case of an INSPIRE-dataset</strong>, research whether a previously published mapping to an encoding other than complex GML can be found for the concerned INSPIRE-theme. If so, it can be reused. If it can not be found, research the mapping of your harmonized data to a encodings that can be used in teh tooling.
 Seek for cooperation with other INSPIRE data providers in Europe and use the principles as stated in [<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-4" title="INSPIRE UML-to-GeoJSON encoding rule">PUB-4</a></cite>].
-Consider leaving out the empty fields to reduce the output size or use an option not to show them.</li>
+The INSPIRE data models contain many non obligatory fields that remain empty after harmonizing. Consider leaving out the empty fields to reduce the output size or use an option not to show them.</li>
 <li>If necessary, execute the transformation into the chosen input encoding. This can be done with software like <a href="https://wetransform.to/halestudio/">HALE studio</a> or <a href="https://www.safe.com/">FME</a></li>
-<li>In case of an INSPIRE-dataset, describe the mapping from the INSPIRE data model to the output encoding of the OAPIF and publish it in order to be INSPIRE compliant.</li>
+<li><strong>In case of an INSPIRE-dataset</strong>, if not published before, describe the mapping from the INSPIRE data model to the output encoding of the OAPIF and publish it in order to be INSPIRE compliant.</li>
 <li>Adjust your metadata of the dataset with the addition of extra OAPIF service. As long as there is no official protocol defined in <a href="https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue:1">https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue:1</a>, use the extended code list for the protocol in the Dutch metadata standard 2.1.0 (<a href="https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#codelist-protocol">https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#codelist-protocol</a>) contains: "OGC:API features".</li>
 <li>If you host your OAPIF by yourself, research how to make metadata of the OAPIF service. It is probably similar to the metadata of a WFS, except for the protocol element.</li>
-<li>In case of an Inspire dataset, add all the links as mentioned in the chapter on <a href="#H03">requirements</a> (metadata of dataset, INSPIRE feature concept dictionary, Licence, mapping description, bulk download).</li>
-<li>The steps for final actual publishing of the OAPIF service, depend on the chosen tool, so there the tooling guidelines need to be followed:</li>
-</ol>
-<ul>
-<li>Geonovum testbed: <a href="https://github.com/Geonovum/ogc-api-testbed/tree/main/docs/docs/howto">https://github.com/Geonovum/ogc-api-testbed/tree/main/docs/docs/howto</a> </li>
-<li>GoKoala: <a href="https://github.com/PDOK/gokoala">https://github.com/PDOK/gokoala</a></li>
-<li>Pygeoapi: <a href="https://github.com/Geonovum/ogc-api-testbed/blob/main/docs/docs/howto/howto_pygeoapi.md">https://github.com/Geonovum/ogc-api-testbed/blob/main/docs/docs/howto/howto_pygeoapi.md</a> or <a href="https://docs.pygeoapi.io/_/downloads/en/stable/pdf/">https://docs.pygeoapi.io/_/downloads/en/stable/pdf/</a></li>
-<li>Geoserver: <a href="https://github.com/Geonovum/ogc-api-testbed/blob/main/docs/docs/howto/howto_geoserver.md">https://github.com/Geonovum/ogc-api-testbed/blob/main/docs/docs/howto/howto_geoserver.md</a> or <a href="https://docs.geoserver.org/latest/en/user/">https://docs.geoserver.org/latest/en/user/</a></li>
-<li>Deegree: <a href="https://github.com/deegree/deegree-ogcapi">https://github.com/deegree/deegree-ogcapi</a></li>
-</ul>
-<ol start="15">
-<li>Validate the OAPIF service with the <a href="https://inspire.ec.europa.eu/validator/home/index.html">INSPIRE validation tool</a> and the <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/README.md?ref_type=heads">Dutch ADR-validator</a> 
-Adjust where possible to be compliant.
+<li>Add as much links as you can to describe your service. <strong>In case of an Inspire dataset</strong>, all the links as mentioned in the chapter on <a href="#H03">requirements</a> are required (metadata of dataset, INSPIRE feature concept dictionary, Licence, mapping description, bulk download).</li>
+<li>The steps for final actual publishing of the OAPIF service, depend on the chosen tool, so there the tooling guidelines need to be followed:<br>- Geonovum testbed: <a href="https://github.com/Geonovum/ogc-api-testbed/tree/main/docs/docs/howto">https://github.com/Geonovum/ogc-api-testbed/tree/main/docs/docs/howto</a> 
+- GoKoala: <a href="https://github.com/PDOK/gokoala">https://github.com/PDOK/gokoala</a>
+- Pygeoapi: <a href="https://github.com/Geonovum/ogc-api-testbed/blob/main/docs/docs/howto/howto_pygeoapi.md">https://github.com/Geonovum/ogc-api-testbed/blob/main/docs/docs/howto/howto_pygeoapi.md</a> or <a href="https://docs.pygeoapi.io/_/downloads/en/stable/pdf/">https://docs.pygeoapi.io/_/downloads/en/stable/pdf/</a>
+- Geoserver: <a href="https://github.com/Geonovum/ogc-api-testbed/blob/main/docs/docs/howto/howto_geoserver.md">https://github.com/Geonovum/ogc-api-testbed/blob/main/docs/docs/howto/howto_geoserver.md</a> or <a href="https://docs.geoserver.org/latest/en/user/">https://docs.geoserver.org/latest/en/user/</a>
+- Deegree: <a href="https://github.com/deegree/deegree-ogcapi">https://github.com/deegree/deegree-ogcapi</a></li>
+<li>Validate the OAPIF service with the <a href="https://inspire.ec.europa.eu/validator/home/index.html">INSPIRE validation tool</a> and the <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/README.md?ref_type=heads">Dutch ADR-validator</a>.<br>Adjust where possible to be compliant.
 It should be noted that the INSPIRE-validator is the same as the <a href="https://cite.opengeospatial.org/teamengine/about/ogcapi-features-1.0/1.0/site/">OGC validator</a> and that it does not test the specific INSPIRE requirements.</li>
 </ol>
 </section>
   <section id="H03"><div class="header-wrapper"><h2 id="x3-requirements"><bdi class="secno">3. </bdi>Requirements</h2><a class="self-link" href="#H03" aria-label="Permalink for Section 3."></a></div>
-<p>Below the most relevant requirements (or requirement classes) for setting up an INSPIRE OAPIF are listed:</p>
+<p>Below the most relevant requirements (or requirement classes) for setting up an OAPIF are listed:</p>
 <table class="simple">
 <thead>
 <tr>
 <th>nr</th>
+<th>Level</th>
 <th>requirement</th>
-<th>priority</th>
 <th>reference</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>1</td>
-<td><a href="https://docs.opengeospatial.org/is/17-069r4/17-069r4.html">OGC API Features Core</a></td>
+<td>OAS</td>
+<td>Open API Specification</td>
+<td><a href="https://www.openapis.org/">https://www.openapis.org/</a></td>
+</tr>
+<tr>
 <td>1</td>
+<td>OGC</td>
+<td><a href="https://docs.opengeospatial.org/is/17-069r4/17-069r4.html">OGC API Features Core</a></td>
 <td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-1" title="OGC API Features Part1:Core">PUB-1</a></cite>]</td>
 </tr>
 <tr>
-<td>2</td>
-<td><a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md">INPSIRE-MIF document: Setting up an INSPIRE Download service based on the OGC API-Features standard</a></td>
 <td>1</td>
+<td>OGC</td>
+<td><a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-crs">CRS ETRS89 and WGS84</a></td>
+<td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-5" title="OGC API - Features - Part 2: Coordinate Reference Systems by Reference">PUB-5</a></cite>] and [<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-2" title="Setting up an INSPIRE Download service based on the OGC API-Features standard">PUB-2</a></cite>] #req-crs</td>
+</tr>
+<tr>
+<td>1</td>
+<td>OGC</td>
+<td><a href="https://docs.ogc.org/DRAFTS/19-079r1.html">filtering</a></td>
+<td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-6" title="OGC API - Features - Part 3: Filtering and the Common Query Language (CQL)">PUB-6</a></cite>]</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Dutch ADR</td>
+<td><a href="https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst">Dutch API design rules</a></td>
+<td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-3" title="Dutch API design rules">PUB-3</a></cite>]</td>
+</tr>
+<tr>
+<td>2</td>
+<td>INSPIRE</td>
+<td><a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md">INPSIRE-MIF document: Setting up an INSPIRE Download service based on the OGC API-Features standard</a></td>
 <td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-2" title="Setting up an INSPIRE Download service based on the OGC API-Features standard">PUB-2</a></cite>]</td>
 </tr>
 <tr>
 <td>3</td>
+<td>INSPIRE</td>
 <td><a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#82-requirements-class-inspire-multilinguality-">multilinguality</a></td>
-<td>3</td>
 <td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-2" title="Setting up an INSPIRE Download service based on the OGC API-Features standard">PUB-2</a></cite>] #82-requirements-class-inspire-multilinguality-</td>
 </tr>
 <tr>
 <td>4</td>
+<td>INSPIRE</td>
 <td><a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-pre-defined">predefined download</a></td>
-<td>1</td>
 <td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-2" title="Setting up an INSPIRE Download service based on the OGC API-Features standard">PUB-2</a></cite>] #req-pre-defined</td>
 </tr>
 <tr>
 <td>5</td>
+<td>INSPIRE</td>
 <td><a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-oapif-json">GeoJSON</a></td>
-<td>1</td>
 <td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-2" title="Setting up an INSPIRE Download service based on the OGC API-Features standard">PUB-2</a></cite>] #req-oapif-json</td>
 </tr>
 <tr>
 <td>6</td>
+<td>INSPIRE</td>
 <td><a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-bulk-download">bulk download</a></td>
-<td>1</td>
 <td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-2" title="Setting up an INSPIRE Download service based on the OGC API-Features standard">PUB-2</a></cite>] #req-bulk-download</td>
 </tr>
 <tr>
 <td>7</td>
-<td><a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-crs">CRS ETRS89 and WGS84</a></td>
-<td>2</td>
-<td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-5" title="OGC API - Features - Part 2: Coordinate Reference Systems by Reference">PUB-5</a></cite>] and [<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-2" title="Setting up an INSPIRE Download service based on the OGC API-Features standard">PUB-2</a></cite>] #req-crs</td>
-</tr>
-<tr>
-<td>8</td>
+<td>INSPIRE</td>
 <td>INSPIRE validated GML as <a href="https://inspire.ec.europa.eu/validator/about/">input</a> and <a href="http://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_requirements_class_geography_markup_language_gml_simple_features_profile_level_2">output</a></td>
-<td>3</td>
 <td><a href="https://inspire.ec.europa.eu/validator/about/">https://inspire.ec.europa.eu/validator/about/</a> and [<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-1" title="OGC API Features Part1:Core">PUB-1</a></cite>] #_requirements_classes_for_encodings</td>
 </tr>
 <tr>
 <td>9</td>
-<td><a href="https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst">Dutch API design rules</a></td>
-<td>1</td>
-<td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-3" title="Dutch API design rules">PUB-3</a></cite>]</td>
-</tr>
-<tr>
-<td>10</td>
+<td>INSPIRE</td>
 <td><a href="https://github.com/INSPIRE-MIF/2017.2/blob/master/GeoJSON/geojson-encoding-rule.md#inspire-requirements-for-encoding-rules">describing encoding</a></td>
-<td>1</td>
 <td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-4" title="INSPIRE UML-to-GeoJSON encoding rule">PUB-4</a></cite>]</td>
 </tr>
 <tr>
 <td>11</td>
-<td><a href="https://docs.ogc.org/DRAFTS/19-079r1.html">filtering</a></td>
-<td>2</td>
-<td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-6" title="OGC API - Features - Part 3: Filtering and the Common Query Language (CQL)">PUB-6</a></cite>]</td>
-</tr>
-<tr>
-<td>12</td>
+<td>INSPIRE</td>
 <td><a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#metadata-elements-of-the-data-set">metadata links</a></td>
-<td>1</td>
 <td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-1" title="OGC API Features Part1:Core">PUB-1</a></cite>] #rec_core_fc-md-descriptions  and  [<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-2" title="Setting up an INSPIRE Download service based on the OGC API-Features standard">PUB-2</a></cite>] #metadata-elements-of-the-data-set</td>
 </tr>
 </tbody></table>
