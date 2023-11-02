@@ -2,7 +2,7 @@
 
 Because from earlier test, Geonovum concluded tools were not compliant with the requirements, at the beginning of the year 2023, an open tender was set up to adjust the tooling.
 This resulted in 3 demo services that each show how you can be compliant with the requirements for OGC, INSPIRE and Dutch ADR.
-All demo services used the same selection of the Dutch INSPIRE Addresses in a GML file as input.
+All demo services used the same selection of the Dutch INSPIRE Addresses in a symplified GML file, constructed by Wetransform as input.
 
 |   tool    | main contributions  | landing page|
 |-----------|---------------------|-------------|
@@ -16,11 +16,45 @@ Per tool, findings are elaborated in the next chapters when relevant.
 
 The following findings show how Pygeoapi complies to the requirements.
 
-***RQ 1:OGC API Features Core*** 
+#### OAS
 
-The OGC CITE validator gave no error at the landing page https://apitestbed.geonovum.nl/adr_pygeoapi/v1.
+The OAS document is available: https://apitestbed.geonovum.nl/adr_pygeoapi/v1/openapi
 
-***RQ 4:predefined download***  
+#### OGC 
+
+The OGC CITE validator gave no error at the [landing page](https://apitestbed.geonovum.nl/adr_pygeoapi/v1).
+
+***filtering***  
+
+For the use of filters, the bbox and items options were already available. Next to that, one can filter on the attributes which can be retrieved from:
+https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/queryables.
+The specification for filtering [[PUB-6]] does not yet have the status "approved" and has not yet been considered.
+
+#### Dutch API design rules  
+
+It complies with all the rules, except for rule https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48.
+This rule in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. On the other end, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
+It is expected that in future, this ADR-rule will make an exception for the landingpage.
+
+#### INSPIRE
+
+***CRS ETRS89 and WGS84***
+
+For RD: https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items/1?f=json&crs=http://www.opengis.net/def/crs/EPSG/0/28992
+For WGS84: https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items/1?f=json&crs=http://www.opengis.net/def/crs/OGC/1.3/CRS84
+for ETRS89:  https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items/1?f=json&crs=http://www.opengis.net/def/crs/EPSG/0/4258
+
+The storagecrs can be found at the end of:
+https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json 
+
+With the following command line request, one can see the Content-CRS value in the header :
+curl -i https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items/1?f=json
+
+An adjustment has been made tot the bbox filter. It now also supports the bbox-crs parameter.
+Only 2 addresses are available in the below defined bbox.
+https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items?f=json&bbox-crs=http://www.opengis.net/def/crs/EPSG/0/28992&bbox=252200,593000,252710,594000
+
+***predefined download***  
 
 Link to metadata of dataset: passed at /collections/AddressesNL and at /collections level:  
 `{"href": "https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83",
@@ -52,12 +86,7 @@ Link to the license: passed at /collections/AddressesNL and at /collections leve
 See also https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections?f=json and 
 https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json
 
-***RQ 5:GeoJSON***
-
-Items can be retrieved in Geo+Json by:  
-https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items?f=json
-
-***RQ 6:bulk download***
+***bulk download***
 
 Link to bulkdownload of dataset: passed at /collections/AddressesNL and at /collections level
 
@@ -70,36 +99,19 @@ https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json
   "rel": "enclosure",
   "title": "Download complete dataset as GML"}`
 
-***RQ 7:CRS ETRS89 and WGS84***
+***GeoJSON***
 
-For RD: https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items/1?f=json&crs=http://www.opengis.net/def/crs/EPSG/0/28992
-For WGS84: https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items/1?f=json&crs=http://www.opengis.net/def/crs/OGC/1.3/CRS84
-for ETRS89:  https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items/1?f=json&crs=http://www.opengis.net/def/crs/EPSG/0/4258
+Items can be retrieved in Geo+Json by:  
+https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items?f=json
 
-The storagecrs can be found at the end of:
-https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json 
-
-With the following command line request, one can see the Content-CRS value in the header :
-curl -i https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items/1?f=json
-
-An adjustment has been made tot the bbox filter. It now also supports the bbox-crs parameter.
-Only 2 addresses are available in the below defined bbox.
-https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items?f=json&bbox-crs=http://www.opengis.net/def/crs/EPSG/0/28992&bbox=252200,593000,252710,594000
-
-***RQ 8:GML*** 
+***GML*** 
 
 As input, a simple features GML file was used as produced by Wetransform from the complex feature GML with the transformation software Hale.
 As output, there is a link to the original complex feature GML-file:
 https://service.pdok.nl/kadaster/ad/atom/downloads/addresses.gml.gz 
 Pygeoapi does not support GML-output at item-level, but this is not a requirement.
 
-***RQ 9:Dutch API design rules***  
-
-It complies with all the rules, except for rule https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48.
-This rule in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. On the other end, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
-It is expected that in future, this ADR-rule will make an exception for the landingpage.
-
-***RQ 10:describing encoding***  
+***describing encoding***  
 
 There is a link to https://github.com/INSPIRE-MIF/2017.2/tree/master/GeoJSON/ads at [colection/AddressesNL level](https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json ):  
 `{"href": "https://github.com/INSPIRE-MIF/2017.2/tree/master/GeoJSON/ads",
@@ -108,25 +120,7 @@ There is a link to https://github.com/INSPIRE-MIF/2017.2/tree/master/GeoJSON/ads
   "rel": "about",
   "title": "Description of the encoding"}`  
           
-
-***RQ 11:filtering***  
-
-For the use of filters, the bbox and items options were already available. Next to that, one can filter on the attributes which can be retrieved from:
-https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/queryables.
-The specification for filtering [[PUB-6]] does not yet have the status "approved" and has not yet been considered.
-
-***RQ 12:metadata links***  
-
-1. Metadata link of the dataset can be found at [/collections/AddressesNL level](https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json):  
-`{"href": "https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83",
-  "hreflang": "nl"
-  "type": "text/html",
-  "rel": "describedby",
-  "title": "Metadata as HTML"}` 
-
-2. Metadata of the service can be obtained from: https://apitestbed.geonovum.nl/adr_pygeoapi/v1/openapi?f=json and https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL.
-
-***Other findings***
+#### Other findings on Pygeoapi
 
 More information about the Pygeoapi adjustments to the standards can be found at https://pygeoapi.io/presentations/geonovum-tender-2023/
 
@@ -134,9 +128,19 @@ More information about the Pygeoapi adjustments to the standards can be found at
 
 The following findings show how Geoserver complies to the requirements.
 
-***RQ 1:OGC API Features Core***  
+#### OAS
+
+The OAS document is available: https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/openapi
+
+#### OGC  
 
 The OGC CITE validator gave no error at the landingpage https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1.
+
+#### Dutch API design rules  
+
+It complies with all the rules, except for rule https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48.
+This rule in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. On the other end, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
+It is expected that in future, this ADR-rule will make an exception for the landingpage.
 
 ***RQ 4:predefined download***  
 
@@ -181,11 +185,6 @@ As input, a simple features GML file was used as produced by Wetransform from th
 As output, the following link can be found at [/collections/collection level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses?f=json). It can be used to download the first 50 records. 
 `{"href":"https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses/items?f=application%2Fgml%2Bxml%3Bversion%3D3.2","rel":"items","type":"application/gml+xml;version=3.2","title":"Addresses items as application/gml+xml;version=3.2"}` 
 
-***RQ 9:Dutch API design rules***  
-
-It complies with all the rules, except for rule https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48.
-This rule in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. On the other end, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
-It is expected that in future, this ADR-rule will make an exception for the landingpage.
 
 ***RQ 10:describing encoding***  
 
