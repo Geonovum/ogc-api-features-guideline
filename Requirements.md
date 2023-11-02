@@ -2,21 +2,22 @@
 
 Below the most relevant requirements (or requirement classes) for setting up an OAPIF are listed:
 
-| Nr | Level    | requirement | reference | 
+| Nr | Source   | requirements | reference | 
 |----|----------|-------------|-----------| 
 | 1  | OAS      | Open API Specification| https://www.openapis.org/ |
 | 2  | OGC      | [OGC API Features Core](https://docs.opengeospatial.org/is/17-069r4/17-069r4.html) | [[PUB-1]] |
-| 3  | OGC/INSPIRE| [CRS requirements](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-crs) | [[PUB-5]] and [[PUB-2]] #req-crs |
+| 3  | OGC      | CRS requirements | [[PUB-5]] |
 | 4  | OGC      | [OGC filtering](https://docs.ogc.org/DRAFTS/19-079r1.html) | [[PUB-6]] |
 | 5  | Dutch ADR| [Dutch API design rules](https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst) | [[PUB-3]] |
 | 6  | INSPIRE  | [INPSIRE-MIF document: Setting up an INSPIRE Download service based on the OGC API-Features standard](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md) | [[PUB-2]] |
+| 7  | INSPIRE  | [CRS requirements](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-crs) | [[PUB-2]] #req-crs |
 | 7  | INSPIRE  | [multilinguality](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#82-requirements-class-inspire-multilinguality-) |  [[PUB-2]] #82-requirements-class-inspire-multilinguality- |
 | 8  | INSPIRE  | [predefined download](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-pre-defined) | [[PUB-2]] #req-pre-defined |
-| 9  | OGC/INSPIRE  | [GeoJSON](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-oapif-json) | [[PUB-2]] #req-oapif-json |
 | 10 | INSPIRE  | [bulk download](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-bulk-download) | [[PUB-2]] #req-bulk-download  |
+| 9  | INSPIRE  | [GeoJSON](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-oapif-json) | [[PUB-2]] #req-oapif-json |
 | 11 | INSPIRE  | INSPIRE validated GML as [input](https://inspire.ec.europa.eu/validator/about/) and [output](http://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_requirements_class_geography_markup_language_gml_simple_features_profile_level_2) | https://inspire.ec.europa.eu/validator/about/ and [[PUB-1]] #_requirements_classes_for_encodings |
 | 12 | INSPIRE  | [describing encoding](https://github.com/INSPIRE-MIF/2017.2/blob/master/GeoJSON/geojson-encoding-rule.md#inspire-requirements-for-encoding-rules) | [[PUB-4]] |
-| 13 | INSPIRE	| [metadata links](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#metadata-elements-of-the-data-set) | [[PUB-1]] #rec_core_fc-md-descriptions and [[PUB-2]] #metadata-elements-of-the-data-set|
+
 
 ### OAS
 
@@ -37,6 +38,8 @@ Presumably, this also counts for higher versions of the OpenAPI Specification.
 
 The [GeoJSON requirement class](http://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_requirements_class_geojson) in [[PUB-1]] recommends to support GeoJSON for features with geometry, but as stated in https://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_encodings, no encoding is mandatory. 
 
+[Metadata links](https://docs.ogc.org/is/17-069r4/17-069r4.html#rec_core_fc-md-descriptions) are recommended in [[PUB-1]] #rec_core_fc-md-descriptions.
+
 There is an INSPIRE validation on the OGC standards for OAPIF available. It tests on OGC requirements, but it does not test the requirements as stated in [[PUB-2]].
 &nbsp;&nbsp;![INSPIRE Validator](media/INSPIRE_validator_OAPIF.png "Validation on the OGC standards for OAPIF")
 
@@ -55,8 +58,6 @@ This only concerns filtering on a bounding box and on properties.
 ### Dutch API design rules
 
 Dutch data providers are recommended to follow the [Dutch API design rules](https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst), [[PUB-3]]. 
-
-#### Dutch CRS
 
 For the Dutch data providers, it is recommended to also support [RD](https://www.opengis.net/def/crs/EPSG/0/28992) for 2D data or [RD +NAP](https://www.opengis.net/def/crs/EPSG/0/7415) for 3D data. See also: https://docs.geostandaarden.nl/crs/crs. 
 
@@ -80,7 +81,7 @@ This is mostly not the case in the Netherlands, so it is of less importance.
 The [predefined download requirement class](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-pre-defined),[[PUB-2]] consists of 3 requirements for each collection to link to:
 1. the [metadata of the corresponding dataset](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#metadata-elements-of-the-data-set) in [[PUB-2]]
 2. the corresponding entry in the [INSPIRE feature concept dictionary](https://inspire.ec.europa.eu/featureconcept)
-3. the license
+3. the [license](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#terms-of-use)
 
 #### INSPIRE Bulk download
 
