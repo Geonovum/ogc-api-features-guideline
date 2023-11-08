@@ -22,7 +22,7 @@ Below the most relevant requirements (or requirement classes) for setting up an 
 ### OAS
 
 The Open API Specification as set up by the [OpenAPI Initiative](https://openapis.org/) requires a document that describes an API or elements of an API. 
-It can mostly be obtained by typing "openapi" behand the URL of the landingpage of the service.
+It can mostly be obtained by typing "openapi" behind the URL of the landingpage of the service.
 An OpenAPI document uses and conforms to the [OpenAPI Specification](https://spec.openapis.org/oas/v3.1.0).
 It describes all the possible fields that can or should be used in the OpenAPI document.
 The OpenAPI document MUST contain at least one paths field, a components field or a webhooks field.
@@ -48,16 +48,18 @@ There is an INSPIRE validation on the OGC standards for OAPIF available. It test
 Both OGC and INSPIRE have requirements related to the CRS's used next to the basic requirement from teh OGC API Features Core standard.
 The [CRS requirement](https://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_coordinate_reference_systems) in the OGC API Features Core standard [[PUB-1]], requires [WGS84](http://www.opengis.net/def/crs/OGC/1.3/CRS84) for 2D-data and [WGS84h](http://www.opengis.net/def/crs/OGC/0/CRS84h) for 3D-data as default.
 The [OGC API - Features - Part 2 standard](http://docs.opengeospatial.org/is/18-058r1/18-058r1.html), [[PUB-5]] prescribes how to support different coordinate systems with OAPIF.
+Among other requirements, the requirements concern a CRS identifier list, Storage-CRS, a bbox-crs parameter and a content-CRS in the header of the body of the response.
 
 #### OGC Filtering
 
 The specification for [filtering](https://docs.ogc.org/DRAFTS/19-079r1.html), [[PUB-6]] is still a draft version and has therefore not yet been taken into account.
 Some basic filtering requirements are described in [OGC API - Features - Part 1: Core](http://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_items_) [[PUB-1]].
-This only concerns filtering on a bounding box and on properties.
+This only concerns filtering with a bounding box and on properties.
 
 ### Dutch API design rules
 
-Dutch data providers are recommended to follow the [Dutch API design rules](https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst), [[PUB-3]]. 
+Dutch data providers are recommended to follow the [Dutch API design rules](https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst), [[PUB-3]].
+In addition, the [Geomodule](https://docs.geostandaarden.nl/api/API-Strategie-mod-geo/) is recommended to be followed by Dutch data providers. 
 
 For the Dutch data providers, it is recommended to also support [RD](https://www.opengis.net/def/crs/EPSG/0/28992) for 2D data or [RD +NAP](https://www.opengis.net/def/crs/EPSG/0/7415) for 3D data. See also: https://docs.geostandaarden.nl/crs/crs. 
 
@@ -110,5 +112,3 @@ The good practice on the use of [geopackages](https://inspire.ec.europa.eu/good-
 ###	Relevant documentation 
 
 Relevant documentation is shown in [appendix A](#references).
-
-
