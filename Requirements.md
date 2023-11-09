@@ -58,7 +58,7 @@ This only concerns filtering with a bounding box and on properties.
 
 ### Dutch API design rules
 
-Dutch data providers are recommended to follow the [Dutch API design rules](https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst), [[PUB-3]].
+Dutch data providers are recommended to follow the [Dutch API design rules](https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst), [[PUB-3]].  
 In addition, the [Geomodule](https://docs.geostandaarden.nl/api/API-Strategie-mod-geo/) is recommended to be followed by Dutch data providers. 
 
 For the Dutch data providers, it is recommended to also support [RD-coordinatesystem](https://www.opengis.net/def/crs/EPSG/0/28992) for 2D data or [RD +NAP](https://www.opengis.net/def/crs/EPSG/0/7415) for 3D data. See also: https://docs.geostandaarden.nl/crs/crs. 

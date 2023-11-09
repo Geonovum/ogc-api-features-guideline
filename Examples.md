@@ -4,11 +4,11 @@ Because from earlier test, Geonovum concluded tools were not compliant with the 
 This resulted in 3 demo services that each show how you can be compliant with the requirements for OAS, OGC, INSPIRE and Dutch ADR.
 All demo services used the same selection of the Dutch INSPIRE Addresses in a simplified GML file, constructed by Wetransform as input.
 
-|   tool    | main contributions  | landing page|
-|-----------|---------------------|-------------|
-| Pygeoapi  |Justobject and Geocat|https://apitestbed.geonovum.nl/adr_pygeoapi/v1 |
-| Geoserver |Geosolutions         |https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1 |
-| Deegree   |Wetransform          |https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1 |
+|   tool    | main contributions   | landing page|
+|-----------|----------------------|-------------|
+| Pygeoapi  |Justobjects and Geocat|https://apitestbed.geonovum.nl/adr_pygeoapi/v1 |
+| Geoserver |Geosolutions          |https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1 |
+| Deegree   |Wetransform           |https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1 |
 
 Per tool, findings are elaborated in the next chapters when relevant.
 
