@@ -1,8 +1,8 @@
-## Examples of implementations after tooladjustments
+## Examples of implementations after tool adjustments
 
 Because from earlier test, Geonovum concluded tools were not compliant with the requirements, at the beginning of the year 2023, an open tender was set up to adjust the tooling.
 This resulted in 3 demo services that each show how you can be compliant with the requirements for OAS, OGC, INSPIRE and Dutch ADR.
-All demo services used the same selection of the Dutch INSPIRE Addresses in a symplified GML file, constructed by Wetransform as input.
+All demo services used the same selection of the Dutch INSPIRE Addresses in a simplified GML file, constructed by Wetransform as input.
 
 |   tool    | main contributions  | landing page|
 |-----------|---------------------|-------------|
@@ -32,13 +32,13 @@ The specification for filtering [[PUB-6]] does not yet have the status "approved
 
 ***CRS***
 
-The crs identfier list and storage-crs can be found at the end of:
+The crs identifier list and storage-crs can be found at the end of:
 https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json 
 
 With the following command line request, one can see the Content-CRS value in the header :
 curl -i https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items/1?f=json
 
-An adjustment has been made tot the bbox filter. It now also supports the bbox-crs parameter.
+An adjustment has been made to the bbox filter. It now also supports the bbox-crs parameter.
 Only 2 addresses are available in the below defined bbox.
 https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items?f=json&bbox-crs=http://www.opengis.net/def/crs/EPSG/0/28992&bbox=252200,593000,252710,594000
 
@@ -47,7 +47,7 @@ https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items?f=j
 
 It complies with all the rules, except for rule https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48.
 This rule in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. On the other end, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
-It is expected that in future, this ADR-rule will make an exception for the landingpage.
+It is expected that in future, this ADR-rule will make an exception for the landing page.
 
 #### INSPIRE
 
@@ -92,7 +92,7 @@ https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json
 
 ***bulk download***
 
-Link to bulkdownload of dataset: passed at /collections/AddressesNL and at /collections level
+Link to bulk download of dataset: passed at /collections/AddressesNL and at /collections level.
 
 See also https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections?f=json and   
 https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json
@@ -110,7 +110,8 @@ https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items?f=j
 
 ***GML*** 
 
-As input, a simple features GML file was used as produced by Wetransform from the complex feature GML with the transformation software Hale.
+As input, a simple features GML file was used as produced by Wetransform from the complex feature GML with the transformation software Hale.  
+
 As output, there is a link to the original complex feature GML-file:
 https://service.pdok.nl/kadaster/ad/atom/downloads/addresses.gml.gz 
 Pygeoapi does not support GML-output at item-level, but this is not a requirement.
@@ -138,24 +139,25 @@ The OAS document is available: https://geonovum.geosolutionsgroup.com/geoserver/
 
 #### OGC  
 
-The OGC CITE validator gave no error at the landingpage https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1.
+The OGC CITE validator gave no error at the landing page https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1.
 
 ***filtering***  
 
 For the use of filters, the bbox and items options were already available. Next to that, one can filter on the attributes which can be retrieved from:
-https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses?queryables.
+https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses?queryables.  
+
 The specification for filtering [[PUB-6]] does not yet have the status "approved" and has not yet been considered.
 
 ***CRS***
 
-The crs identfier list and the storage-crs can be found at the end of:
+The crs identifier list and the storage-crs can be found at the end of:
 https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses?f=json
 
 With the following command line request, one can see the Content-CRS value in the header :
 curl -i https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses/items/1?f=json
 
 An adjustment has been made tot the bbox filter. It now also supports the bbox-crs parameter.
-Only 2 addresses are available in the below defined bbox.
+Only 2 addresses are available in the below defined bbox.  
 https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses/items?f=json&bbox-crs=http://www.opengis.net/def/crs/EPSG/0/28992&bbox=252200,593000,252710,594000
 
 
@@ -163,7 +165,7 @@ https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collect
 
 It complies with all the rules, except for rule https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48.
 This rule in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. On the other end, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
-It is expected that in future, this ADR-rule will make an exception for the landingpage.
+It is expected that in future, this ADR-rule will make an exception for the landing page.
 
 #### INSPIRE
 
@@ -187,7 +189,7 @@ Link to the license: passed at [/collections level](https://geonovum.geosolution
 
 ***bulk download***
 
-Link to bulkdownload of dataset: passed at [/collections/collection level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses?f=json). 
+Link to bulk download of dataset: passed at [/collections/collection level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses?f=json).  
 `{"href":"https://geonovum.geosolutionsgroup.com/geoserver/www/ADNL.gpkg","rel":"enclosure","type":"application/geopackage+sqlite3","title":"Addresses raw data."}`
 
 ***GeoJSON***
@@ -197,7 +199,8 @@ https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collect
 
 ***GML*** 
 
-As input, a simple features GML file was used as produced by Wetransform from the complex feature GML with the transformation software Hale.
+As input, a simple features GML file was used as produced by Wetransform from the complex feature GML with the transformation software Hale.  
+
 As output, the following link can be found at [/collections/collection level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses?f=json). It can be used to download the first 50 records. 
 `{"href":"https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses/items?f=application%2Fgml%2Bxml%3Bversion%3D3.2","rel":"items","type":"application/gml+xml;version=3.2","title":"Addresses items as application/gml+xml;version=3.2"}` 
 
@@ -229,7 +232,7 @@ The specification for filtering [[PUB-6]] does not yet have the status "approved
 
 ***CRS***
 
-The crs identfier list and storage-crs can be found at the end of:
+The crs identifier list and storage-crs can be found at the end of:
 https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/SimpleAddress?f=json
 
 With the following command line request, one can see the Content-CRS value in the header :
@@ -244,7 +247,7 @@ https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/
 
 It complies with all the rules, except for rule https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48.
 This rule in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. On the other end, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
-It is expected that in future, this ADR-rule will make an exception for the landingpage.
+It is expected that in future, this ADR-rule will make an exception for the landing page.
 
 #### INSPIRE
 
@@ -268,7 +271,7 @@ Link to the license: passed at [/collections level](https://test.haleconnect.de/
 
 ***bulk download***
 
-Link to bulkdownload of dataset: passed at [/collections/collection level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/SimpleAddress?f=json) and at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json). 
+Link to bulk download of dataset: passed at [/collections/collection level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/SimpleAddress?f=json) and at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json). 
 `{"href":"http://test.haleconnect.de/ogcapi/datasets/simplified-addresses/collections/SimpleAddress/items?bulk=true","rel":"enclosure","type":"application/xml","title":"Download all features as GML"}` 
 `{"href":"http://test.haleconnect.de/ogcapi/datasets/simplified-addresses/collections/SimpleAddress/items?bulk=true","rel":"enclosure","type":"application/json","title":"Download all features as GeoJSON"}` 
 
@@ -297,10 +300,10 @@ More information about the Deegree adjustments to the standards can be found at 
 
 ### General findings
 
-1. There has been discussions whether the predefined downloadlinks should be at collections or collections/collection level? See also: https://github.com/INSPIRE-MIF/gp-ogc-api-features/issues/91. 
-During the project of adjusting the tools we had the opinion that both should be possible.
+1. There has been discussions whether the predefined download links should be at collections or collections/collection level? See also: https://github.com/INSPIRE-MIF/gp-ogc-api-features/issues/91.  
+During the project of adjusting the tools we had the opinion that both should be possible.  
 Afterwards, we found out that it should be at collections level since it is one of the [main principles](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#main-principles) in [PUB-2] to use one data set in one API.
-2. The protocol element in the metadata is based on a code list. A new protocol needs to be added to this list of [protocol values]https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue:1).
+2. The protocol element in the metadata is based on a code list. A new protocol needs to be added to this list of [protocol values](https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue:1).
 As long as it is not there, the Dutch profile for metadata can be used with the value: "OGC:API features" https://geonovum.github.io/Metadata-ISO19119/#codelist-protocol.
 3. Another blocking issue before implementation of the OAPIF for INSPIRE is that descriptions of encodings other than GML are not yet available for most INSPIRE themes.
 4. Complex GML as input and output are difficult as long as tooling (server and client) expects simple encodings.

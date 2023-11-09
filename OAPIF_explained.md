@@ -11,7 +11,7 @@ OAPIF is easier to use and needs less knowledge in the spatial domain.
 Note as well that WFS adopts the Geography Markup Language (GML) as a default data format. In contrast, OAPIF includes recommendations to support HTML and GeoJSON as encodings.
 Implementations of OAPIF may also optionally support GML.
 
-The basis of an OAPIF is the landing page like: https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1
+The basis of an OAPIF is the landing page. Examples are shown in https://geonovum.github.io/ogc-api-features-guideline/#H04.
 An OAPIF consist of resources that can be retrieved by typing the corresponding path after the landing page of the OAPIF in a web browser or web application.
  
 |Resource|Path|Purpose|

@@ -22,7 +22,7 @@ Below the most relevant requirements (or requirement classes) for setting up an 
 ### OAS
 
 The Open API Specification as set up by the [OpenAPI Initiative](https://openapis.org/) requires a document that describes an API or elements of an API. 
-It can mostly be obtained by typing "openapi" behind the URL of the landingpage of the service.
+It can mostly be obtained by typing "openapi" behind the URL of the landing page of the service.
 An OpenAPI document uses and conforms to the [OpenAPI Specification](https://spec.openapis.org/oas/v3.1.0).
 It describes all the possible fields that can or should be used in the OpenAPI document.
 The OpenAPI document MUST contain at least one paths field, a components field or a webhooks field.
@@ -45,7 +45,7 @@ There is an INSPIRE validation on the OGC standards for OAPIF available. It test
 
 #### OGC CRS requirements
 
-Both OGC and INSPIRE have requirements related to the CRS's used next to the basic requirement from teh OGC API Features Core standard.
+Both OGC and INSPIRE have requirements related to the CRS's used next to the basic requirement from the OGC API Features Core standard.
 The [CRS requirement](https://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_coordinate_reference_systems) in the OGC API Features Core standard [[PUB-1]], requires [WGS84](http://www.opengis.net/def/crs/OGC/1.3/CRS84) for 2D-data and [WGS84h](http://www.opengis.net/def/crs/OGC/0/CRS84h) for 3D-data as default.
 The [OGC API - Features - Part 2 standard](http://docs.opengeospatial.org/is/18-058r1/18-058r1.html), [[PUB-5]] prescribes how to support different coordinate systems with OAPIF.
 Among other requirements, the requirements concern a CRS identifier list, Storage-CRS, a bbox-crs parameter and a content-CRS in the header of the body of the response.
@@ -61,7 +61,7 @@ This only concerns filtering with a bounding box and on properties.
 Dutch data providers are recommended to follow the [Dutch API design rules](https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst), [[PUB-3]].
 In addition, the [Geomodule](https://docs.geostandaarden.nl/api/API-Strategie-mod-geo/) is recommended to be followed by Dutch data providers. 
 
-For the Dutch data providers, it is recommended to also support [RD](https://www.opengis.net/def/crs/EPSG/0/28992) for 2D data or [RD +NAP](https://www.opengis.net/def/crs/EPSG/0/7415) for 3D data. See also: https://docs.geostandaarden.nl/crs/crs. 
+For the Dutch data providers, it is recommended to also support [RD-coordinatesystem](https://www.opengis.net/def/crs/EPSG/0/28992) for 2D data or [RD +NAP](https://www.opengis.net/def/crs/EPSG/0/7415) for 3D data. See also: https://docs.geostandaarden.nl/crs/crs. 
 
 ### INPSIRE
 
@@ -87,7 +87,7 @@ The [predefined download requirement class](https://github.com/INSPIRE-MIF/gp-og
 
 #### INSPIRE Bulk download
 
-The [bulk download requirement class](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-bulk-download), [[PUB-2]] requires links for enclosure of the total data set and/or of each seperate collection.
+The [bulk download requirement class](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-bulk-download), [[PUB-2]] requires links for enclosure of the total data set and/or of each separate collection.
 
 #### INSPIRE and GeoJSON
 
@@ -97,7 +97,7 @@ The [GeoJSON requirement class](https://github.com/INSPIRE-MIF/gp-ogc-api-featur
 The use of GML as encoding for INSPIRE data can be considered in two ways. As input and as output.
 
 When we consider the input, one would like to be able to use a source dataset of harmonized data. In most cases, this will be a GML encoded dataset. 
-The GML encoding is at least needed to validate the data set with the [EU INSPIRE  validator](https://inspire.ec.europa.eu/validator/about/)
+The GML encoding is at least needed to validate the data set with the [EU INSPIRE  validator](https://inspire.ec.europa.eu/validator/about/).  
 Unfortunately, not many tooling for creating a OAPIF service is able to use GML as input. Especially when it concerns a complex GML dataset. So, a transformation to another encoding like GeoJSON is needed.
 
 Output of GML from the OAPIF service can only be in simple features [level 0](http://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_requirements_class_geography_markup_language_gml_simple_features_profile_level_0) and [level 2](http://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_requirements_class_geography_markup_language_gml_simple_features_profile_level_2).
