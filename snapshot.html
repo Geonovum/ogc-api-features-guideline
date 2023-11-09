@@ -492,14 +492,16 @@ The INSPIRE data models contain many non-obligatory fields that remain empty aft
 As long as there is no official protocol defined for OAPIF in <a href="https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue:1">https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue:1</a>, use the extended code list for the protocol in the Dutch metadata standard 2.1.0 (<a href="https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#codelist-protocol">https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#codelist-protocol</a>) contains: "OGC:API features".</li>
 <li>If you host your OAPIF by yourself, research how to make metadata of the OAPIF service. It is probably similar to the metadata of a WFS, except for the protocol element.</li>
 <li>Add as much links as you can at the response to the endpoints of your service to describe your service. <strong>In case of an Inspire dataset</strong>, all the links as mentioned in the chapter on <a href="#H03">requirements</a> are required (metadata of dataset, INSPIRE feature concept dictionary, Licence, mapping description, bulk download).</li>
-<li>The steps for final actual publishing of the OAPIF service, depend on the chosen tool, so there the tooling guidelines need to be followed:  <ul>
+<li>The steps for final actual publishing of the OAPIF service, depend on the chosen tool, so there the tooling guidelines need to be followed:</li>
+</ol>
+<ul>
 <li>Geonovum testbed: <a href="https://github.com/Geonovum/ogc-api-testbed/tree/main/docs/docs/howto">https://github.com/Geonovum/ogc-api-testbed/tree/main/docs/docs/howto</a>  </li>
-<li>GoKoala: <a href="https://github.com/PDOK/gokoala">https://github.com/PDOK/gokoala</a>  </li>
+<li>GoKoala: <a href="https://github.com/PDOK/gokoala">https://github.com/PDOK/gokoala</a>   </li>
 <li>Pygeoapi: <a href="https://github.com/Geonovum/ogc-api-testbed/blob/main/docs/docs/howto/howto_pygeoapi.md">https://github.com/Geonovum/ogc-api-testbed/blob/main/docs/docs/howto/howto_pygeoapi.md</a> or <a href="https://docs.pygeoapi.io/_/downloads/en/stable/pdf/">https://docs.pygeoapi.io/_/downloads/en/stable/pdf/</a>  </li>
 <li>Geoserver: <a href="https://github.com/Geonovum/ogc-api-testbed/blob/main/docs/docs/howto/howto_geoserver.md">https://github.com/Geonovum/ogc-api-testbed/blob/main/docs/docs/howto/howto_geoserver.md</a> or <a href="https://docs.geoserver.org/latest/en/user/">https://docs.geoserver.org/latest/en/user/</a>  </li>
 <li>Deegree: <a href="https://github.com/deegree/deegree-ogcapi">https://github.com/deegree/deegree-ogcapi</a></li>
 </ul>
-</li>
+<ol start="15">
 <li>Validate the OAPIF service for the OGC requirement with the <a href="https://inspire.ec.europa.eu/validator/home/index.html">INSPIRE validation tool</a> and in case of a Dutch provider: the <a href="https://gitlab.com/commonground/don/adr-validator/-/blob/main/README.md?ref_type=heads">Dutch ADR-validator</a>.<br>Adjust where possible to be compliant.
 It should be noted that the INSPIRE-validator is the same as the <a href="https://cite.opengeospatial.org/teamengine/about/ogcapi-features-1.0/1.0/site/">OGC validator</a> and that it does not test the specific INSPIRE requirements as one would expect.</li>
 </ol>
@@ -625,8 +627,7 @@ Among other requirements, the requirements concern a CRS identifier list, Storag
 Some basic filtering requirements are described in <a href="http://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_items_">OGC API - Features - Part 1: Core</a> [<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-1" title="OGC API Features Part1:Core">PUB-1</a></cite>].
 This only concerns filtering with a bounding box and on properties.</p>
 </section></section><section id="dutch-api-design-rules"><div class="header-wrapper"><h3 id="x3-3-dutch-api-design-rules"><bdi class="secno">3.3 </bdi>Dutch API design rules</h3><a class="self-link" href="#dutch-api-design-rules" aria-label="Permalink for Section 3.3"></a></div>
-<p>Dutch data providers are recommended to follow the <a href="https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst">Dutch API design rules</a>, [<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-3" title="Dutch API design rules">PUB-3</a></cite>].
-In addition, the <a href="https://docs.geostandaarden.nl/api/API-Strategie-mod-geo/">Geomodule</a> is recommended to be followed by Dutch data providers. </p>
+<p>Dutch data providers are recommended to follow the <a href="https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst">Dutch API design rules</a>, [<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-3" title="Dutch API design rules">PUB-3</a></cite>].<br>In addition, the <a href="https://docs.geostandaarden.nl/api/API-Strategie-mod-geo/">Geomodule</a> is recommended to be followed by Dutch data providers. </p>
 <p>For the Dutch data providers, it is recommended to also support <a href="https://www.opengis.net/def/crs/EPSG/0/28992">RD-coordinatesystem</a> for 2D data or <a href="https://www.opengis.net/def/crs/EPSG/0/7415">RD +NAP</a> for 3D data. See also: <a href="https://docs.geostandaarden.nl/crs/crs">https://docs.geostandaarden.nl/crs/crs</a>. </p>
 </section><section id="inpsire"><div class="header-wrapper"><h3 id="x3-4-inpsire"><bdi class="secno">3.4 </bdi>INPSIRE</h3><a class="self-link" href="#inpsire" aria-label="Permalink for Section 3.4"></a></div>
 <p><a href="https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md">INPSIRE-MIF document: Setting up an INSPIRE Download service based on the OGC API-Features standard</a>, [<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-2" title="Setting up an INSPIRE Download service based on the OGC API-Features standard">PUB-2</a></cite>] describes the specific INSPIRE requirements.
@@ -675,7 +676,7 @@ All demo services used the same selection of the Dutch INSPIRE Addresses in a si
 </thead>
 <tbody><tr>
 <td>Pygeoapi</td>
-<td>Justobject and Geocat</td>
+<td>Justobjects and Geocat</td>
 <td><a href="https://apitestbed.geonovum.nl/adr_pygeoapi/v1">https://apitestbed.geonovum.nl/adr_pygeoapi/v1</a></td>
 </tr>
 <tr>
