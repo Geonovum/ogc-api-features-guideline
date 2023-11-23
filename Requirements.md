@@ -45,7 +45,7 @@ There is an INSPIRE validation on the OGC standards for OAPIF available. It test
 
 #### OGC CRS requirements
 
-Both OGC and INSPIRE have requirements related to the CRS's used in addition to the basic requirement from the OGC API Features Core standard.
+Both OGC and INSPIRE have requirements related to the CRS's used next to the basic requirement from the OGC API Features Core standard.
 The [CRS requirement](https://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_coordinate_reference_systems) in the OGC API Features Core standard [[PUB-1]], requires [WGS84](http://www.opengis.net/def/crs/OGC/1.3/CRS84) for 2D-data and [WGS84h](http://www.opengis.net/def/crs/OGC/0/CRS84h) for 3D-data as default.
 The [OGC API - Features - Part 2 standard](http://docs.opengeospatial.org/is/18-058r1/18-058r1.html), [[PUB-5]] prescribes how to support different coordinate systems with OAPIF.
 Among other requirements, the requirements concern a CRS identifier list, Storage-CRS, a bbox-crs parameter and a content-CRS in the header of the body of the response.
@@ -58,13 +58,14 @@ This only concerns filtering with a bounding box and on properties.
 
 ### Dutch API design rules
 
-Dutch data providers are recommended to follow the [Dutch API design rules](https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst), [[PUB-3]] and the [Geomodule](https://docs.geostandaarden.nl/api/API-Strategie-mod-geo/). 
+Dutch data providers are recommended to follow the [Dutch API design rules](https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst), [[PUB-3]].  
+In addition, the [Geomodule](https://docs.geostandaarden.nl/api/API-Strategie-mod-geo/) is recommended to be followed by Dutch data providers. 
 
 For the Dutch data providers, it is recommended to also support [RD-coordinatesystem](https://www.opengis.net/def/crs/EPSG/0/28992) for 2D data or [RD +NAP](https://www.opengis.net/def/crs/EPSG/0/7415) for 3D data. See also: https://docs.geostandaarden.nl/crs/crs. 
 
-### INSPIRE
+### INPSIRE
 
-[INSPIRE-MIF document: Setting up an INSPIRE Download service based on the OGC API-Features standard](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md), [[PUB-2]] describes the specific INSPIRE requirements.
+[INPSIRE-MIF document: Setting up an INSPIRE Download service based on the OGC API-Features standard](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md), [[PUB-2]] describes the specific INSPIRE requirements.
 Most of them are explained in the next chapters.
 This document does propose in [Note 2](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#81-requirements-class-inspire-pre-defined-data-set-download-oapif--) to make it a mandatory requirement for INSPIRE to comply with [OAPIF requirements class OpenAPI 3.0.](http://docs.opengeospatial.org/is/17-069r4/17-069r4.html#rc_oas30)
 
