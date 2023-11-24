@@ -1,7 +1,7 @@
 ## Examples of implementations after tool adjustments
 
-Because from earlier test, Geonovum concluded tools were not compliant with the requirements, at the beginning of the year 2023, an open tender was set up to adjust the tooling.
-This resulted in 3 demo services that each show how you can be compliant with the requirements for OAS, OGC, INSPIRE and Dutch ADR.
+From earlier tests Geonovum concluded tools were not compliant with the requirements for OAS, OGC, INSPIRE and Dutch ADR. For that reason Geonovum set up an open tender at the beginning of the year 2023, with the goal of improving the compliance of OGC API tooling.
+This resulted in 3 demo services that each show how you can be compliant with the requirements.
 All demo services used the same selection of the Dutch INSPIRE Addresses in a simplified GML file, constructed by Wetransform as input.
 
 |   tool    | main contributions   | landing page|
@@ -24,19 +24,20 @@ The OAS document is available: https://apitestbed.geonovum.nl/adr_pygeoapi/v1/op
 
 The OGC CITE validator gave no error at the [landing page](https://apitestbed.geonovum.nl/adr_pygeoapi/v1).
 
-***filtering***  
+***Filtering***  
 
-For the use of filters, the bbox and items options were already available. Next to that, one can filter on the attributes which can be retrieved from:
+For the use of filters, the bbox and items options were already available. In addition, one can filter on the attributes which can be retrieved from
 https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/queryables.
-The specification for filtering [[PUB-6]] does not yet have the status "approved" and has not yet been considered.
+The OGC API specification for filtering [[PUB-6]] does not yet have the status "approved" and has not yet been considered.
 
 ***CRS***
 
 The crs identifier list and storage-crs can be found at the end of:
 https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL?f=json 
 
-With the following command line request, one can see the Content-CRS value in the header :
-curl -i https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items/1?f=json
+With the following command line request, one can see the Content-CRS value in the header:
+
+`curl -i https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items/1?f=json`
 
 An adjustment has been made to the bbox filter. It now also supports the bbox-crs parameter.
 Only 2 addresses are available in the below defined bbox.
@@ -60,7 +61,7 @@ The required CRS's are available:
 
 ***predefined download***  
 
-Link to metadata of dataset: passed at /collections/AddressesNL and at /collections level:  
+Link to metadata of dataset: passed at `/collections/AddressesNL` and at `/collections` level:  
 `{"href": "https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83",
   "hreflang": "nl",
   "type": "text/html",
