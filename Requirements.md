@@ -79,7 +79,7 @@ This is mostly not the case in the Netherlands, so it is of less importance.
 
 #### INSPIRE Predefined download
 
-The [predefined download requirement class](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-pre-defined),[[PUB-2]] consists of 3 requirements for each collection to link to:
+The [predefined download requirement class](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-pre-defined),[[PUB-2]] consists of 3 requirements for each collection to include links to:
 1. the [metadata of the corresponding dataset](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#metadata-elements-of-the-data-set) in [[PUB-2]]
 2. the corresponding entry in the [INSPIRE feature concept dictionary](https://inspire.ec.europa.eu/featureconcept)
 3. the [license](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#terms-of-use)
@@ -93,7 +93,7 @@ The [bulk download requirement class](https://github.com/INSPIRE-MIF/gp-ogc-api-
 The [GeoJSON requirement class](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-oapif-json) in [[PUB-2]] recommends to document how the GeoJSON encoding is retrieved from the INSPIRE data models.
 
 #### INSPIRE and GML
-The use of GML as encoding for INSPIRE data can be considered in two ways. As input and as output.
+The use of GML as encoding for INSPIRE data can be considered in two ways: as input and as output.
 
 When we consider the input, one would like to be able to use a source dataset of harmonized data. In most cases, this will be a GML encoded dataset. 
 The GML encoding is at least needed to validate the data set with the [EU INSPIRE  validator](https://inspire.ec.europa.eu/validator/about/).  
@@ -104,10 +104,10 @@ So no complex features will be supported.
 
 #### INSPIRE Describing encoding
 
-The standards considered in this guideline do not set a specific encoding as mandatory. https://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_encodings [[PUB-1]]
-Once another encoding than GML is used for publishing an INSPIRE dataset, data providers need to document how the encoding relates to the concerned INSPIRE data model.
-The good practice on the use of [geopackages](https://inspire.ec.europa.eu/good-practice/geopackage-encoding-inspire-datasets) as encoding, describes how this describing could be done.
+The standards considered in this guideline do not set a specific encoding as mandatory (see https://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_encodings) [[PUB-1]].
+If another encoding than GML is used for publishing an INSPIRE dataset, data providers need to document how the encoding relates to the concerned INSPIRE data model.
+The good practice on [GeoPackages encoding of INSPIRE datasets](https://inspire.ec.europa.eu/good-practice/geopackage-encoding-inspire-datasets) describes how this can be done.
 
 ###	Relevant documentation 
 
-Relevant documentation is shown in [appendix A](#references).
+Relevant documentation is shown in [appendix A. References](#references).
