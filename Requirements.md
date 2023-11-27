@@ -45,7 +45,7 @@ There is an INSPIRE validation on the OGC standards for OAPIF available. It test
 
 #### OGC CRS requirements
 
-Both OGC and INSPIRE have requirements related to the CRS's used next to the basic requirement from the OGC API Features Core standard.
+Both OGC and INSPIRE have requirements related to the CRS's used in addition to the basic requirement from the OGC API Features Core standard.
 The [CRS requirement](https://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_coordinate_reference_systems) in the OGC API Features Core standard [[PUB-1]], requires [WGS84](http://www.opengis.net/def/crs/OGC/1.3/CRS84) for 2D-data and [WGS84h](http://www.opengis.net/def/crs/OGC/0/CRS84h) for 3D-data as default.
 The [OGC API - Features - Part 2 standard](http://docs.opengeospatial.org/is/18-058r1/18-058r1.html), [[PUB-5]] prescribes how to support different coordinate systems with OAPIF.
 Among other requirements, the requirements concern a CRS identifier list, Storage-CRS, a bbox-crs parameter and a content-CRS in the header of the body of the response.
@@ -58,14 +58,13 @@ This only concerns filtering with a bounding box and on properties.
 
 ### Dutch API design rules
 
-Dutch data providers are recommended to follow the [Dutch API design rules](https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst), [[PUB-3]].  
-In addition, the [Geomodule](https://docs.geostandaarden.nl/api/API-Strategie-mod-geo/) is recommended to be followed by Dutch data providers. 
+Dutch data providers are recommended to follow the [Dutch API design rules](https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst), [[PUB-3]] and the [Geomodule](https://docs.geostandaarden.nl/api/API-Strategie-mod-geo/). 
 
 For the Dutch data providers, it is recommended to also support [RD-coordinatesystem](https://www.opengis.net/def/crs/EPSG/0/28992) for 2D data or [RD +NAP](https://www.opengis.net/def/crs/EPSG/0/7415) for 3D data. See also: https://docs.geostandaarden.nl/crs/crs. 
 
-### INPSIRE
+### INSPIRE
 
-[INPSIRE-MIF document: Setting up an INSPIRE Download service based on the OGC API-Features standard](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md), [[PUB-2]] describes the specific INSPIRE requirements.
+[INSPIRE-MIF document: Setting up an INSPIRE Download service based on the OGC API-Features standard](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md), [[PUB-2]] describes the specific INSPIRE requirements.
 Most of them are explained in the next chapters.
 This document does propose in [Note 2](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#81-requirements-class-inspire-pre-defined-data-set-download-oapif--) to make it a mandatory requirement for INSPIRE to comply with [OAPIF requirements class OpenAPI 3.0.](http://docs.opengeospatial.org/is/17-069r4/17-069r4.html#rc_oas30)
 
@@ -80,7 +79,7 @@ This is mostly not the case in the Netherlands, so it is of less importance.
 
 #### INSPIRE Predefined download
 
-The [predefined download requirement class](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-pre-defined),[[PUB-2]] consists of 3 requirements for each collection to link to:
+The [predefined download requirement class](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-pre-defined),[[PUB-2]] consists of 3 requirements for each collection to include links to:
 1. the [metadata of the corresponding dataset](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#metadata-elements-of-the-data-set) in [[PUB-2]]
 2. the corresponding entry in the [INSPIRE feature concept dictionary](https://inspire.ec.europa.eu/featureconcept)
 3. the [license](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#terms-of-use)
@@ -94,7 +93,7 @@ The [bulk download requirement class](https://github.com/INSPIRE-MIF/gp-ogc-api-
 The [GeoJSON requirement class](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-oapif-json) in [[PUB-2]] recommends to document how the GeoJSON encoding is retrieved from the INSPIRE data models.
 
 #### INSPIRE and GML
-The use of GML as encoding for INSPIRE data can be considered in two ways. As input and as output.
+The use of GML as encoding for INSPIRE data can be considered in two ways: as input and as output.
 
 When we consider the input, one would like to be able to use a source dataset of harmonized data. In most cases, this will be a GML encoded dataset. 
 The GML encoding is at least needed to validate the data set with the [EU INSPIRE  validator](https://inspire.ec.europa.eu/validator/about/).  
@@ -105,10 +104,10 @@ So no complex features will be supported.
 
 #### INSPIRE Describing encoding
 
-The standards considered in this guideline do not set a specific encoding as mandatory. https://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_encodings [[PUB-1]]
-Once another encoding than GML is used for publishing an INSPIRE dataset, data providers need to document how the encoding relates to the concerned INSPIRE data model.
-The good practice on the use of [geopackages](https://inspire.ec.europa.eu/good-practice/geopackage-encoding-inspire-datasets) as encoding, describes how this describing could be done.
+The standards considered in this guideline do not set a specific encoding as mandatory (see https://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_encodings) [[PUB-1]].
+If another encoding than GML is used for publishing an INSPIRE dataset, data providers need to document how the encoding relates to the concerned INSPIRE data model.
+The good practice on [GeoPackages encoding of INSPIRE datasets](https://inspire.ec.europa.eu/good-practice/geopackage-encoding-inspire-datasets) describes how this can be done.
 
 ###	Relevant documentation 
 
-Relevant documentation is shown in [appendix A](#references).
+Relevant documentation is shown in [appendix A. References](#references).
