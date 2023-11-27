@@ -10,7 +10,7 @@ The following steps could be considered to follow in order to serve an OGC API F
 Dutch providers are also advised to provide the [Dutch RD](https://www.opengis.net/def/crs/EPSG/0/28992).
 If tooling is chosen that is not able to serve more than one CRS, a second download option should be provided that does give the data in the required CRS.
 6. Decide on the best input encoding for the OAPIF. It depends on the previous steps and tooling.
-7. If necessary, execute the transformation into the chosen input encoding. This can be done with software like [HALE studio](https://wetransform.to/halestudio/) or [FME](https://www.safe.com/).
+7. If necessary, execute the transformation into the chosen input encoding. This can be done with software like [HALE studio](https://wetransform.to/halestudio/), [FME](https://www.safe.com/) or [GDAL](https://gdal.org/index.html). 
 8. Decide on the best output encoding, which also depends on the previous steps and tooling. The tooling used in the examples did a simple 1 to 1 mapping between the input and output encoding. 
 9. **In case of an INSPIRE-dataset**, research whether a previously published mapping to an encoding other than complex GML can be found for the concerned INSPIRE-theme. If so, it can be reused.
 If it cannot be found, research how your harmonized data can be mapped to an encoding that can be used in the tooling.
