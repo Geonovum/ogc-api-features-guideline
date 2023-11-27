@@ -481,7 +481,7 @@ It works the same as loading a WFS. Only a service name and landing page is requ
 Dutch providers are also advised to provide the <a href="https://www.opengis.net/def/crs/EPSG/0/28992">Dutch RD</a>.
 If tooling is chosen that is not able to serve more than one CRS, a second download option should be provided that does give the data in the required CRS.</li>
 <li>Decide on the best input encoding for the OAPIF. It depends on the previous steps and tooling.</li>
-<li>If necessary, execute the transformation into the chosen input encoding. This can be done with software like <a href="https://wetransform.to/halestudio/">HALE studio</a> or <a href="https://www.safe.com/">FME</a>.</li>
+<li>If necessary, execute the transformation into the chosen input encoding. This can be done with software like <a href="https://wetransform.to/halestudio/">HALE studio</a>, <a href="https://www.safe.com/">FME</a> or <a href="https://gdal.org/index.html">GDAL</a>. </li>
 <li>Decide on the best output encoding, which also depends on the previous steps and tooling. The tooling used in the examples did a simple 1 to 1 mapping between the input and output encoding. </li>
 <li><strong>In case of an INSPIRE-dataset</strong>, research whether a previously published mapping to an encoding other than complex GML can be found for the concerned INSPIRE-theme. If so, it can be reused.
 If it cannot be found, research how your harmonized data can be mapped to an encoding that can be used in the tooling.
