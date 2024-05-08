@@ -148,7 +148,7 @@ The OGC CITE validator gave no error at the landing page https://geonovum.geosol
 ***Filtering***  
 
 For the use of filters, the bbox and items options were already available. In addition, one can filter on the attributes which can be retrieved from:
-https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses?queryables.  
+https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress?queryables.  
 
 The OGC API specification for filtering [[PUB-6]] does not yet have the status "approved" and has not yet been considered.
 
@@ -173,14 +173,16 @@ It complies with all the rules, except for rule https://publicatie.centrumvoorst
 This rule in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. However, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
 It is expected that in future, this ADR-rule will make an exception for the landing page.
 
+At first the collection was named "AddressesNL". At a later stage, it has been changed to "SimpleAddress". This is not according to the [rule for naming collections](https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/naming-collections) because it is not a plural.  
+
 #### INSPIRE
 
 ***CRS ETRS89 and WGS84***
 
 The required CRS's are available:
-- RD: https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses/items/1?f=json&crs=http://www.opengis.net/def/crs/EPSG/0/28992
-- WGS84: https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses/items/1?f=json&crs=http://www.opengis.net/def/crs/OGC/1.3/CRS84
-- ETRS89:  https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses/items/1?f=json&crs=http://www.opengis.net/def/crs/EPSG/0/4258
+- RD: https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress/items/1?f=json&crs=http://www.opengis.net/def/crs/EPSG/0/28992
+- WGS84: https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress/items/1?f=json&crs=http://www.opengis.net/def/crs/OGC/1.3/CRS84
+- ETRS89:  https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress/items/1?f=json&crs=http://www.opengis.net/def/crs/EPSG/0/4258
 
 ***Predefined download***  
 
