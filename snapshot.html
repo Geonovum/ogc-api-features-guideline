@@ -758,7 +758,7 @@ It is expected that in future, this ADR-rule will make an exception for the land
 <p>The OGC CITE validator gave no error at the landing page <a href="https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1">https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1</a>.</p>
 <p><em><strong>Filtering</strong></em>  </p>
 <p>For the use of filters, the bbox and items options were already available. In addition, one can filter on the attributes which can be retrieved from:
-<a href="https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses?queryables">https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses?queryables</a>.  </p>
+<a href="https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress?queryables">https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress?queryables</a>.  </p>
 <p>The OGC API specification for filtering [<cite><a class="bibref" data-link-type="biblio" href="#bib-pub-6" title="OGC API - Features - Part 3: Filtering and the Common Query Language (CQL)">PUB-6</a></cite>] does not yet have the status "approved" and has not yet been considered.</p>
 <p><em><strong>CRS</strong></em></p>
 <p>The crs identifier list and the storage-crs can be found at:
@@ -772,13 +772,14 @@ Only 2 addresses are available in the below defined bbox.  </p>
 <p>It complies with all the rules, except for rule <a href="https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48">https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48</a>.
 This rule in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. However, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
 It is expected that in future, this ADR-rule will make an exception for the landing page.</p>
+<p>At first the collection was named "AddressesNL". At a later stage, it has been changed to "SimpleAddress". This is not according to the <a href="https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/naming-collections">rule for naming collections</a> because it is not a plural.  </p>
 </section><section id="inspire-1"><div class="header-wrapper"><h4 id="x4-2-4-inspire"><bdi class="secno">4.2.4 </bdi>INSPIRE</h4><a class="self-link" href="#inspire-1" aria-label="Permalink for Section 4.2.4"></a></div>
 <p><em><strong>CRS ETRS89 and WGS84</strong></em></p>
 <p>The required CRS's are available:</p>
 <ul>
-<li>RD: <a href="https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses/items/1?f=json&amp;crs=http://www.opengis.net/def/crs/EPSG/0/28992">https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses/items/1?f=json&amp;crs=http://www.opengis.net/def/crs/EPSG/0/28992</a></li>
-<li>WGS84: <a href="https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses/items/1?f=json&amp;crs=http://www.opengis.net/def/crs/OGC/1.3/CRS84">https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses/items/1?f=json&amp;crs=http://www.opengis.net/def/crs/OGC/1.3/CRS84</a></li>
-<li>ETRS89:  <a href="https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses/items/1?f=json&amp;crs=http://www.opengis.net/def/crs/EPSG/0/4258">https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/Addresses/items/1?f=json&amp;crs=http://www.opengis.net/def/crs/EPSG/0/4258</a></li>
+<li>RD: <a href="https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress/items/1?f=json&amp;crs=http://www.opengis.net/def/crs/EPSG/0/28992">https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress/items/1?f=json&amp;crs=http://www.opengis.net/def/crs/EPSG/0/28992</a></li>
+<li>WGS84: <a href="https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress/items/1?f=json&amp;crs=http://www.opengis.net/def/crs/OGC/1.3/CRS84">https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress/items/1?f=json&amp;crs=http://www.opengis.net/def/crs/OGC/1.3/CRS84</a></li>
+<li>ETRS89:  <a href="https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress/items/1?f=json&amp;crs=http://www.opengis.net/def/crs/EPSG/0/4258">https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress/items/1?f=json&amp;crs=http://www.opengis.net/def/crs/EPSG/0/4258</a></li>
 </ul>
 <p><em><strong>Predefined download</strong></em>  </p>
 <p>Link to metadata of dataset: passed at <a href="https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress?f=json">/collections/collection level</a> and at <a href="https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections?f=json">/collections level</a>. 
