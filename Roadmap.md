@@ -24,7 +24,7 @@ As long as there is no official protocol defined for OAPIF in https://inspire.ec
 14. The steps for final actual publishing of the OAPIF service depends on the chosen tool, so there the tooling guidelines need to be followed:  
   - Geonovum testbed: https://github.com/Geonovum/ogc-api-testbed/tree/main/docs/docs/howto  
   - GoKoala: https://github.com/PDOK/gokoala   
-  - Pygeoapi: https://github.com/Geonovum/ogc-api-testbed/blob/main/docs/docs/howto/howto_pygeoapi.md or https://docs.pygeoapi.io/_/downloads/en/stable/pdf/  
+  - Pygeoapi: https://github.com/Geonovum/ogc-api-testbed/blob/main/docs/docs/howto/howto_pygeoapi.md or https://docs.pygeoapi.io/en/latest/  
   - Geoserver: https://github.com/Geonovum/ogc-api-testbed/blob/main/docs/docs/howto/howto_geoserver.md or https://docs.geoserver.org/latest/en/user/  
   - Deegree: https://github.com/deegree/deegree-ogcapi  
 15. Validate the OAPIF service for the OGC requirement with the [INSPIRE validation tool](https://inspire.ec.europa.eu/validator/home/index.html) and in case of a Dutch provider: the [Dutch ADR-validator](https://gitlab.com/commonground/don/adr-validator/-/blob/main/README.md?ref_type=heads).   
