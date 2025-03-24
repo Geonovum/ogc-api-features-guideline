@@ -2,13 +2,16 @@
 
 From earlier tests Geonovum concluded tools were not compliant with the requirements for OAS, OGC, INSPIRE and Dutch ADR. For that reason Geonovum set up an open tender at the beginning of the year 2023, with the goal of improving the compliance of OGC API tooling.
 This resulted in 3 demo services that each show how you can be compliant with the requirements.
-All demo services used the same selection of the Dutch INSPIRE Addresses in a simplified GML file, constructed by Wetransform as input.
+These demo services used the same selection of the Dutch INSPIRE Addresses in a simplified GML file, constructed by Wetransform as input.
+Next to these demoservices, some services that are in production are reviewed in regards to the standards.
 
 |   tool    | main contributions   | landing page|
 |-----------|----------------------|-------------|
 | Pygeoapi  |Justobjects and Geocat|https://apitestbed.geonovum.nl/adr_pygeoapi/v1 |
 | Geoserver |Geosolutions          |https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1 |
 | Deegree   |Wetransform           |https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1 |
+| Gogoala   |PDOK                  |https://api.pdok.nl/brt/top10nl/ogc/v1/
+|
 
 Per tool, findings are elaborated in the next chapters when relevant.
 
@@ -28,7 +31,9 @@ The OGC CITE validator gave no error at the [landing page](https://apitestbed.ge
 
 For the use of filters, the bbox and items options were already available. In addition, one can filter on the attributes which can be retrieved from
 https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/queryables.
-The OGC API specification for filtering [[PUB-6]] does not yet have the status "approved" and has not yet been considered.
+https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items?filter=locator_designator_postalDeliveryIdentifier=%279901AA%27 does unfortunately not work.
+
+The OGC API specification for filtering [[PUB-6]] did not not yet have the status "approved" at the time of this service publication and has therefor not been considered further.
 
 ***CRS***
 
@@ -46,7 +51,7 @@ https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items?f=j
 
 #### Dutch API design rules  
 
-It complies with all the rules, except for rule https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48.
+It complies with all the rules, except for rule https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/no-trailing-slash.
 This rule in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. However, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
 It is expected that in future, this ADR-rule will make an exception for the landing page.
 
@@ -148,9 +153,10 @@ The OGC CITE validator gave no error at the landing page https://geonovum.geosol
 ***Filtering***  
 
 For the use of filters, the bbox and items options were already available. In addition, one can filter on the attributes which can be retrieved from:
-https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress?queryables.  
+https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress?queryables.
+https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress/items?filter=locator_designator_postalDeliveryIdentifier=%279901AA%27 only gives the addresses with postal code '9901AA'. 
 
-The OGC API specification for filtering [[PUB-6]] does not yet have the status "approved" and has not yet been considered.
+The OGC API specification for filtering [[PUB-6]] did not not yet have the status "approved" at the time of this service publication and has therefor not been considered further.
 
 ***CRS***
 
@@ -169,7 +175,7 @@ https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collect
 
 #### Dutch API design rules  
 
-It complies with all the rules, except for rule https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48.
+It complies with all the rules, except for rule https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/no-trailing-slash.
 This rule in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. However, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
 It is expected that in future, this ADR-rule will make an exception for the landing page.
 
@@ -240,7 +246,7 @@ The OGC CITE validator gave no error at the landing page: https://test.haleconne
 
 For the use of filters, the bbox and items options were already available.
 
-The OGC API specification for filtering [[PUB-6]] does not yet have the status "approved" and has not yet been considered.
+The OGC API specification for filtering [[PUB-6]] did not not yet have the status "approved" at the time of this service publication and has therefor not been considered.
 
 ***CRS***
 
@@ -258,7 +264,7 @@ https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/
 
 #### Dutch API design rules  
 
-It complies with all the rules, except for rule https://publicatie.centrumvoorstandaarden.nl/api/adr/#api-48.
+It complies with all the rules, except for rule https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/no-trailing-slash.
 This rule in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. However, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
 It is expected that in future, this ADR-rule will make an exception for the landing page.
 
@@ -270,6 +276,112 @@ The required CRS's are available:
 - RD: https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/SimpleAddress/items/nl-imbag-ad-address-0003200000133985?f=json&crs=http://www.opengis.net/def/crs/EPSG/0/28992
 - WGS84: https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/SimpleAddress/items/nl-imbag-ad-address-0003200000133985?f=json&crs=http://www.opengis.net/def/crs/OGC/1.3/CRS84
 - ETRS89: https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/SimpleAddress/items/nl-imbag-ad-address-0003200000133985?f=json&crs=http://www.opengis.net/def/crs/EPSG/0/4258
+
+***Predefined download***  
+
+Link to metadata of dataset: passed at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json):  
+
+`{"href":"https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83","rel":"describedby","type":"text/html","title":"Metadata"}`
+
+Link to INSPIRE feature concept dictionary: passed at [/collections/collection level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/SimpleAddress?f=json) and at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json):  
+
+`{"href":"https://inspire.ec.europa.eu/featureconcept/Address","rel":"tag","type":"text/html","title":"Feature concept Address"}`
+
+Link to the license: passed at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json):  
+
+`{"href":"http://creativecommons.org/publicdomain/zero/1.0/deed.nl","rel":"license","type":"text/html","title":"License"}`
+
+***bulk download***
+
+Link to bulk download of dataset: passed at [/collections/collection level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/SimpleAddress?f=json) and at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json). 
+
+`{"href":"http://test.haleconnect.de/ogcapi/datasets/simplified-addresses/collections/SimpleAddress/items?bulk=true","rel":"enclosure","type":"application/xml","title":"Download all features as GML"}` 
+`{"href":"http://test.haleconnect.de/ogcapi/datasets/simplified-addresses/collections/SimpleAddress/items?bulk=true","rel":"enclosure","type":"application/json","title":"Download all features as GeoJSON"}` 
+
+***GeoJSON***
+
+Items can be retrieved in GeoJSON by requesting:  
+
+`https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/collections/SimpleAddress/items?f=json&limit=1`
+
+ or
+
+`https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/collections/SimpleAddress/items/nl-imbag-ad-address-0003200000133985?f=json`
+
+***GML*** 
+
+As input, a simple features GML file was used as produced by Wetransform from the complex feature GML with the transformation software Hale.
+As output, the following links can be found at [/collections/collection level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/SimpleAddress?f=json). They can be used to download specific records.
+
+`{"href":"http://test.haleconnect.de/ogcapi/datasets/simplified-addresses/collections/SimpleAddress/items?bulk=true","rel":"enclosure","type":"application/xml","title":"Download all features as GML"}` 
+
+or 
+
+`{"href":"http://test.haleconnect.de/ogcapi/datasets/simplified-addresses/collections/SimpleAddress/items","rel":"items","type":"application/gml+xml;version=3.2","title":"Features as GML"}`
+
+(use parameter `f=xml`)
+
+***Describing encoding***  
+
+There is a link to https://github.com/INSPIRE-MIF/2017.2/blob/master/GeoJSON/ads at [/collections/collection level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json). 
+
+`{"href":"https://github.com/INSPIRE-MIF/2017.2/tree/master/GeoJSON/ads","rel":"describedby","type":"text/html","title":"Encoding description"}`
+
+#### Other findings on Deegree
+
+More information about the Deegree adjustments to the standards can be found at https://www.geonovum.nl/uploads/documents/deegree%20OGC%20API%20Features.pdf
+
+### GoGoala BRT versus requirements
+
+The following findings show how Geoserver complies to the requirements.
+
+#### OAS 
+
+The OAS document is available at: https://api.pdok.nl/brt/top10nl/ogc/v1/api
+
+#### OGC
+
+The OGC CITE validator gave no error at the landing page: https://api.pdok.nl/brt/top10nl/ogc/v1.
+
+***Filtering***  
+
+For the use of filters, the bbox and items options were available.
+https://api.pdok.nl/brt/top10nl/ogc/v1/collections/gebouw_punt/queryables is not supported.
+
+The OGC API specification for filtering [[PUB-6]] did not not yet have the status "approved" at the time of this service publication and has therefor not been considered further.
+
+***CRS***
+
+The crs identifier list and storage-crs can be found at:
+https://api.pdok.nl/brt/top10nl/ogc/v1/collections?f=json where it is repeated for each collection.
+and at each collection level, for instance: https://api.pdok.nl/brt/top10nl/ogc/v1/collections/gebouw_punt?f=json
+
+With the following command line request, one can see the Content-CRS value in the header :
+
+`curl -i https://api.pdok.nl/brt/top10nl/ogc/v1/collections/gebouw_punt/items?limit=1`
+
+It supports the bbox filter and the bbox-crs parameter.
+Only 5 points are available in the below defined bbox:
+https://api.pdok.nl/brt/top10nl/ogc/v1/collections/gebouw_punt/items?bbox-crs=http://www.opengis.net/def/crs/EPSG/0/28992&bbox=252000,593000,253000,594000
+
+
+#### Dutch API design rules  
+
+It complies with all the rules, except for rule https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/no-trailing-slash and https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/naming-collections.
+This rule "no-trailing-slash" in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. However, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
+It is expected that in future, this ADR-rule will make an exception for the landing page.
+
+The rule [naming-collection](https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/naming-collections) demands that the path segment describing the name of the collection resource MUST be written in the plural form.
+In the original dataset of the BRT, the layers were already described in a singular form. It is understandable that they want it to be the same in the API as in the original dataset. 
+
+#### INSPIRE
+
+***CRS ETRS89 and WGS84***
+
+The required CRS's are available:
+- RD: https://api.pdok.nl/brt/top10nl/ogc/v1/collections/gebouw_punt/items?limit=1&f=json&crs=http://www.opengis.net/def/crs/EPSG/0/28992
+- WGS84: https://api.pdok.nl/brt/top10nl/ogc/v1/collections/gebouw_punt/items?limit=1&f=json&crs=http://www.opengis.net/def/crs/OGC/1.3/CRS84
+- ETRS89: https://api.pdok.nl/brt/top10nl/ogc/v1/collections/gebouw_punt/items?limit=1&f=json&crs=http://www.opengis.net/def/crs/EPSG/0/4258
 
 ***Predefined download***  
 
