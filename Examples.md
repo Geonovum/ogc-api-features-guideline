@@ -10,8 +10,7 @@ Next to these demoservices, some services that are in production are reviewed in
 | Pygeoapi  |Justobjects and Geocat|https://apitestbed.geonovum.nl/adr_pygeoapi/v1 |
 | Geoserver |Geosolutions          |https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1 |
 | Deegree   |Wetransform           |https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1 |
-| Gogoala   |PDOK                  |https://api.pdok.nl/brt/top10nl/ogc/v1/
-|
+| Gokoala   |PDOK                  |https://api.pdok.nl/brt/top10nl/ogc/v1 |
 
 Per tool, findings are elaborated in the next chapters when relevant.
 
@@ -331,7 +330,7 @@ There is a link to https://github.com/INSPIRE-MIF/2017.2/blob/master/GeoJSON/ads
 
 More information about the Deegree adjustments to the standards can be found at https://www.geonovum.nl/uploads/documents/deegree%20OGC%20API%20Features.pdf
 
-### GoGoala BRT versus requirements
+### Gokoala BRT versus requirements
 
 The following findings show how Geoserver complies to the requirements.
 
@@ -376,6 +375,8 @@ In the original dataset of the BRT, the layers were already described in a singu
 
 #### INSPIRE
 
+The Gokoala OAPIF for the BRT is not based on an INSPIRE harmonized  dataset, so the INSPIRE requirements are not applicable. Because the INSPIRE requirements can still be relevant they have been viewed, despite the fact that they are not applicable. 
+
 ***CRS ETRS89 and WGS84***
 
 The required CRS's are available:
@@ -385,57 +386,41 @@ The required CRS's are available:
 
 ***Predefined download***  
 
-Link to metadata of dataset: passed at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json):  
+Link to metadata of dataset: passed at [Landingpage level](https://api.pdok.nl/brt/top10nl/ogc/v1?f=json):  
 
-`{"href":"https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83","rel":"describedby","type":"text/html","title":"Metadata"}`
+`{"href":"https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/29d5310f-dd0d-45ba-abad-b4ffc6b8785f","rel":"http://www.opengis.net/def/rel/ogc/1.0/data-meta","title":"Metadata for dataset at Nationaal Georegister"}`
 
-Link to INSPIRE feature concept dictionary: passed at [/collections/collection level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/SimpleAddress?f=json) and at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json):  
+No Link to INSPIRE feature concept dictionary, because it is not an INSPIRE harmonized dataset.
 
-`{"href":"https://inspire.ec.europa.eu/featureconcept/Address","rel":"tag","type":"text/html","title":"Feature concept Address"}`
+Link to the license: passed at [/collections level](https://api.pdok.nl/brt/top10nl/ogc/v1/collections?f=json) and [Landingpage level](https://api.pdok.nl/brt/top10nl/ogc/v1?f=json):  
 
-Link to the license: passed at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json):  
-
-`{"href":"http://creativecommons.org/publicdomain/zero/1.0/deed.nl","rel":"license","type":"text/html","title":"License"}`
+`{"href":"https://creativecommons.org/licenses/by/4.0/deed.nl","rel":"license","type":"text/html","title":"CC BY 4.0"}`
 
 ***bulk download***
 
-Link to bulk download of dataset: passed at [/collections/collection level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/SimpleAddress?f=json) and at [/collections level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json). 
-
-`{"href":"http://test.haleconnect.de/ogcapi/datasets/simplified-addresses/collections/SimpleAddress/items?bulk=true","rel":"enclosure","type":"application/xml","title":"Download all features as GML"}` 
-`{"href":"http://test.haleconnect.de/ogcapi/datasets/simplified-addresses/collections/SimpleAddress/items?bulk=true","rel":"enclosure","type":"application/json","title":"Download all features as GeoJSON"}` 
+No Link to bulk download of dataset is passed.
 
 ***GeoJSON***
 
-Items can be retrieved in GeoJSON by requesting:  
+The first items can be retrieved in GeoJSON by requesting:  
 
-`https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/collections/SimpleAddress/items?f=json&limit=1`
+`https://api.pdok.nl/brt/top10nl/ogc/v1/collections/gebouw_punt/items?limit=1&f=json`
 
- or
+ or items can be retrieved by ID:
 
-`https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/collections/SimpleAddress/items/nl-imbag-ad-address-0003200000133985?f=json`
+`https://api.pdok.nl/brt/top10nl/ogc/v1/collections/gebouw_punt/items/a7b7566b-9be9-57fb-bd05-33dd417505f3?f=json`
 
 ***GML*** 
 
-As input, a simple features GML file was used as produced by Wetransform from the complex feature GML with the transformation software Hale.
-As output, the following links can be found at [/collections/collection level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/SimpleAddress?f=json). They can be used to download specific records.
-
-`{"href":"http://test.haleconnect.de/ogcapi/datasets/simplified-addresses/collections/SimpleAddress/items?bulk=true","rel":"enclosure","type":"application/xml","title":"Download all features as GML"}` 
-
-or 
-
-`{"href":"http://test.haleconnect.de/ogcapi/datasets/simplified-addresses/collections/SimpleAddress/items","rel":"items","type":"application/gml+xml;version=3.2","title":"Features as GML"}`
-
-(use parameter `f=xml`)
+The input encoding options of Gokoala have not been investigated and are unknown for this dataset. The output of GML is not supported.
 
 ***Describing encoding***  
 
-There is a link to https://github.com/INSPIRE-MIF/2017.2/blob/master/GeoJSON/ads at [/collections/collection level](https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections?f=json). 
+The describing of the encoding is not relevant, since it is no INSPIRE Harmonized dataset.
 
-`{"href":"https://github.com/INSPIRE-MIF/2017.2/tree/master/GeoJSON/ads","rel":"describedby","type":"text/html","title":"Encoding description"}`
+#### Other findings on Gokoala BRT OAPIF.
 
-#### Other findings on Deegree
-
-More information about the Deegree adjustments to the standards can be found at https://www.geonovum.nl/uploads/documents/deegree%20OGC%20API%20Features.pdf
+More information about the Gokoala can be found at https://github.com/PDOK/gokoala and https://api.pdok.nl/
 
 ### General findings
 
