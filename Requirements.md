@@ -2,21 +2,22 @@
 
 Below the most relevant requirements (or requirement classes) for setting up an OAPIF are listed:
 
-| Nr | Source   | requirements | reference | 
-|----|----------|--------------|-----------| 
-| 1  | OAS      | Open API Specification| https://www.openapis.org/ |
-| 2  | OGC      | [OGC API Features Core](https://docs.opengeospatial.org/is/17-069r4/17-069r4.html) | [[PUB-1]] |
-| 3  | OGC      | CRS requirements | [[PUB-5]] |
-| 4  | OGC      | [OGC filtering](https://docs.ogc.org/DRAFTS/19-079r1.html) | [[PUB-6]] |
-| 5  | Dutch ADR| [Dutch API design rules](https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst) | [[PUB-3]] |
-| 6  | INSPIRE  | [INPSIRE-MIF document: Setting up an INSPIRE Download service based on the OGC API-Features standard](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md) | [[PUB-2]] |
-| 7  | INSPIRE  | [CRS requirements](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-crs) | [[PUB-2]] #req-crs |
-| 8  | INSPIRE  | [multilinguality](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#82-requirements-class-inspire-multilinguality-) |  [[PUB-2]] #82-requirements-class-inspire-multilinguality- |
-| 9  | INSPIRE  | [predefined download](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-pre-defined | [[PUB-2]] #req-pre-defined |
-| 10 | INSPIRE  | [bulk download](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-bulk-download) | [[PUB-2]] #req-bulk-download  |
-| 11 | INSPIRE  | [GeoJSON](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-oapif-json) | [[PUB-2]] #req-oapif-json |
-| 12 | INSPIRE  | INSPIRE validated GML as [input](https://inspire.ec.europa.eu/validator/about/) and [output](http://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_requirements_class_geography_markup_language_gml_simple_features_profile_level_2) | https://inspire.ec.europa.eu/validator/about/ and [[PUB-1]] #_requirements_classes_for_encodings |
-| 13 | INSPIRE  | [describing encoding](https://github.com/INSPIRE-MIF/2017.2/blob/master/GeoJSON/geojson-encoding-rule.md#inspire-requirements-for-encoding-rules) | [[PUB-4]] |
+| Source   | requirements | reference | 
+|----------|--------------|-----------| 
+| OAS      | Open API Specification| https://www.openapis.org/ |
+| OGC      | [OGC API Features-Part1: Core](https://www.opengis.net/doc/IS/ogcapi-features-1/1.0) | [[PUB-1]] |
+| OGC      | [OGC API Features-Part2: CRS](https://www.opengis.net/doc/IS/ogcapi-features-2/1.0) | [[PUB-5]] |
+| OGC      | [OGC API Features-Part3: filtering](https://www.opengis.net/doc/IS/ogcapi-features-3/1.0) | [[PUB-6]] |
+| OGC      | [OGC API common](https://www.ogc.org/publications/standard/ogcapi-common/) | [[PUB-7]]
+| Dutch ADR| [Dutch API design rules](https://www.geonovum.nl/over-geonovum/actueel/rest-api-design-rules-op-pas-toe-leg-uit-lijst) | [[PUB-3]] |
+| INSPIRE  | [INPSIRE-MIF document: Setting up an INSPIRE Download service based on the OGC API-Features standard](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md) | [[PUB-2]] |
+| INSPIRE  | [CRS requirements](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-crs) | [[PUB-2]] #req-crs |
+| INSPIRE  | [multilinguality](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#82-requirements-class-inspire-multilinguality-) |  [[PUB-2]] #82-requirements-class-inspire-multilinguality- |
+| INSPIRE  | [predefined download](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-pre-defined | [[PUB-2]] #req-pre-defined |
+| INSPIRE  | [bulk download](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-bulk-download) | [[PUB-2]] #req-bulk-download  |
+| INSPIRE  | [GeoJSON](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#req-oapif-json) | [[PUB-2]] #req-oapif-json |
+| INSPIRE  | INSPIRE validated GML as [input](https://inspire.ec.europa.eu/validator/about/) and [output](http://docs.opengeospatial.org/is/17-069r4/17-069r4.html#_requirements_class_geography_markup_language_gml_simple_features_profile_level_2) | https://inspire.ec.europa.eu/validator/about/ and [[PUB-1]] #_requirements_classes_for_encodings |
+| INSPIRE  | [describing encoding](https://github.com/INSPIRE-MIF/2017.2/blob/master/GeoJSON/geojson-encoding-rule.md#inspire-requirements-for-encoding-rules) | [[PUB-4]] |
 
 
 ### OAS
@@ -25,13 +26,15 @@ The Open API Specification as set up by the [OpenAPI Initiative](https://openapi
 It can mostly be obtained by typing "openapi" behind the URL of the landing page of the service.
 An OpenAPI document uses and conforms to the [OpenAPI Specification](https://spec.openapis.org/oas/v3.1.0).
 It describes all the possible fields that can or should be used in the OpenAPI document.
+The fields "openapi", "info" are required.
+If the servers field is not provided, or contains an empty array, the default value would be a Server Object with a url value of /.
 The OpenAPI document MUST contain at least one paths field, a components field or a webhooks field.
 
 ### OGC
 
 #### OGC API Features Core
 
-[OGC API Features Core](https://docs.opengeospatial.org/is/17-069r4/17-069r4.html), [[PUB-1]] describes the basic requirements (50) and recommendations (17) according to OGC that one needs to follow, independent of INSPIRE. 
+[OGC API Features Core](https://www.opengis.net/doc/IS/ogcapi-features-1/1.0), [[PUB-1]] describes the basic requirements (50) and recommendations (17) according to OGC that one needs to follow, independent of INSPIRE. 
 It describes which paths can be used and what responses one should receive. 
 It does not make the use of the [OpenAPI Specification 3.0](https://spec.openapis.org/oas/v3.0.0)) mandatory, but if it is used, it gives an extra [requirement class](http://docs.opengeospatial.org/is/17-069r4/17-069r4.html#rc_oas30).
 Presumably, this also counts for higher versions of the OpenAPI Specification.

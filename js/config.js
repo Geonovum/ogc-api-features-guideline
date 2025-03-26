@@ -77,8 +77,8 @@ let respecConfig = {
     "PUB-1":
       {
         title:      "OGC API Features Part1:Core",
-        href:       "https://docs.opengeospatial.org/is/17-069r4/17-069r4.html",
-        status:     "V1.0",
+        href:       "https://www.opengis.net/doc/IS/ogcapi-features-1/1.0",
+        status:     "V1.0.1",
         publisher:  "OGC",
         company:    "OGC",
     },
@@ -109,7 +109,7 @@ let respecConfig = {
 	"PUB-5":
       {
         title:      "OGC API - Features - Part 2: Coordinate Reference Systems by Reference",
-        href:       "http://docs.opengeospatial.org/is/18-058r1/18-058r1.html",
+        href:       "https://www.opengis.net/doc/IS/ogcapi-features-2/1.0",
         status:     "V1.0",
         publisher:  "OGC",
         company:    "OGC",
@@ -117,10 +117,18 @@ let respecConfig = {
 	"PUB-6":
       {
         title:      "OGC API - Features - Part 3: Filtering and the Common Query Language (CQL)",
-        href:       "https://docs.ogc.org/DRAFTS/19-079r1.html",
-        status:     "V1.0.0, draft",
+        href:       "https//www.opengis.net/doc/IS/ogcapi-features-3/1.0",
+        status:     "V1.0",
         publisher:  "OGC",
         company:    "OGC",
     },
-  },
+	"PUB-7":
+      {
+        title:      "OGC API - Common - Part 1: Common standard for all OGC-APIs",
+        href:       "https://www.opengis.net/doc/is/ogcapi-common-1/1.0",
+        status:     "V1.0",
+        publisher:  "OGC",
+        company:    "OGC",
+    }	
+  }
 };

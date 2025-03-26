@@ -1,9 +1,9 @@
-## Examples of implementations after tool adjustments
+## Examples of implementations
 
 From earlier tests Geonovum concluded tools were not compliant with the requirements for OAS, OGC, INSPIRE and Dutch ADR. For that reason Geonovum set up an open tender at the beginning of the year 2023, with the goal of improving the compliance of OGC API tooling.
-This resulted in 3 demo services that each show how you can be compliant with the requirements.
+This resulted in demo services that each show how you can be compliant with the requirements.
 These demo services used the same selection of the Dutch INSPIRE Addresses in a simplified GML file, constructed by Wetransform as input.
-Next to these demoservices, some services that are in production are reviewed in regards to the standards.
+Next to these demoservices, an other service that is in production is reviewed in regards to the standards.
 
 |   tool    | main contributions   | landing page|
 |-----------|----------------------|-------------|
@@ -16,7 +16,7 @@ Per tool, findings are elaborated in the next chapters when relevant.
 
 ### Pygeoapi versus requirements
 
-The following findings show how Pygeoapi complies to the requirements.
+The following findings show how Pygeoapi complies to the requirements with an OAPIF service for INSPIRE harmonized Dutch Addresses.
 
 #### OAS
 
@@ -139,7 +139,7 @@ More information about the Pygeoapi adjustments to the standards can be found at
 
 ### Geoserver versus requirements
 
-The following findings show how Geoserver complies to the requirements.
+The following findings show how Geoserver complies to the requirements with an OAPIF service for INSPIRE harmonized Dutch Addresses.
 
 #### OAS
 
@@ -231,7 +231,7 @@ More information about the Geoserver adjustments to the standards can be found a
  
 ### Deegree versus requirements
 
-The following findings show how Geoserver complies to the requirements.
+The following findings show how Geoserver complies to the requirements with an OAPIF service for INSPIRE harmonized Dutch Addresses.
 
 #### OAS 
 
@@ -263,9 +263,12 @@ https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/
 
 #### Dutch API design rules  
 
-It complies with all the rules, except for rule https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/no-trailing-slash.
+It complies with all the rules, except for 2 rules.
+It does not comply with https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/no-trailing-slash.
 This rule in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. However, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
 It is expected that in future, this ADR-rule will make an exception for the landing page.
+
+The collection is named "SimpleAddress". This is not according to the [rule for naming collections](https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/naming-collections) because it is not a plural.  
 
 #### INSPIRE
 
@@ -332,7 +335,7 @@ More information about the Deegree adjustments to the standards can be found at 
 
 ### Gokoala BRT versus requirements
 
-The following findings show how Geoserver complies to the requirements.
+The following findings show how Gokoala with the OAF service for the BRT dataset complies to the requirements.
 
 #### OAS 
 
@@ -367,15 +370,16 @@ https://api.pdok.nl/brt/top10nl/ogc/v1/collections/gebouw_punt/items?bbox-crs=ht
 #### Dutch API design rules  
 
 It complies with all the rules, except for rule https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/no-trailing-slash and https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/naming-collections.
-This rule "no-trailing-slash" in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. However, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
-It is expected that in future, this ADR-rule will make an exception for the landing page.
+The rule "no-trailing-slash" in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. However, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
+It is expected that in future, this ADR-rule will make an exception for the landing page.  
 
 The rule [naming-collection](https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/naming-collections) demands that the path segment describing the name of the collection resource MUST be written in the plural form.
 In the original dataset of the BRT, the layers were already described in a singular form. It is understandable that they want it to be the same in the API as in the original dataset. 
 
 #### INSPIRE
 
-The Gokoala OAPIF for the BRT is not based on an INSPIRE harmonized  dataset, so the INSPIRE requirements are not applicable. Because the INSPIRE requirements can still be relevant they have been viewed, despite the fact that they are not applicable. 
+The dataset BRT is an INSPIRE dataset AsIs and not an INSPIRE harmonized dataset, so not all the INSPIRE requirements are applicable.
+Because the INSPIRE requirements can still be relevant they have been viewed, despite the fact that they are not all applicable. 
 
 ***CRS ETRS89 and WGS84***
 
@@ -398,7 +402,7 @@ Link to the license: passed at [/collections level](https://api.pdok.nl/brt/top1
 
 ***bulk download***
 
-No Link to bulk download of dataset is passed.
+No Link to bulk download of dataset is provided, although it does exist: https://service.pdok.nl/brt/topnl/atom/top10nl.xml.
 
 ***GeoJSON***
 
@@ -427,8 +431,11 @@ More information about the Gokoala can be found at https://github.com/PDOK/gokoa
 1. There has been discussion whether the predefined download links should be at collections or collections/collection level. See also: https://github.com/INSPIRE-MIF/gp-ogc-api-features/issues/91.  
 During the project of adjusting the tools we had the opinion that both should be possible.  
 Afterwards, we found out that it should be at collections level since it is one of the [main principles](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#main-principles) in [PUB-2] to use one data set in one API.
-2. The protocol element in the metadata is based on a code list. A new protocol needs to be added to this list of [protocol values](https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue:1).
-As long as it is not there, the Dutch profile for metadata can be used with the value: "OGC:API features" https://geonovum.github.io/Metadata-ISO19119/#codelist-protocol.
+Again, later we realized other kinds of OGC-API services like Tiles, can exist together on the same landing page. In that case, these links could also be provided on the landing page, also because not all OGC-API have collections. 
+This was discussed at https://github.com/INSPIRE-MIF/gp-ogc-api-features/issues/93.
+2. The protocol element in the metadata is based on a code list. A new protocol "OGC API-Features" was added to the list of [protocol values](https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue:1). But the given [id](http://www.opengis.net/def/docs/17-069r3) does not resolve.
+As long as it does not resolve, the Dutch profile for metadata can be used with the value: "OGC:API features" https://geonovum.github.io/Metadata-ISO19119/#codelist-protocol.
+The uri provided there does resolve: uri = http://www.opengis.net/def/interface/ogcapi-features
 3. Another blocking issue before implementation of the OAPIF for INSPIRE is that descriptions of encodings other than GML are not yet available for most INSPIRE themes.
 4. Complex GML as input and output are difficult as long as tooling (server and client) expects simple encodings.
 5. One could discuss if it is useful to publish complex GML as output, because it is not in line with the aim of OGI API Features: easy to use for developers.
@@ -437,4 +444,4 @@ This is often not the case with the more complex INSPIRE models.
 
 ### Resulting documentation
 
-Presentations can be found here: https://www.geonovum.nl/over-geonovum/actueel/presentatie-resultaten-aanbesteding-ogc-api-features-toolaanpassing
+Presentations of tool adjustments can be found here: https://www.geonovum.nl/over-geonovum/actueel/presentatie-resultaten-aanbesteding-ogc-api-features-toolaanpassing
