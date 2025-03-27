@@ -18,8 +18,12 @@ Seek for cooperation with other INSPIRE data providers in Europe and use the pri
 The INSPIRE data models contain many non-obligatory fields that remain empty after harmonizing. Consider leaving out these empty fields to reduce the output size or use an option not to show them.
 10. **In case of an INSPIRE-dataset**, if not published before, describe the mapping from the INSPIRE data model to the output encoding of the OAPIF and publish it, in order to be INSPIRE compliant.
 11. Adjust your metadata of the dataset with the addition of the OAPIF service. The [ISO19115 metadata standard](https://docs.geostandaarden.nl/md/mdprofiel-iso19115/#protocol) uses the protocol element to state the type of service. 
-As long as there is no official protocol defined for OAPIF in https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue:1, use the extended code list for the protocol in the Dutch metadata standard 2.1.0 (https://docs.geostandaarden.nl/md/mdprofiel-iso19119/#codelist-protocol): `OGC:API features`.
-12. If you host your OAPIF yourself, research how to make metadata for the OAPIF service. It is probably similar to the metadata of a WFS, except for the protocol element.
+A new protocol "OGC API-Features" was added to the list of [protocol values](https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue:1). But the given [id](http://www.opengis.net/def/docs/17-069r3) does not resolve.
+As long as it does not resolve, the Dutch profile for metadata can be used with the value: "OGC:API features" https://geonovum.github.io/Metadata-ISO19119/#codelist-protocol.
+The uri provided there does resolve: uri = http://www.opengis.net/def/interface/ogcapi-features.
+12. If you host your OAPIF yourself, you could create metadata for the OAPIF service. It is probably similar to the metadata of a WFS, except for the protocol element. 
+It is no longer mandatory, because the openapi specification can already suffice, provided there is a link to the metadata of the dataset in the service specification and vice versa from the metadata of the dataset to the service. 
+An interesting discussion is can be found at https://github.com/INSPIRE-MIF/helpdesk/discussions/161
 13. Add as many links, i.e. references to other resources, as you can at the response to the endpoints of your service to describe your service. **In case of an Inspire dataset**, all the links as mentioned in the chapter on [requirements](#H03) are required (metadata of dataset, INSPIRE feature concept dictionary, Licence, mapping description, bulk download).
 14. The steps for final actual publishing of the OAPIF service depends on the chosen tool, so there the tooling guidelines need to be followed:  
   - Geonovum testbed: https://github.com/Geonovum/ogc-api-testbed/tree/main/docs/docs/howto  

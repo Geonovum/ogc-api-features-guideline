@@ -1,6 +1,7 @@
 ## Examples of implementations
 
-From earlier tests Geonovum concluded tools were not compliant with the requirements for OAS, OGC, INSPIRE and Dutch ADR. For that reason Geonovum set up an open tender at the beginning of the year 2023, with the goal of improving the compliance of OGC API tooling.
+From earlier tests Geonovum concluded that tools were not compliant with the requirements for OAS, OGC, INSPIRE and Dutch ADR. 
+For that reason Geonovum set up an open tender at the beginning of the year 2023, with the goal of improving the compliance of OGC API tooling.
 This resulted in demo services that each show how you can be compliant with the requirements.
 These demo services used the same selection of the Dutch INSPIRE Addresses in a simplified GML file, constructed by Wetransform as input.
 Next to these demoservices, an other service that is in production is reviewed in regards to the standards.
@@ -12,7 +13,8 @@ Next to these demoservices, an other service that is in production is reviewed i
 | Deegree   |Wetransform           |https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1 |
 | Gokoala   |PDOK                  |https://api.pdok.nl/brt/top10nl/ogc/v1 |
 
-Per tool, findings are elaborated in the next chapters when relevant.
+Per tool, findings are elaborated in the next chapters when relevant. They are held to the requirements in the standards as stated in chapter 3.
+Not all standards are regarded, since they were not yet astablished at the time the services were set online. This counts for the common and filtering standard.
 
 ### Pygeoapi versus requirements
 

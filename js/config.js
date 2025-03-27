@@ -116,8 +116,8 @@ let respecConfig = {
     },
 	"PUB-6":
       {
-        title:      "OGC API - Features - Part 3: Filtering and the Common Query Language (CQL)",
-        href:       "https//www.opengis.net/doc/IS/ogcapi-features-3/1.0",
+        title:      "OGC API - Features - Part 3: Filtering and the Common Query Language",
+        href:       "https://www.opengis.net/doc/IS/ogcapi-features-3/1.0",
         status:     "V1.0",
         publisher:  "OGC",
         company:    "OGC",
