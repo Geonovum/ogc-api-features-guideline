@@ -435,9 +435,12 @@ During the project of adjusting the tools we had the opinion that both should be
 Afterwards, we found out that it should be at collections level since it is one of the [main principles](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md#main-principles) in [PUB-2] to use one data set in one API.
 Again, later we realized other kinds of OGC-API services like Tiles, can exist together on the same landing page. In that case, these links could also be provided on the landing page, also because not all OGC-API types have collections. 
 This was discussed at https://github.com/INSPIRE-MIF/gp-ogc-api-features/issues/93.
-2. The protocol element in the metadata is based on a code list. A new protocol "OGC API-Features" was added to the list of [protocol values](https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue:1). But the given [id](http://www.opengis.net/def/docs/17-069r3) does not resolve.
-As long as it does not resolve, the Dutch profile for metadata can be used with the value: "OGC:API features" https://geonovum.github.io/Metadata-ISO19119/#codelist-protocol.
-The uri provided there does resolve: uri = http://www.opengis.net/def/interface/ogcapi-features
+2. The protocol element in the metadata is based on a codelist. The protocol element is used to state the type of service.
+A new protocol "OGC API-Features" was added to the list of [protocol values](https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue:1). 
+But the given [link](http://www.opengis.net/def/docs/17-069r3) behind the label does not resolve.
+The Dutch [ISO19115 metadata standard](https://docs.geostandaarden.nl/md/mdprofiel-iso19115/#protocol) also provides a codelist for the protocol element to state the type of service. 
+It has the value: "OGC:API features" in https://docs.geostandaarden.nl/md/mdprofiel-iso19115/#codelist-protocol.
+The [uri](http://www.opengis.net/def/interface/ogcapi-features) provided there, does also not resolve.
 3. Another blocking issue before implementation of the OAPIF for INSPIRE is that descriptions of encodings other than GML are not yet available for most INSPIRE themes.
 4. Complex GML as input and output are difficult as long as tooling (server and client) expects simple encodings.
 5. One could discuss if it is useful to publish complex GML as output, because it is not in line with the aim of OGI API Features: easy to use for developers.

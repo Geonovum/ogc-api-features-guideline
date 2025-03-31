@@ -7,7 +7,7 @@ OAPIF is also the term used for a feature download service by means of an API (A
 
 OAPIF is one of the service types in a larger family of [OGC APIs](https://www.ogc.org/publications/). 
 Other types are OGC-API Tiles(https://www.ogc.org/publications/standard/ogcapi-tiles/) or OGC-API Maps(https://www.ogc.org/publications/standard/ogcapi-maps/). 
-The OGC-APIs are a new generation of API's base on a REST protocol, where the older generation (WFS en WMS) are based on SOAP.  
+The OGC-APIs are a new generation of API's based on a REST protocol, where the older generation (WFS en WMS) are based on SOAP.  
 
 &nbsp;![OGC-APIs](media/OGC-APIs.jpg "A new generation of geoservices: OGC-APIs").
 
