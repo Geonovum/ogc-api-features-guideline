@@ -76,7 +76,7 @@ Some of them are listed below:
 - There is a parameter [filter](https://www.opengis.net/doc/IS/ogcapi-features-3/1.0#filter-param) to define the filter as a string like _filter='property=value'_
 - There is a parameter [filter-lang](https://www.opengis.net/doc/IS/ogcapi-features-3/1.0#filter-lang-param)  te define the filter language (json or text)
 - There is a parameter [filter](https://www.opengis.net/doc/IS/ogcapi-features-3/1.0#filter-crs-param) to define the crs for posted geoemtries for filtering
-- If the server supports CQL2 and the requirements class "Functions", a resource, /functions is published that allows clients to discover the list of functions that a server offers. 
+- If the server supports CQL2 and the requirements class "Functions", then a resource '/functions' is published that allows clients to discover the list of functions that a server offers. 
 
 
 ### Dutch API design rules
@@ -129,7 +129,7 @@ So no complex features will be supported.
 
 The standards considered in this guideline do not set a specific encoding as mandatory (see https://www.opengis.net/doc/IS/ogcapi-features-1/1.0#_encodings) [[PUB-1]].
 If another encoding than GML is used for publishing an INSPIRE dataset, data providers need to document how the encoding relates to the concerned INSPIRE data model.
-The good practice on [GeoPackages encoding of INSPIRE datasets](https://inspire.ec.europa.eu/good-practice/geopackage-encoding-inspire-datasets) describes how this can be done.
+The good practice on [GeoPackages encoding of INSPIRE datasets](https://github.com/INSPIRE-MIF/gp-geopackage-encodings/blob/main/spec/GeoPackage_Good_Practice_initiation_fiche.md) describes how this can be done.
 
 ###	Relevant documentation 
 
