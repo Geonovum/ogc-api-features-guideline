@@ -24,8 +24,9 @@ But the given [link](http://www.opengis.net/def/docs/17-069r3) behind the label 
 The Dutch profile for metadata can also be used with the value: "OGC:API features" https://geonovum.github.io/Metadata-ISO19119/#codelist-protocol.
 The [uri](http://www.opengis.net/def/interface/ogcapi-features) provided there, does also not resolve.
 12. If you host your OAPIF yourself, you could create metadata for the OAPIF service. It is probably similar to the metadata of a WFS, except for the protocol element. 
-It is no longer mandatory, because the openapi specification can already suffice, provided there is a link to the metadata of the dataset in the service specification and vice versa from the metadata of the dataset to the service. 
-An interesting discussion can be found at https://github.com/INSPIRE-MIF/helpdesk/discussions/161.
+It is no longer mandatory for INSPIRE since the endorsement of the best practice [Data-Service Linking Simplification](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/good-practice/good-practice-fiche.md). 
+The openapi specification can already suffice, provided there is a link to the metadata of the dataset in the service specification and vice versa from the metadata of the dataset to the service as an online resource. 
+Related discussions can be found at https://github.com/INSPIRE-MIF/helpdesk/discussions/161 and https://github.com/INSPIRE-MIF/gp-ogc-api-features/issues/93
 13. Add as many links, i.e. references to other resources, as you can at the response to the endpoints of your service to describe your service. **In case of an Inspire dataset**, all the links as mentioned in the chapter on [requirements](#H03) are required (metadata of dataset, INSPIRE feature concept dictionary, Licence, mapping description, bulk download).
 14. The steps for final actual publishing of the OAPIF service depends on the chosen tool, so there the tooling guidelines need to be followed:  
   - Geonovum testbed: https://github.com/Geonovum/ogc-api-testbed/tree/main/docs/docs/howto  
