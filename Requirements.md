@@ -74,8 +74,8 @@ Some of them are listed below:
 - Queryables: This requirements class defines the Queryables resource for discovering a list of resource properties with their types and constraints that may be used to construct filter expressions on a collection of resources, for example, a set of features.
 - For every feature collection, the server SHALL support the Queryables resource at the path /collections/{collectionId}/queryables.
 - There is a parameter [filter](https://www.opengis.net/doc/IS/ogcapi-features-3/1.0#filter-param) to define the filter as a string like _filter='property=value'_
-- There is a parameter [filter-lang](https://www.opengis.net/doc/IS/ogcapi-features-3/1.0#filter-lang-param)  te define the filter language (json or text)
-- There is a parameter [filter](https://www.opengis.net/doc/IS/ogcapi-features-3/1.0#filter-crs-param) to define the crs for posted geoemtries for filtering
+- There is a parameter [filter-lang](https://www.opengis.net/doc/IS/ogcapi-features-3/1.0#filter-lang-param)  to define the filter language (CQL2-json or CQL2-text)
+- There is a parameter [filter-crs](https://www.opengis.net/doc/IS/ogcapi-features-3/1.0#filter-crs-param) to define the crs for posted geomtries for filtering
 - If the server supports CQL2 and the requirements class "Functions", then a resource '/functions' is published that allows clients to discover the list of functions that a server offers. 
 
 
