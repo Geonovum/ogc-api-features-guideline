@@ -450,3 +450,8 @@ This is often not the case with the more complex INSPIRE models.
 ### Documentation
 
 Presentations of tool adjustments can be found here: https://www.geonovum.nl/over-geonovum/actueel/presentatie-resultaten-aanbesteding-ogc-api-features-toolaanpassing
+
+Gecertificeerde software door OGC: https://portal.ogc.org/public_ogc/compliance/compliant.php?display_opt=1&specid=1022 
+Overige software: https://github.com/opengeospatial/ogcapi-features/tree/master/implementations 
+Deze lijsten zijn groeiende en incompleet
+
