@@ -15,7 +15,7 @@ Since October 2024, a change has been made to the Geostandards on the [Dutch "Ap
 This list now includes the new generation of standards: OGC API Features and OGC API Tiles. The WMS and WFS profiles have been moved to the list of recommended standards.
 
 OAPIF has been considered as the successor of the OGC WFS standard, but that does not mean it will replace it in the near future, although eventually it might.
-At this moment, they are complementary to each other. Where WFS is mainly known and used in the GIS community, the OAPIF is aiming at the non GIS-community, like web developers. 
+At this moment, they are complementary to each other. Where WFS is mainly known and used in the GIS community, the OAPIF is aiming broader at both the GIS- and non GIS-community, like web developers. 
 OAPIF is easier to use and needs less knowledge in the spatial domain.
 Note as well that WFS adopts the Geography Markup Language (GML) as a default data format. In contrast, OAPIF includes recommendations to support HTML and GeoJSON as encodings.
 Implementations of OAPIF may also optionally support GML.
