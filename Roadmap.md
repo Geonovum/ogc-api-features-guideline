@@ -2,22 +2,22 @@
 
 The following steps could be considered to follow in order to serve an OGC API Feature service according to the standards:
 
-|number|main step|step|general remarks|INSPIRE remarks|
+|nr|main step|step|general remarks|INSPIRE remarks|
 |------|---------|----|---------------|---------------|
 |1|preparation|reading|[Appendix A](#references)|[[PUB-2]]|
-|2|preparation|choose your hosting method|By yourself or an hosting organization||
-|3|preparation|study [examples](#H04)||look what other INSPIRE data providers have done in this field for the concerning INSPIRE themes and have a look at: https://github.com/INSPIRE-MIF/gp-ogc-api-features/tree/master/deployments.|
-|4|preparation|select the server tool|The [examples](#H04) in this guideline might help||
-|5|preparation|select supported CRS's and timezones|at least [WGS84](https://epsg.io/4326) and UTC. Dutch data owners are also advised to provide the [Dutch RD](https://www.opengis.net/def/crs/EPSG/0/28992) and the local time zone UTC+2 in summer|also [ETRS89](https://epsg.io/4258)|
+|2|preparation|choose your hosting method|By yourself or an hosting organization.||
+|3|preparation|study [examples](#H04)||Look what other INSPIRE data providers have done in this field for the concerning INSPIRE themes and have a look at: https://github.com/INSPIRE-MIF/gp-ogc-api-features/tree/master/deployments.|
+|4|preparation|select the server tool|The [examples](#H04) in this guideline might help.||
+|5|preparation|select supported CRS's and timezones|At least [WGS84](https://epsg.io/4326) and UTC. Dutch data owners are also advised to provide the [Dutch RD](https://www.opengis.net/def/crs/EPSG/0/28992) and the local time zone UTC+2 in summer|also [ETRS89](https://epsg.io/4258)|
 |6|preparation|decide on input encoding|depends on previous decisions||
 |7|preparation|decide on output encoding|depends on previous decisions||
-|8|data preparation|input data transformation|This can be done with software like [HALE studio](https://wetransform.to/halestudio/), [FME](https://www.safe.com/) or [GDAL](https://gdal.org/index.html). |research whether a previously published mapping to an encoding other than complex GML can be found for the concerned INSPIRE-theme. If so, it can be reused. If it cannot be found, research how your harmonized data can be mapped to an encoding that can be used in the tooling. Seek for cooperation with other INSPIRE data providers in Europe and use the principles as stated in [[PUB-4]].|
-|9|data preparation|publishing the description of the output encoding|only required for INSPIRE|If not published before, describe the mapping from the INSPIRE data model to the output encoding of the OAPIF and publish it, in order to be INSPIRE compliant.|
-|10|data preparation|publish metadata of the dataset|Adjust your metadata of the dataset with the addition of the OAPIF service as an online resource in a CI_OnlineResource element. The [ISO19115 metadata standard](https://docs.geostandaarden.nl/md/mdprofiel-iso19115/#protocol) uses the protocol element to state the type of service. A new protocol "OGC API-Features" was added to the list of [protocol values](https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue:1). But the given [link](http://www.opengis.net/def/docs/17-069r3) behind the label does not resolve. The Dutch profile for metadata can also be used with the value: "OGC:API features" https://geonovum.github.io/Metadata-ISO19119/#codelist-protocol. The [uri](http://www.opengis.net/def/interface/ogcapi-features) provided there, does also not resolve.||
-|11|service preparation|publish metadata of the service|If you host your OAPIF yourself, you could create metadata for the OAPIF service. It is probably similar to the metadata of a WFS, except for the protocol element. |For Inspire this is not mandatory anymore|
+|8|data preparation|input data transformation|This can be done with software like [HALE studio](https://wetransform.to/halestudio/), [FME](https://www.safe.com/) or [GDAL](https://gdal.org/index.html). |Research whether a previously published mapping to an encoding other than complex GML can be found for the concerned INSPIRE-theme. If so, it can be reused. If it cannot be found, research how your harmonized data can be mapped to an encoding that can be used in the tooling. Seek for cooperation with other INSPIRE data providers in Europe and use the principles as stated in [[PUB-4]].|
+|9|data preparation|publishing the description of the output encoding|This is only required for INSPIRE.|If not published before, describe the mapping from the INSPIRE data model to the output encoding of the OAPIF and publish it, in order to be INSPIRE compliant.|
+|10|data preparation|publish metadata of the dataset|Adjust your metadata of the dataset with the addition of the OAPIF service as an online resource in a CI_OnlineResource element. The [ISO19115 metadata standard](https://docs.geostandaarden.nl/md/mdprofiel-iso19115/#protocol) uses the protocol element to state the type of service. A new protocol "OGC API-Features" was added to the list of [protocol values](https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue:1). But the given [link](http://www.opengis.net/def/docs/17-069r3) behind the label does not resolve. The Dutch profile for metadata can also be used with the value: ["OGC:API features"](https://geonovum.github.io/Metadata-ISO19119/#codelist-protocol). The [uri](http://www.opengis.net/def/interface/ogcapi-features) provided there, does also not resolve.||
+|11|service preparation|publish metadata of the service|If you host your OAPIF yourself, you could create metadata for the OAPIF service. It is probably similar to the metadata of a WFS, except for the protocol element. |For Inspire this is not mandatory anymore.|
 |12|service preparation|add links|Add as many links, i.e. references to other resources, as you can at the response to the endpoints of your service to describe your service.| All the links as mentioned in the chapter on [requirements](#H03) are required (metadata of dataset, INSPIRE feature concept dictionary, Licence, mapping description, bulk download).|
 |13|service preparation|final publishing|The steps for final actual publishing of the OAPIF service depends on the chosen tool, so there the tooling guidelines need to be followed. See list below.||
-|14|validation|validate the service|Validate the OAPIF service for the OGC requirement with the [INSPIRE validation tool](https://inspire.ec.europa.eu/validator/home/index.html) and in case of a Dutch provider: the [Dutch ADR-validator](https://gitlab.com/commonground/don/adr-validator/-/blob/main/README.md?ref_type=heads). Adjust where possible to be compliant. It should be noted that the INSPIRE-validator is the same as the [OGC validator](https://cite.opengeospatial.org/teamengine/about/ogcapi-features-1.0/1.0/site/) and that it does not test the specific INSPIRE requirements as one would expect.||
+|14|validation|validate the service|Validate the OAPIF service for the OGC requirement with the [INSPIRE validation tool](https://inspire.ec.europa.eu/validator/home/index.html) and in case of a Dutch provider: the [Dutch ADR-validator](https://gitlab.com/commonground/don/adr-validator/-/blob/main/README.md?ref_type=heads). Adjust where possible to be compliant.|It should be noted that the INSPIRE-validator is the same as the [OGC validator](https://cite.opengeospatial.org/teamengine/about/ogcapi-features-1.0/1.0/site/) and that it does not test the specific INSPIRE requirements as one would expect.|
 
 Guidelines for different tooling:  
   - Geonovum testbed: https://github.com/Geonovum/ogc-api-testbed/tree/main/docs/docs/howto  
@@ -27,41 +27,6 @@ Guidelines for different tooling:
   - Deegree: https://github.com/deegree/deegree-ogcapi
 
 
-1. Read this document and all the documents in [Appendix A](https://geonovum.github.io/ogc-api-features-guideline/#references).
-2. Make a choice between publishing by yourself or contact a hosting organization that can help you publish the OAPIF services.
-3. **In case of an INSPIRE-dataset**, look what other data providers have done in this field for the concerning INSPIRE themes and have a look at these examples: https://github.com/INSPIRE-MIF/gp-ogc-api-features/tree/master/deployments.
-4. If you decide to serve the OAPIF yourself, the next step is to select the best tooling for your situation. The [examples](#H04) in this guideline might help in this regard.
-5. Figure out the best way of supporting more than one CRS, at least [WGS84](https://epsg.io/4326) and in case of INSPRE also [ETRS89](https://epsg.io/4258) since the last is the most common in INSPIRE and mostly mandatory. 
-Dutch providers are also advised to provide the [Dutch RD](https://www.opengis.net/def/crs/EPSG/0/28992).
-If tooling is chosen that is not able to serve more than one CRS, a second download option should be provided that does give the data in the required CRS.
-6. Decide on the best input encoding for the OAPIF. It depends on previous decisions.
-7. If necessary, execute the transformation into the chosen input encoding. This can be done with software like [HALE studio](https://wetransform.to/halestudio/), [FME](https://www.safe.com/) or [GDAL](https://gdal.org/index.html). 
-8. Decide on the best output encoding, which also depends on the previous steps and tooling. The tooling used in the examples did a simple 1 to 1 mapping between the input and output encoding. 
-9. **In case of an INSPIRE-dataset**, research whether a previously published mapping to an encoding other than complex GML can be found for the concerned INSPIRE-theme. If so, it can be reused.
-If it cannot be found, research how your harmonized data can be mapped to an encoding that can be used in the tooling.
-Seek for cooperation with other INSPIRE data providers in Europe and use the principles as stated in [[PUB-4]].
-The INSPIRE data models contain many non-obligatory fields that remain empty after harmonizing. Consider leaving out these empty fields to reduce the output size or use an option not to show them.
-10. **In case of an INSPIRE-dataset**, if not published before, describe the mapping from the INSPIRE data model to the output encoding of the OAPIF and publish it, in order to be INSPIRE compliant.
-11. Adjust your metadata of the dataset with the addition of the OAPIF service as an online resource in a CI_OnlineResource element. 
-The [ISO19115 metadata standard](https://docs.geostandaarden.nl/md/mdprofiel-iso19115/#protocol) uses the protocol element to state the type of service. 
-A new protocol "OGC API-Features" was added to the list of [protocol values](https://inspire.ec.europa.eu/metadata-codelist/ProtocolValue:1). 
-But the given [link](http://www.opengis.net/def/docs/17-069r3) behind the label does not resolve.
-The Dutch profile for metadata can also be used with the value: "OGC:API features" https://geonovum.github.io/Metadata-ISO19119/#codelist-protocol.
-The [uri](http://www.opengis.net/def/interface/ogcapi-features) provided there, does also not resolve.
-12. If you host your OAPIF yourself, you could create metadata for the OAPIF service. It is probably similar to the metadata of a WFS, except for the protocol element. 
-It is no longer mandatory for INSPIRE since the endorsement of the best practice [Data-Service Linking Simplification](https://github.com/INSPIRE-MIF/gp-data-service-linking-simplification/blob/main/good-practice/good-practice-fiche.md). 
-The openapi specification can already suffice, provided there is a link to the metadata of the dataset in the service specification and vice versa from the metadata of the dataset to the service as an online resource. 
-Related discussions can be found at https://github.com/INSPIRE-MIF/helpdesk/discussions/161 and https://github.com/INSPIRE-MIF/gp-ogc-api-features/issues/93
-13. Add as many links, i.e. references to other resources, as you can at the response to the endpoints of your service to describe your service. **In case of an Inspire dataset**, all the links as mentioned in the chapter on [requirements](#H03) are required (metadata of dataset, INSPIRE feature concept dictionary, Licence, mapping description, bulk download).
-14. The steps for final actual publishing of the OAPIF service depends on the chosen tool, so there the tooling guidelines need to be followed:  
-  - Geonovum testbed: https://github.com/Geonovum/ogc-api-testbed/tree/main/docs/docs/howto  
-  - GoKoala: https://github.com/PDOK/gokoala   
-  - Pygeoapi: https://github.com/Geonovum/ogc-api-testbed/blob/main/docs/docs/howto/howto_pygeoapi.md or https://docs.pygeoapi.io/en/latest/  
-  - Geoserver: https://github.com/Geonovum/ogc-api-testbed/blob/main/docs/docs/howto/howto_geoserver.md or https://docs.geoserver.org/latest/en/user/  
-  - Deegree: https://github.com/deegree/deegree-ogcapi  
-15. Validate the OAPIF service for the OGC requirement with the [INSPIRE validation tool](https://inspire.ec.europa.eu/validator/home/index.html) and in case of a Dutch provider: the [Dutch ADR-validator](https://gitlab.com/commonground/don/adr-validator/-/blob/main/README.md?ref_type=heads).   
-Adjust where possible to be compliant.
-It should be noted that the INSPIRE-validator is the same as the [OGC validator](https://cite.opengeospatial.org/teamengine/about/ogcapi-features-1.0/1.0/site/) and that it does not test the specific INSPIRE requirements as one would expect.
 
 
 
