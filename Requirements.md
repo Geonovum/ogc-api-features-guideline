@@ -85,6 +85,18 @@ Dutch data providers are recommended to follow the [Dutch API design rules](http
 
 For the Dutch data providers, it is recommended to also support [RD-coordinatesystem](https://www.opengis.net/def/crs/EPSG/0/28992) for 2D data or [RD +NAP](https://www.opengis.net/def/crs/EPSG/0/7415) for 3D data. See also: https://docs.geostandaarden.nl/crs/crs. 
 
+There has been some confusion about the [rule for naming collections](https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/naming-collections)
+One might think that this is about the name of the feature collection or {collectionId}. 
+However, this rule is about the higher level "collections" which is plural and standard for the OGC-API-Features structure. There are no rules for plural or non-plural for the {collectionId}. See also the concerning [github-issue](https://github.com/Geonovum/KP-APIs/issues/631#issuecomment-2696680537).
+See structure below:
+
+```
+/collections/{collectionId}/items/{featureId}
+``` 
+
+This rule ["no-trailing-slash"](https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/no-trailing-slash) in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. However, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
+It is expected that in future, this ADR-rule will make an exception for the landing page. See also https://github.com/Geonovum/KP-APIs/issues/624 
+
 ### INSPIRE
 
 [INSPIRE-MIF document: Setting up an INSPIRE Download service based on the OGC API-Features standard](https://github.com/INSPIRE-MIF/gp-ogc-api-features/blob/master/spec/oapif-inspire-download.md), [[PUB-2]] describes the specific INSPIRE requirements.

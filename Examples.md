@@ -2,9 +2,9 @@
 
 From earlier tests Geonovum concluded that tools were not compliant with the requirements for OAS, OGC, INSPIRE and Dutch ADR. 
 For that reason Geonovum set up an open tender at the beginning of the year 2023, with the goal of improving the compliance of OGC API tooling.
-This resulted in demo services that each show how you can be compliant with the requirements.
+This resulted in 3 demo services that each show how you can be compliant with the requirements.
 These demo services used the same selection of the Dutch INSPIRE Addresses in a simplified GML file, constructed by Wetransform as input.
-Next to these demoservices, an other service that is in production is reviewed in regards to the standards.
+Next to these demoservices, an other 4th service that is in production is reviewed in regards to the standards.
 
 |   tool    | main contributions   | landing page|
 |-----------|----------------------|-------------|
@@ -14,7 +14,7 @@ Next to these demoservices, an other service that is in production is reviewed i
 | Gokoala   |PDOK                  |https://api.pdok.nl/brt/top10nl/ogc/v1 |
 
 Per tool, findings are elaborated in the next chapters when relevant. They are held to the requirements in the standards as stated in chapter 3.
-Not all standards are regarded, since they were not yet astablished at the time the services were set online. This counts for the common and filtering standard.
+Not all standards are regarded, since they were not yet astablished at the time the services were set online. This applies for example to the common and filtering standard.
 
 ### Pygeoapi versus requirements
 
@@ -265,12 +265,14 @@ https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1/collections/
 
 #### Dutch API design rules  
 
-It complies with all the rules, except for 2.
+It complies with all the rules, except for one.
 It does not comply with the rule https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/no-trailing-slash.
 This rule in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. However, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
 It is expected that in future, this ADR-rule will make an exception for the landing page.
 
-Secondly, the collection is named "SimpleAddress". This is not according to the [rule for naming collections](https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/naming-collections) because it is not a plural.  
+The collection is named "SimpleAddress". One might think that this is not according to the [rule for naming collections](https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/naming-collections) because it is not a plural.
+This rule is about the higher level "collections" which is plural and standard for the OGC-API-Features structure. "SimpleAddress" is the collectionId and there are no rules for plural or non-plural for that. So, the chosen name/id "SimpleAddress" is according to the ADR-rules. 
+See also the concerning [github-issue](https://github.com/Geonovum/KP-APIs/issues/631#issuecomment-2696680537).
 
 #### INSPIRE
 
