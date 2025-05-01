@@ -180,8 +180,6 @@ It complies with all the rules, except for rule https://gitdocumentatie.logius.n
 This rule in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. However, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
 It is expected that in future, this ADR-rule will make an exception for the landing page.
 
-At first the collection was named "AddressesNL". At a later stage, it has been changed to "SimpleAddress". This is not according to the [rule for naming collections](https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/naming-collections) because it is not a plural.  
-
 #### INSPIRE
 
 ***CRS ETRS89 and WGS84***
@@ -269,10 +267,6 @@ It complies with all the rules, except for one.
 It does not comply with the rule https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/no-trailing-slash.
 This rule in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. However, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
 It is expected that in future, this ADR-rule will make an exception for the landing page.
-
-The collection is named "SimpleAddress". One might think that this is not according to the [rule for naming collections](https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/naming-collections) because it is not a plural.
-This rule is about the higher level "collections" which is plural and standard for the OGC-API-Features structure. "SimpleAddress" is the collectionId and there are no rules for plural or non-plural for that. So, the chosen name/id "SimpleAddress" is according to the ADR-rules. 
-See also the concerning [github-issue](https://github.com/Geonovum/KP-APIs/issues/631#issuecomment-2696680537).
 
 #### INSPIRE
 
@@ -373,12 +367,9 @@ https://api.pdok.nl/brt/top10nl/ogc/v1/collections/gebouw_punt/items?bbox-crs=ht
 
 #### Dutch API design rules  
 
-It complies with all the rules, except for rule https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/no-trailing-slash and https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/naming-collections.  
+It complies with all the rules, except for rule https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/no-trailing-slash.  
 The rule "no-trailing-slash" in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. However, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
 It is expected that in future, this ADR-rule will make an exception for the landing page.  
-
-Secondly, the rule [naming-collection](https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/naming-collections) demands that the path segment describing the name of the collection resource MUST be written in the plural form.
-In the original dataset of the BRT, the layers were already described in a singular form. It is understandable that they want it to be the same in the API as in the original dataset. 
 
 #### INSPIRE
 
