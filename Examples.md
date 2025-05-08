@@ -4,7 +4,7 @@ From earlier tests Geonovum concluded that tools were not compliant with the req
 For that reason Geonovum set up an open tender at the beginning of the year 2023, with the goal of improving the compliance of OGC API tooling.
 This resulted in 3 demo services that each show how you can be compliant with the requirements.
 These demo services used the same selection of the Dutch INSPIRE Addresses in a simplified GML file, constructed by Wetransform as input.
-Next to these demoservices, an other 4th service that is in production is reviewed in regards to the standards.
+Next to these demo services, an other 4th service that is in production is reviewed in regards to the standards.
 
 |   tool    | main contributions   | landing page|
 |-----------|----------------------|-------------|
@@ -14,7 +14,7 @@ Next to these demoservices, an other 4th service that is in production is review
 | Gokoala   |PDOK                  |https://api.pdok.nl/brt/top10nl/ogc/v1 |
 
 Per tool, findings are elaborated in the next chapters when relevant. They are held to the requirements in the standards as stated in chapter 3.
-Not all standards are regarded, since they were not yet astablished at the time the services were set online. This applies for example to the common and filtering standard.
+Not all standards are regarded, since they were not yet established at the time the services were set online. This applies for example to the common and filtering standard.
 
 ### Pygeoapi versus requirements
 
@@ -34,7 +34,7 @@ For the use of filters, the bbox and items options were already available. In ad
 https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/queryables.
 https://apitestbed.geonovum.nl/adr_pygeoapi/v1/collections/AddressesNL/items?filter=locator_designator_postalDeliveryIdentifier=%279901AA%27 does unfortunately not work.
 
-The OGC API specification for filtering [[PUB-6]] did not not yet have the status "approved" at the time of this service publication and has therefor not been considered further.
+The OGC API specification for filtering [[PUB-6]] did not yet have the status "approved" at the time of this service publication and has therefore not been considered further.
 
 ***CRS***
 
@@ -157,7 +157,7 @@ For the use of filters, the bbox and items options were already available. In ad
 https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress?queryables.
 https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress/items?filter=locator_designator_postalDeliveryIdentifier=%279901AA%27 only gives the addresses with postal code '9901AA'. 
 
-The OGC API specification for filtering [[PUB-6]] did not not yet have the status "approved" at the time of this service publication and has therefor not been considered further.
+The OGC API specification for filtering [[PUB-6]] did not yet have the status "approved" at the time of this service publication and has therefor not been considered further.
 
 ***CRS***
 
@@ -245,7 +245,7 @@ The OGC CITE validator gave no error at the landing page: https://test.haleconne
 
 For the use of filters, the bbox and items options were already available.
 
-The OGC API specification for filtering [[PUB-6]] did not not yet have the status "approved" at the time of this service publication and has therefor not been considered.
+The OGC API specification for filtering [[PUB-6]] did not yet have the status "approved" at the time of this service publication and has therefor not been considered.
 
 ***CRS***
 
@@ -348,7 +348,7 @@ The OGC CITE validator gave no error at the landing page: https://api.pdok.nl/br
 For the use of filters, the bbox and items options were available.
 https://api.pdok.nl/brt/top10nl/ogc/v1/collections/gebouw_punt/queryables is not supported.
 
-The OGC API specification for filtering [[PUB-6]] did not not yet have the status "approved" at the time of this service publication and has therefor not been considered further.
+The OGC API specification for filtering [[PUB-6]] did not yet have the status "approved" at the time of this service publication and has therefor not been considered further.
 
 ***CRS***
 
@@ -385,13 +385,13 @@ The required CRS's are available:
 
 ***Predefined download***  
 
-Link to metadata of dataset: passed at [Landingpage level](https://api.pdok.nl/brt/top10nl/ogc/v1?f=json):  
+Link to metadata of dataset: passed at [Landing page level](https://api.pdok.nl/brt/top10nl/ogc/v1?f=json):  
 
 `{"href":"https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/29d5310f-dd0d-45ba-abad-b4ffc6b8785f","rel":"http://www.opengis.net/def/rel/ogc/1.0/data-meta","title":"Metadata for dataset at Nationaal Georegister"}`
 
 No Link to INSPIRE feature concept dictionary, because it is not an INSPIRE harmonized dataset.
 
-Link to the license: passed at [/collections level](https://api.pdok.nl/brt/top10nl/ogc/v1/collections?f=json) and [Landingpage level](https://api.pdok.nl/brt/top10nl/ogc/v1?f=json):  
+Link to the license: passed at [/collections level](https://api.pdok.nl/brt/top10nl/ogc/v1/collections?f=json) and [Landing page level](https://api.pdok.nl/brt/top10nl/ogc/v1?f=json):  
 
 `{"href":"https://creativecommons.org/licenses/by/4.0/deed.nl","rel":"license","type":"text/html","title":"CC BY 4.0"}`
 
@@ -444,7 +444,7 @@ This is often not the case with the more complex INSPIRE models.
 
 Presentations of tool adjustments can be found here: https://www.geonovum.nl/over-geonovum/actueel/presentatie-resultaten-aanbesteding-ogc-api-features-toolaanpassing
 
-Gecertificeerde software door OGC: https://portal.ogc.org/public_ogc/compliance/compliant.php?display_opt=1&specid=1022 
-Overige software: https://github.com/opengeospatial/ogcapi-features/tree/master/implementations 
-Deze lijsten zijn groeiende en incompleet
+OGC certified software: https://portal.ogc.org/public_ogc/compliance/compliant.php?display_opt=1&specid=1022 
+Other software: https://github.com/opengeospatial/ogcapi-features/tree/master/implementations 
+These lists are growing and incomplete.
 

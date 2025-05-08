@@ -37,7 +37,7 @@ The OpenAPI document MUST contain at least one paths field, a components field o
 In the course of developing these Standards, some practices proved to be common across multiple OGC Web API Standards.
 The purpose of the OGC API — Common — Part 1: Core Standard (API-Core) is to define those fundamental building blocks and requirements which are applicable to all OGC Web API Standards.
 It contains 4 requirement classes:
-1. Core Requirements Class. It is about: HTTP protocol, parameters, Support for Cross-Origin Requests, resourceencoddings
+1. Core Requirements Class. It is about: HTTP protocol, parameters, Support for Cross-Origin Requests, resource encoddings
 2. Landing Page Requirements Class. It is about: conformances and API-definitions
 3. Encoding Requirements Classes: Json and HTML
 4. OpenAPI 3.0 Requirements Class: [OpenAPI Specification 3.0](https://spec.openapis.org/oas/v3.0) is required in json and html which is not in accordance with the OGC API Features Core standard.
@@ -75,7 +75,7 @@ Some of them are listed below:
 - For every feature collection, the server SHALL support the Queryables resource at the path /collections/{collectionId}/queryables.
 - There is a parameter [filter](https://www.opengis.net/doc/IS/ogcapi-features-3/1.0#filter-param) to define the filter as a string like _filter='property=value'_
 - There is a parameter [filter-lang](https://www.opengis.net/doc/IS/ogcapi-features-3/1.0#filter-lang-param)  to define the filter language (CQL2-json or CQL2-text)
-- There is a parameter [filter-crs](https://www.opengis.net/doc/IS/ogcapi-features-3/1.0#filter-crs-param) to define the crs for posted geomtries for filtering
+- There is a parameter [filter-crs](https://www.opengis.net/doc/IS/ogcapi-features-3/1.0#filter-crs-param) to define the CRS for posted geometries for filtering
 - If the server supports CQL2 and the requirements class "Functions", then a resource '/functions' is published that allows clients to discover the list of functions that a server offers. 
 
 
