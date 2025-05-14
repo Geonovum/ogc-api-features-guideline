@@ -2,6 +2,7 @@
 
 The following steps could be considered to follow in order to serve an OGC API Feature service according to the standards:
 
+{.simple}
 |nr|main step|step|general remarks|INSPIRE remarks|
 |------|---------|----|---------------|---------------|
 |1|preparation|reading|[Appendix A](#references)|[[PUB-2]]|
@@ -17,7 +18,7 @@ The following steps could be considered to follow in order to serve an OGC API F
 |11|service preparation|publish metadata of the service|If you host your OAPIF yourself, you could create metadata for the OAPIF service. It is probably similar to the metadata of a WFS, except for the protocol element. |For Inspire this is not mandatory anymore.|
 |12|service preparation|add links|Add as many links, i.e. references to other resources, as you can at the response to the endpoints of your service to describe your service.| All the links as mentioned in the chapter on [requirements](#H03) are required (metadata of dataset, INSPIRE feature concept dictionary, Licence, mapping description, bulk download).|
 |13|service preparation|final publishing|The steps for final actual publishing of the OAPIF service depends on the chosen tool, so there the tooling guidelines need to be followed. See list below.||
-|14|validation|validate the service|Validate the OAPIF service for the OGC requirement with the [INSPIRE validation tool](https://inspire.ec.europa.eu/validator/home/index.html) and in case of a Dutch provider: the [Dutch ADR-validator](https://gitlab.com/commonground/don/adr-validator/-/blob/main/README.md?ref_type=heads). Geonovum is developing an other [validator based on Linter](https://geonovum-labs.github.io/ogc-checker/?#/ogc-api). Adjust where possible to be compliant.|It should be noted that the INSPIRE-validator is the same as the [OGC validator](https://cite.opengeospatial.org/teamengine/about/ogcapi-features-1.0/1.0/site/) and that it does not test the specific INSPIRE requirements as one would expect.|{.simple}
+|14|validation|validate the service|Validate the OAPIF service for the OGC requirement with the [INSPIRE validation tool](https://inspire.ec.europa.eu/validator/home/index.html) and in case of a Dutch provider: the [Dutch ADR-validator](https://gitlab.com/commonground/don/adr-validator/-/blob/main/README.md?ref_type=heads). Geonovum is developing an other [validator based on Linter](https://geonovum-labs.github.io/ogc-checker/?#/ogc-api). Adjust where possible to be compliant.|It should be noted that the INSPIRE-validator is the same as the [OGC validator](https://cite.opengeospatial.org/teamengine/about/ogcapi-features-1.0/1.0/site/) and that it does not test the specific INSPIRE requirements as one would expect.|
 
 Guidelines for different tooling:  
   - Geonovum testbed: https://github.com/Geonovum/ogc-api-testbed/tree/main/docs/docs/howto  
