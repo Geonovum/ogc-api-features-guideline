@@ -2,7 +2,6 @@
 
 The following steps could be considered to follow in order to serve an OGC API Feature service according to the standards:
 
-{.simple}
 |nr|main step|step|general remarks|INSPIRE remarks|
 |------|---------|----|---------------|---------------|
 |1|preparation|reading|[Appendix A](#references)|[[PUB-2]]|
