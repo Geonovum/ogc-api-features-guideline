@@ -56,6 +56,13 @@ The [GeoJSON requirement class](https://www.opengis.net/doc/IS/ogcapi-features-1
 There is an [INSPIRE validation](https://inspire.ec.europa.eu/validator/home/index.html) on the OGC standards for OAPIF available. It tests on OGC requirements, but it does not test the requirements as stated in [[PUB-2]].
 &nbsp;&nbsp;![INSPIRE Validator](media/INSPIRE_validator_OAPIF.png "Validation on the OGC standards for OAPIF")
 
+##### NON-geometry
+
+The still in draft [version 1.1](https://docs.ogc.org/DRAFTS/17-069r5.html) will also explain how to deal with collections without geometry.
+This will be according to [issue 1029](https://github.com/opengeospatial/ogcapi-features/issues/1029) in [milestone 5](https://github.com/opengeospatial/ogcapi-features/milestone/5).
+This issue recommends using the geometryType tag with the value "none" to implicitly state that the collection does not have geometry.
+The geometryType should appear in the endpoint collections/collectionId comparable to the itemType tag.
+
 #### OGC CRS requirements
 
 Both OGC and INSPIRE have requirements related to the CRS's used in addition to the basic requirement from the OGC API Features Core standard.
@@ -77,7 +84,6 @@ Some of them are listed below:
 - There is a parameter [filter-lang](https://www.opengis.net/doc/IS/ogcapi-features-3/1.0#filter-lang-param)  to define the filter language (CQL2-json or CQL2-text)
 - There is a parameter [filter-crs](https://www.opengis.net/doc/IS/ogcapi-features-3/1.0#filter-crs-param) to define the CRS for posted geometries for filtering
 - If the server supports CQL2 and the requirements class "Functions", then a resource '/functions' is published that allows clients to discover the list of functions that a server offers. 
-
 
 ### Dutch API design rules
 

@@ -9,7 +9,7 @@ Next to these demo services, an other 4th service that is in production is revie
 |   tool    | main contributions   | landing page|
 |-----------|----------------------|-------------|
 | Pygeoapi  |Justobjects and Geocat|https://apitestbed.geonovum.nl/adr_pygeoapi/v1 |
-| Geoserver |Geosolutions          |https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1 |
+| Geoserver |Geosolutions          |Not online anymore|
 | Deegree   |Wetransform           |https://test.haleconnect.de/ogcapi/datasets/simplified-addresses/v1 |
 | Gokoala   |PDOK                  |https://api.pdok.nl/brt/top10nl/ogc/v1 |
 
@@ -141,92 +141,8 @@ More information about the Pygeoapi adjustments to the standards can be found at
 
 ### Geoserver versus requirements
 
-The following findings show how Geoserver complies to the requirements with an OAPIF service for INSPIRE harmonized Dutch Addresses.
-
-#### OAS
-
-The OAS document is available: https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/openapi
-
-#### OGC  
-
-The OGC CITE validator gave no error at the landing page https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1.
-
-***Filtering***  
-
-For the use of filters, the bbox and items options were already available. In addition, one can filter on the attributes which can be retrieved from:
-https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress?queryables.
-https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress/items?filter=locator_designator_postalDeliveryIdentifier=%279901AA%27 only gives the addresses with postal code '9901AA'. 
-
-The OGC API specification for filtering [[PUB-6]] did not yet have the status "approved" at the time of this service publication and has therefor not been considered further.
-
-***CRS***
-
-The crs identifier list and the storage-crs can be found at:
-https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress?f=json
-
-With the following command line request, one can see the Content-CRS value in the header :
-
-`curl -i https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress/items/1?f=json`
-
-An adjustment has been made to the bbox filter. It now also supports the bbox-crs parameter.
-Only 2 addresses are available in the below defined bbox.  
-
-https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress/items?f=json&bbox-crs=http://www.opengis.net/def/crs/EPSG/0/28992&bbox=252200,593000,252710,594000
-
-
-#### Dutch API design rules  
-
-It complies with all the rules, except for rule https://gitdocumentatie.logius.nl/publicatie/api/adr/#/core/no-trailing-slash.
-This rule in the Dutch ADR prescribes that none of the API endpoints should have a trailing slash. However, the OGC specification states that the landing page (i.e. "Home") should have a trailing slash. So the rules contradict.
-It is expected that in future, this ADR-rule will make an exception for the landing page.
-
-#### INSPIRE
-
-***CRS ETRS89 and WGS84***
-
-The required CRS's are available:
-- RD: https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress/items/1?f=json&crs=http://www.opengis.net/def/crs/EPSG/0/28992
-- WGS84: https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress/items/1?f=json&crs=http://www.opengis.net/def/crs/OGC/1.3/CRS84
-- ETRS89:  https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress/items/1?f=json&crs=http://www.opengis.net/def/crs/EPSG/0/4258
-
-***Predefined download***  
-
-Link to metadata of dataset: passed at [/collections/collection level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress?f=json) and at [/collections level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections?f=json). 
-`{"href":"https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/a5f961e9-ebdd-41e2-b8e8-ab33ed340a83/formatters/xml?approved=true","rel":"describedBy","type":"application/xml","title":"ISO metadata for this dataset"}`
-  
-Link to INSPIRE feature concept dictionary: passed at [/collections/collection level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress?f=json). 
-`{"href":"https://inspire.ec.europa.eu/featureconcept/Address","rel":"tag","type":"text/html","title":"INSPIRE Address feature concept."}`
-
-Link to the license: passed at [/collections level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections?f=json). 
-`{"href":"http://creativecommons.org/publicdomain/zero/1.0/deed.nl","rel":"license","type":"text/html","title":"Dataset license."}`
-
-***bulk download***
-
-Link to bulk download of dataset: passed at [/collections/collection level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress?f=json).  
-`{"href":"https://geonovum.geosolutionsgroup.com/geoserver/www/ADNL.gpkg","rel":"enclosure","type":"application/geopackage+sqlite3","title":"Addresses raw data."}`
-
-***GeoJSON***
-
-Items can be retrieved in GeoJSON by requesting:
-
-`https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress/items/1?f=application%2Fgeo%2Bjson`
-
-***GML*** 
-
-As input, a simple features GML file was used as produced by Wetransform from the complex feature GML with the transformation software Hale.  
-
-As output, the following link can be found at [/collections/collection level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress?f=json). It can be used to download the first 50 records. 
-
-`{"href":"https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress/items?f=application%2Fgml%2Bxml%3Bversion%3D3.2","rel":"items","type":"application/gml+xml;version=3.2","title":"Addresses items as application/gml+xml;version=3.2"}` 
-
-***Describing encoding***  
-
-There is a link to https://github.com/INSPIRE-MIF/2017.2/blob/master/GeoJSON/ads/simple-addresses.md at [/collections/collection level](https://geonovum.geosolutionsgroup.com/geoserver/inspire/ogc/features/v1/collections/SimpleAddress?f=json). 
-
-`{"href":"https://github.com/INSPIRE-MIF/2017.2/blob/master/GeoJSON/ads/simple-addresses.md","rel":"describedBy","type":"text/html","title":"GeoJSON Encoding Rule for INSPIRE Addresses"}`
-
-#### Other findings on Geoserver
-
+Geosolutions took part in the project for adjusting to the standards with Geoserver and has shown to be able to apply to all the standards.
+The demo server they created is not online anymore because of the ending term for being online as wsa stated in the contract.
 More information about the Geoserver adjustments to the standards can be found at https://www.geonovum.nl/uploads/documents/Geosolutions.pdf
  
 ### Deegree versus requirements
