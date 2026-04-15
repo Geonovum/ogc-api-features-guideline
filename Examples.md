@@ -142,12 +142,12 @@ More information about the Pygeoapi adjustments to the standards can be found at
 ### Geoserver versus requirements
 
 Geosolutions took part in the project for adjusting to the standards with Geoserver and has shown to be able to apply to all the standards.
-The demo server they created is not online anymore because of the ending term for being online as wsa stated in the contract.
+The demo server they created is not online anymore because of the ending term for being online as was stated in the contract.
 More information about the Geoserver adjustments to the standards can be found at https://www.geonovum.nl/uploads/documents/Geosolutions.pdf
  
 ### Deegree versus requirements
 
-The following findings show how Geoserver complies to the requirements with an OAPIF service for INSPIRE harmonized Dutch Addresses.
+The following findings show how Deegree complies to the requirements with an OAPIF service for INSPIRE harmonized Dutch Addresses.
 
 #### OAS 
 
